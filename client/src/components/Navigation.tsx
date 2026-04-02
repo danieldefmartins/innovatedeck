@@ -14,7 +14,6 @@ const SERVICES = [
   { name: "Porches & Screened Porches", slug: "porches-screened-porches" },
   { name: "Outdoor Kitchens & Living", slug: "outdoor-kitchens-living" },
   { name: "Railings & Stairs", slug: "railings-stairs" },
-  { name: "Deck Staining & Sealing", slug: "deck-staining-sealing" },
 ];
 
 const AREAS = [

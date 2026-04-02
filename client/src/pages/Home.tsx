@@ -14,8 +14,12 @@ import { Button } from "@/components/ui/button";
 import PhoneLink from "@/components/PhoneLink";
 import { services } from "@/data/services";
 import { testimonials } from "@/data/testimonials";
-import { HERO_IMAGES, SERVICE_IMAGES, PORTFOLIO_IMAGES } from "@/data/images";
+import { SERVICE_IMAGES, PORTFOLIO_IMAGES } from "@/data/images";
 import { COMPANY } from "@/lib/constants";
+
+// ---------------------------------------------------------------------------
+// Data
+// ---------------------------------------------------------------------------
 
 const stats = [
   { label: "Years Experience", value: "25+" },
@@ -81,39 +85,55 @@ const serviceAreas: { state: string; areas: { name: string; slug: string }[] }[]
   },
 ];
 
+// Filter out deck-staining-sealing from homepage services
+const homepageServices = services.filter((s) => s.slug !== "deck-staining-sealing");
+
+// Curated portfolio images for the homepage grid (uniform cards)
+const homepagePortfolio = [
+  PORTFOLIO_IMAGES.find((p) => p.id === "portfolio-06")!, // Poolside Deck (deck-30)
+  PORTFOLIO_IMAGES.find((p) => p.id === "portfolio-03")!, // Ipe Herringbone (deck-90)
+  PORTFOLIO_IMAGES.find((p) => p.id === "portfolio-11")!, // Backyard Wood Deck (deck-100)
+  PORTFOLIO_IMAGES.find((p) => p.id === "portfolio-18")!, // Deck with Wide Stairs (deck-105)
+  PORTFOLIO_IMAGES.find((p) => p.id === "portfolio-05")!, // Custom Deck Stairs (deck-15)
+  PORTFOLIO_IMAGES.find((p) => p.id === "portfolio-01")!, // Ipe Deck with Pergola (deck-70)
+].filter(Boolean);
+
+// ---------------------------------------------------------------------------
+// Component
+// ---------------------------------------------------------------------------
+
 export default function Home() {
   return (
     <>
       {/* ───────── Hero ───────── */}
-      <section className="relative min-h-[85vh] flex items-center">
-        {/* Background image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${HERO_IMAGES.home})` }}
+      <section className="relative min-h-[90vh] flex items-center">
+        {/* Background image — deck-30.jpg pool deck, landscape */}
+        <img
+          src="/images/portfolio/deck-30.jpg"
+          alt="Premium pool deck with wood railings built by Innovate Deck"
+          className="absolute inset-0 w-full h-full object-cover object-center"
         />
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/55" />
-        {/* Bottom gradient fade */}
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/70" />
 
-        <div className="container relative z-10 py-20 lg:py-32">
+        <div className="container relative z-10 py-24 lg:py-40">
           <div className="max-w-3xl">
-            <p className="text-accent font-medium tracking-widest uppercase text-sm mb-4">
+            <p className="text-accent font-medium tracking-widest uppercase text-sm mb-5">
               New England's Trusted Deck Builders
             </p>
-            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-6">
+            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.08] mb-8">
               Build Your Dream
               <br />
               <span className="text-accent">Outdoor Space</span>
             </h1>
-            <p className="text-lg sm:text-xl text-white/80 leading-relaxed mb-10 max-w-2xl">
+            <p className="text-lg sm:text-xl text-white/80 leading-relaxed mb-12 max-w-2xl">
               Premium deck building, pergolas, porches, and outdoor living spaces
               crafted for New England homeowners. Licensed, insured, and trusted
               for over 25 years across Massachusetts, New Hampshire, Rhode Island,
               and Maine.
             </p>
 
-            <div className="flex flex-wrap gap-4 mb-16">
+            <div className="flex flex-wrap gap-4">
               <Button variant="accent" size="xl" asChild>
                 <Link href="/contact">
                   <CalendarCheck className="w-5 h-5" />
@@ -133,32 +153,35 @@ export default function Home() {
               </Button>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Stats bar */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6">
+      {/* ───────── Stats Bar ───────── */}
+      <section className="bg-primary">
+        <div className="container py-8 lg:py-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
             {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="bg-white/10 backdrop-blur-md rounded-xl p-5 text-center border border-white/10 transition-all duration-500 hover:bg-white/15 hover:border-white/20"
-              >
+              <div key={stat.label} className="text-center">
                 <p className="font-display text-3xl lg:text-4xl font-bold text-white">
                   {stat.value}
                 </p>
-                <p className="text-sm text-white/70 mt-1">{stat.label}</p>
+                <p className="text-sm text-white/70 mt-1 tracking-wide">
+                  {stat.label}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ───────── Services Grid (Photo Cards) ───────── */}
-      <section className="py-20 lg:py-32 bg-background">
+      {/* ───────── Services Grid ───────── */}
+      <section className="py-24 lg:py-36 bg-background">
         <div className="container">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 lg:mb-20">
             <p className="text-accent font-medium tracking-widest uppercase text-sm mb-3">
               What We Do
             </p>
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-foreground mb-5">
+            <h2 className="font-display text-4xl lg:text-5xl font-bold text-foreground mb-6">
               Our Services
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
@@ -168,21 +191,17 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((service) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {homepageServices.map((service) => (
               <Link key={service.slug} href={`/services/${service.slug}`}>
-                <div className="group relative h-72 rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-1">
-                  {/* Background image with zoom */}
-                  <div
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                    style={{
-                      backgroundImage: `url(${SERVICE_IMAGES[service.slug] || ""})`,
-                    }}
+                <div className="group relative h-80 rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-1">
+                  <img
+                    src={SERVICE_IMAGES[service.slug] || ""}
+                    alt={service.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent transition-all duration-500 group-hover:from-black/90" />
-                  {/* Content */}
-                  <div className="absolute inset-0 flex flex-col justify-end p-6">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent transition-all duration-500 group-hover:from-black/90" />
+                  <div className="absolute inset-0 flex flex-col justify-end p-7">
                     <h3 className="font-display text-xl font-bold text-white mb-2 transition-transform duration-500 group-hover:-translate-y-1">
                       {service.title}
                     </h3>
@@ -198,7 +217,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-14">
             <Button variant="outline" size="lg" asChild>
               <Link href="/services">
                 View All Services
@@ -210,13 +229,13 @@ export default function Home() {
       </section>
 
       {/* ───────── Why Choose Us ───────── */}
-      <section className="py-20 lg:py-32 bg-muted">
+      <section className="py-24 lg:py-36 bg-muted">
         <div className="container">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 lg:mb-20">
             <p className="text-accent font-medium tracking-widest uppercase text-sm mb-3">
               The Innovate Deck Difference
             </p>
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-foreground mb-5">
+            <h2 className="font-display text-4xl lg:text-5xl font-bold text-foreground mb-6">
               Why Choose Us
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
@@ -225,19 +244,19 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {differentiators.map((item) => (
               <div
                 key={item.title}
-                className="bg-card rounded-2xl p-8 border border-border/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 text-center"
+                className="bg-card rounded-2xl p-8 lg:p-10 border border-border/50 shadow-sm hover:shadow-lg transition-all duration-500"
               >
-                <div className="w-16 h-16 rounded-full bg-accent flex items-center justify-center mx-auto mb-6 shadow-lg shadow-accent/20">
-                  <item.icon className="w-8 h-8 text-white" />
+                <div className="w-14 h-14 rounded-xl bg-accent flex items-center justify-center mb-6 shadow-md shadow-accent/20">
+                  <item.icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="font-display text-xl font-semibold text-foreground mb-4">
+                <h3 className="font-display text-xl font-semibold text-foreground mb-3">
                   {item.title}
                 </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed">
                   {item.description}
                 </p>
               </div>
@@ -246,14 +265,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ───────── Portfolio Preview (Photo Grid) ───────── */}
-      <section className="py-20 lg:py-32 bg-background">
+      {/* ───────── Portfolio Preview ───────── */}
+      <section className="py-24 lg:py-36 bg-background">
         <div className="container">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 lg:mb-20">
             <p className="text-accent font-medium tracking-widest uppercase text-sm mb-3">
               Our Portfolio
             </p>
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-foreground mb-5">
+            <h2 className="font-display text-4xl lg:text-5xl font-bold text-foreground mb-6">
               See Our Work
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
@@ -262,30 +281,19 @@ export default function Home() {
             </p>
           </div>
 
-          {/* 3-column masonry-style grid with varied heights */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {PORTFOLIO_IMAGES.slice(0, 6).map((item, index) => (
+          {/* Uniform height grid — clean 3-col on desktop, 2-col on tablet */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {homepagePortfolio.map((item) => (
               <Link key={item.id} href="/portfolio">
-                <div
-                  className={`group relative rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 ${
-                    index % 3 === 0
-                      ? "h-72 lg:h-80"
-                      : index % 3 === 1
-                        ? "h-64 lg:h-72"
-                        : "h-72 lg:h-96"
-                  }`}
-                >
-                  {/* Image with zoom */}
+                <div className="group relative h-80 rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-1">
                   <img
                     src={item.src}
                     alt={item.alt}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                   />
-                  {/* Overlay - darker on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-60 group-hover:opacity-90 transition-all duration-500" />
-                  {/* Text content - visible on hover */}
-                  <div className="absolute inset-0 flex flex-col justify-end p-6">
-                    <h3 className="font-display text-xl font-bold text-white transition-transform duration-500 translate-y-2 group-hover:translate-y-0">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-70 group-hover:opacity-90 transition-all duration-500" />
+                  <div className="absolute inset-0 flex flex-col justify-end p-7">
+                    <h3 className="font-display text-lg font-bold text-white transition-transform duration-500 translate-y-1 group-hover:translate-y-0">
                       {item.title}
                     </h3>
                     <p className="text-white/60 text-sm mt-1 transition-all duration-500 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0">
@@ -300,7 +308,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-14">
             <Button variant="outline" size="lg" asChild>
               <Link href="/portfolio">
                 View Full Portfolio
@@ -312,13 +320,13 @@ export default function Home() {
       </section>
 
       {/* ───────── Testimonials ───────── */}
-      <section className="py-20 lg:py-32 bg-muted">
+      <section className="py-24 lg:py-36 bg-muted">
         <div className="container">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 lg:mb-20">
             <p className="text-accent font-medium tracking-widest uppercase text-sm mb-3">
               Client Testimonials
             </p>
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-foreground mb-5">
+            <h2 className="font-display text-4xl lg:text-5xl font-bold text-foreground mb-6">
               What Our Clients Say
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
@@ -327,27 +335,27 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {testimonials.slice(0, 3).map((t, i) => (
               <div
                 key={i}
-                className="bg-card rounded-2xl p-8 border border-border/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 relative"
+                className="bg-card rounded-2xl p-8 border border-border/50 shadow-sm hover:shadow-lg transition-all duration-500 relative flex flex-col"
               >
                 {/* Decorative quote mark */}
-                <Quote className="w-10 h-10 text-accent/20 absolute top-6 right-6" />
+                <Quote className="w-10 h-10 text-accent/15 absolute top-6 right-6" />
 
                 {/* Star rating */}
                 <div className="flex gap-1 mb-5">
                   {Array.from({ length: t.rating }).map((_, j) => (
                     <Star
                       key={j}
-                      className="w-5 h-5 fill-accent text-accent"
+                      className="w-4 h-4 fill-accent text-accent"
                     />
                   ))}
                 </div>
 
                 {/* Quote text */}
-                <p className="text-foreground leading-relaxed mb-6 relative z-10">
+                <p className="text-foreground text-sm leading-relaxed mb-6 relative z-10 flex-1">
                   "{t.text}"
                 </p>
 
@@ -371,7 +379,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-14">
             <Button variant="outline" size="lg" asChild>
               <Link href="/testimonials">
                 Read More Reviews
@@ -383,22 +391,13 @@ export default function Home() {
       </section>
 
       {/* ───────── Service Areas ───────── */}
-      <section className="py-20 lg:py-32 bg-background relative overflow-hidden">
-        {/* Subtle decorative background pattern */}
-        <div className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)",
-            backgroundSize: "40px 40px",
-          }}
-        />
-
-        <div className="container relative z-10">
-          <div className="text-center mb-16">
+      <section className="py-24 lg:py-36 bg-background">
+        <div className="container">
+          <div className="text-center mb-16 lg:mb-20">
             <p className="text-accent font-medium tracking-widest uppercase text-sm mb-3">
               Where We Work
             </p>
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-foreground mb-5">
+            <h2 className="font-display text-4xl lg:text-5xl font-bold text-foreground mb-6">
               Proudly Serving New England
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
@@ -407,28 +406,28 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {serviceAreas.map((group) => (
               <div
                 key={group.state}
-                className="bg-card rounded-2xl p-6 border border-border/50 shadow-sm hover:shadow-lg transition-all duration-500"
+                className="bg-card rounded-2xl p-7 border border-border/50 shadow-sm hover:shadow-lg transition-all duration-500"
               >
                 <div className="flex items-center gap-3 mb-5">
-                  <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-5 h-5 text-secondary" />
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-5 h-5 text-primary" />
                   </div>
                   <h3 className="font-display text-lg font-semibold text-foreground">
                     {group.state}
                   </h3>
                 </div>
-                <ul className="space-y-2.5">
+                <ul className="space-y-3">
                   {group.areas.map((area) => (
                     <li key={area.slug}>
                       <Link
                         href={`/areas/${area.slug}`}
-                        className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm flex items-center gap-2 group"
+                        className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm flex items-center gap-2.5 group"
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-accent/50 group-hover:bg-accent transition-colors duration-300" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent/40 group-hover:bg-accent transition-colors duration-300 flex-shrink-0" />
                         {area.name}
                       </Link>
                     </li>
@@ -438,7 +437,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-14">
             <Button variant="outline" size="lg" asChild>
               <Link href="/areas">
                 All Service Areas
@@ -450,23 +449,23 @@ export default function Home() {
       </section>
 
       {/* ───────── Final CTA ───────── */}
-      <section className="relative py-24 lg:py-36">
-        {/* Background image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${HERO_IMAGES.cta})` }}
+      <section className="relative py-28 lg:py-40">
+        {/* Background image — deck-98.jpg ipe deck with furniture */}
+        <img
+          src="/images/portfolio/deck-98.jpg"
+          alt="Beautiful ipe deck with outdoor furniture"
+          className="absolute inset-0 w-full h-full object-cover object-center"
         />
-        {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/65" />
 
         <div className="container relative z-10 text-center">
-          <p className="text-accent font-medium tracking-widest uppercase text-sm mb-4">
+          <p className="text-accent font-medium tracking-widest uppercase text-sm mb-5">
             Start Your Project Today
           </p>
-          <h2 className="font-display text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 max-w-3xl mx-auto leading-tight">
+          <h2 className="font-display text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-8 max-w-3xl mx-auto leading-tight">
             Ready to Transform Your Outdoor Space?
           </h2>
-          <p className="text-white/75 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-white/75 text-lg max-w-2xl mx-auto mb-12 leading-relaxed">
             Get a free, no-obligation estimate from New England's trusted deck
             building experts. Call us today or schedule your consultation online.
           </p>

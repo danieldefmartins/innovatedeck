@@ -104,7 +104,7 @@ export default function About() {
       </section>
 
       {/* ───────── Our Story (Split Layout) ───────── */}
-      <section className="py-20 lg:py-28 bg-background">
+      <section className="py-24 lg:py-32 bg-background">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Text */}
@@ -148,7 +148,7 @@ export default function About() {
                 <img
                   src={HERO_IMAGES.story}
                   alt="Innovate Deck team completing a premium outdoor living project"
-                  className="w-full h-[420px] lg:h-[520px] object-cover"
+                  className="w-full h-80 lg:h-[500px] object-cover"
                   loading="lazy"
                 />
               </div>
@@ -180,7 +180,7 @@ export default function About() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <p className="font-display text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-2">
+                <p className="font-display text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-2">
                   {stat.value}
                 </p>
                 <div className="w-12 h-1 bg-accent mx-auto mb-3 rounded-full" />
@@ -194,7 +194,7 @@ export default function About() {
       </section>
 
       {/* ───────── Our Values ───────── */}
-      <section className="py-20 lg:py-28 bg-background">
+      <section className="py-24 lg:py-32 bg-background">
         <div className="container">
           <div className="text-center mb-14">
             <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-3">
@@ -238,7 +238,7 @@ export default function About() {
       </section>
 
       {/* ───────── Built for New England ───────── */}
-      <section className="py-20 lg:py-28 bg-muted">
+      <section className="py-24 lg:py-32 bg-muted">
         <div className="container">
           <div className="text-center mb-14">
             <p className="text-secondary font-semibold tracking-widest uppercase text-sm mb-3">
@@ -255,7 +255,7 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {weatherChallenges.map((challenge) => (
               <div
                 key={challenge.title}

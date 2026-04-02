@@ -43,7 +43,7 @@ export default function App() {
       <GeoRedirect />
       <ScrollToTop />
       <Navigation />
-      <main className="pt-16 lg:pt-20 pb-14 lg:pb-0">
+      <main className="pt-16 lg:pt-20 pb-16 lg:pb-0">
         <Switch>
           <Route path="/" component={Home} />
           <Route path="/services" component={Services} />

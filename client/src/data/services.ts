@@ -171,9 +171,9 @@ export const services: Service[] = [
       },
     ],
     relatedServices: [
-      "deck-staining-sealing",
       "deck-repair-restoration",
       "railings-stairs",
+      "composite-decking",
     ],
   },
   {
@@ -244,9 +244,9 @@ export const services: Service[] = [
       },
     ],
     relatedServices: [
-      "deck-staining-sealing",
       "wood-decking",
       "railings-stairs",
+      "composite-decking",
     ],
   },
   {
@@ -566,84 +566,6 @@ export const services: Service[] = [
       "composite-decking",
       "wood-decking",
       "deck-repair-restoration",
-    ],
-  },
-  {
-    slug: "deck-staining-sealing",
-    title: "Deck Staining & Sealing",
-    shortDescription:
-      "Professional deck staining, sealing, and maintenance services that protect your investment and restore your deck's beauty.",
-    description:
-      "Protect your wood deck from New England's punishing weather with professional staining and sealing services. Our multi-step process begins with a thorough cleaning and brightening treatment that removes dirt, mildew, and grayed wood fibers, revealing the fresh wood beneath. We then apply premium penetrating stains and sealants that shield your deck from UV damage, moisture infiltration, freeze-thaw cracking, and mold growth. Whether you want to enhance your deck's natural wood tone, change to a bold new color, or apply a clear protective sealant, our experienced crew delivers a flawless, even finish every time. Regular professional staining and sealing is the single most important thing you can do to maximize the lifespan and beauty of your wood deck.",
-    heroGradient: "linear-gradient(135deg, #D2691E 0%, #DEB887 50%, #F5DEB3 100%)",
-    icon: "Paintbrush",
-    features: [
-      "Professional power washing and deck brightening",
-      "Premium penetrating oil and solid stain options",
-      "Transparent, semi-transparent, and solid color finishes",
-      "Mold, mildew, and UV inhibitor treatments",
-      "Board-by-board inspection and minor repair",
-      "Railing, stair, and trim staining included",
-    ],
-    benefits: [
-      "Extend your deck's lifespan by 10-20 years with regular maintenance",
-      "Restore faded, grayed wood to its original rich color",
-      "Prevent costly structural damage from moisture and rot",
-      "Enhance your home's curb appeal and outdoor enjoyment",
-      "Professional results that last 2-3x longer than DIY applications",
-    ],
-    process: [
-      {
-        step: 1,
-        title: "Inspection & Prep",
-        description:
-          "We inspect your deck for loose boards, popped fasteners, and minor damage. We make small repairs, reset fasteners, and sand rough spots before cleaning.",
-      },
-      {
-        step: 2,
-        title: "Deep Cleaning",
-        description:
-          "Using professional-grade equipment and deck-safe cleaners, we remove dirt, mildew, algae, and old finish. A brightening treatment restores the wood's natural pH balance and opens the grain for optimal stain absorption.",
-      },
-      {
-        step: 3,
-        title: "Drying Period",
-        description:
-          "We allow 24-48 hours for the wood to dry completely. Proper moisture content is critical for stain penetration and adhesion. We schedule around the weather forecast to ensure ideal conditions.",
-      },
-      {
-        step: 4,
-        title: "Stain Application",
-        description:
-          "We apply your chosen stain using professional spray, brush, and back-brush techniques for deep, even penetration. Two coats are applied to horizontal surfaces for maximum protection and durability.",
-      },
-    ],
-    faqs: [
-      {
-        question: "How often should I stain my deck in New England?",
-        answer:
-          "We recommend staining pressure-treated and cedar decks every 1-2 years in New England's climate. The combination of harsh UV, heavy rain, snow, ice, and freeze-thaw cycles breaks down finishes faster than in milder regions. A quick water test can tell you if it's time: splash water on the deck surface -- if it soaks in rather than beading up, it's time to restain.",
-      },
-      {
-        question: "What type of stain is best for my deck?",
-        answer:
-          "It depends on your desired look and wood condition. Transparent stains show the full wood grain but offer less UV protection. Semi-transparent stains are the most popular choice -- they add rich color while still showing the grain pattern. Solid stains provide the most UV and moisture protection and can cover imperfections on older decks. We'll recommend the best option based on your wood type and condition.",
-      },
-      {
-        question: "Can you change the color of my deck?",
-        answer:
-          "Yes. If your current stain is faded or you want a fresh look, we can strip the old finish and apply a new color. Going darker is straightforward; going lighter may require additional stripping treatments. Solid stains offer the most dramatic color change options.",
-      },
-      {
-        question: "Why not just do it myself?",
-        answer:
-          "While DIY staining is possible, professional application delivers a more even, longer-lasting finish. We use commercial-grade products not available at retail stores, professional spray equipment for consistent coverage, and proven techniques developed over 25+ years. Our stain jobs typically last 2-3 times longer than DIY applications, making professional service more cost-effective in the long run.",
-      },
-    ],
-    relatedServices: [
-      "deck-repair-restoration",
-      "wood-decking",
-      "railings-stairs",
     ],
   },
 ];

@@ -27,12 +27,12 @@ export type PortfolioCategory = (typeof PORTFOLIO_CATEGORIES)[number];
 // Hero background images used across landing pages
 // ---------------------------------------------------------------------------
 export const HERO_IMAGES: Record<string, string> = {
-  home: "/images/portfolio/deck-70.jpeg",       // Stunning ipe deck with pergola & cable railings
+  home: "/images/portfolio/deck-30.jpg",         // Pool deck, landscape - much better hero
   services: "/images/portfolio/deck-15.jpg",     // Beautiful composite stairs with white risers
   portfolio: "/images/portfolio/deck-45.jpeg",   // Waterfront deck at sunset
   about: "/images/portfolio/deck-40.jpeg",       // Waterfront deck with cable railings, sunset
   contact: "/images/portfolio/deck-100.jpg",     // Finished wood deck with furniture, lush backyard
-  cta: "/images/portfolio/deck-95.jpg",          // Ipe stairs with cable railings, green lawn
+  cta: "/images/portfolio/deck-98.jpg",          // Ipe deck with furniture
   story: "/images/portfolio/deck-90.jpg",        // Ipe herringbone pattern detail - craftsmanship
   blog: "/images/portfolio/deck-30.jpg",         // Pool deck with wood railings
 };
@@ -76,7 +76,6 @@ export const SERVICE_IMAGES: Record<string, string> = {
   "porches-screened-porches": "/images/portfolio/deck-35.jpeg",  // Deck with residential setting
   "outdoor-kitchens-living": "/images/portfolio/deck-120.jpeg",  // Patio with pavers and seating
   "railings-stairs": "/images/portfolio/deck-50.jpeg",           // Deck with cable railings
-  "deck-staining-sealing": "/images/portfolio/deck-90.jpg",      // Beautiful ipe pattern detail
 };
 
 // ---------------------------------------------------------------------------

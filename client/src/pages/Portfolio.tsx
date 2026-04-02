@@ -50,10 +50,10 @@ export default function Portfolio() {
       </section>
 
       {/* ── Filter + Gallery ── */}
-      <section className="py-16 lg:py-24 bg-background">
+      <section className="py-20 lg:py-28 bg-background">
         <div className="container">
           {/* Category filter pills */}
-          <div className="flex flex-wrap gap-2 mb-12 justify-center">
+          <div className="flex flex-wrap gap-3 mb-12 justify-center">
             {PORTFOLIO_CATEGORIES.map((cat) => (
               <button
                 key={cat}
@@ -72,21 +72,16 @@ export default function Portfolio() {
             ))}
           </div>
 
-          {/* Masonry-style gallery grid */}
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-5 space-y-5">
-            {filtered.map((item, index) => {
-              // Alternate tall / short aspect ratios for visual interest
-              const isTall = index % 3 === 0;
-              return (
+          {/* Gallery grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filtered.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => setSelectedItem(item)}
-                  className="group relative w-full break-inside-avoid rounded-xl overflow-hidden cursor-pointer text-left block"
+                  className="group relative w-full rounded-xl overflow-hidden cursor-pointer text-left block"
                 >
                   <div
-                    className={`relative overflow-hidden ${
-                      isTall ? "aspect-[3/4]" : "aspect-[4/3]"
-                    }`}
+                    className="relative overflow-hidden aspect-[4/3]"
                   >
                     {/* Image */}
                     <img
@@ -122,8 +117,7 @@ export default function Portfolio() {
                     </div>
                   </div>
                 </button>
-              );
-            })}
+            ))}
           </div>
 
           {filtered.length === 0 && (

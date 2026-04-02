@@ -53,10 +53,6 @@ const serviceOG: Record<string, { title: string; description: string }> = {
     title: "Deck Railings & Stairs | Cable, Composite & Aluminum | Innovate Deck",
     description: "Premium deck railing and stair installation. Cable, composite, aluminum, and wood options. Code-compliant, beautiful results.",
   },
-  "deck-staining-sealing": {
-    title: "Deck Staining & Sealing | Protect Your Investment | Innovate Deck",
-    description: "Professional deck staining, sealing, and maintenance services. Protect your deck from New England weather. Free estimates.",
-  },
 };
 
 const areaOG: Record<string, { title: string; description: string }> = {

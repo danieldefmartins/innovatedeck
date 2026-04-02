@@ -103,11 +103,11 @@ export default function Contact() {
       </section>
 
       {/* ───────── Form + Contact Info (Side by Side) ───────── */}
-      <section className="py-20 lg:py-28 bg-background">
+      <section className="py-24 lg:py-32 bg-background">
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
             {/* Form (wider) */}
-            <div className="lg:col-span-3">
+            <div className="lg:col-span-2">
               <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-3">
                 Free Estimate
               </p>
@@ -122,7 +122,7 @@ export default function Contact() {
             </div>
 
             {/* Contact Info Cards */}
-            <div className="lg:col-span-2 space-y-5">
+            <div className="lg:col-span-1 space-y-5">
               {contactInfo.map((item) => (
                 <div
                   key={item.title}
@@ -181,7 +181,7 @@ export default function Contact() {
       </section>
 
       {/* ───────── Trust Badges ───────── */}
-      <section className="py-16 lg:py-20 bg-primary">
+      <section className="py-20 lg:py-24 bg-primary">
         <div className="container">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {trustBadges.map((badge) => (
