@@ -54,7 +54,7 @@ export const testimonials: Testimonial[] = [
     location: "Portland, ME",
     text: "Had our ipe deck stained and sealed by Innovate Deck after trying to do it ourselves last year (disaster). Night and day difference. They power washed, brightened, and applied two coats of Penofin. The wood grain just glows now. They also caught a few boards that were starting to cup and replaced them while they were at it. Very thorough.",
     rating: 5,
-    service: "Deck Staining & Sealing",
+    service: "Deck Repair & Restoration",
   },
   {
     name: "Steve H.",

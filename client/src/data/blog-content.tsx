@@ -52,7 +52,7 @@ export const blogContent: BlogContentMap = {
 
       <h2>Maintenance: The Deciding Factor</h2>
       <p>
-        In New England, wood decks need to be <Link href="/services/deck-staining-sealing">stained and sealed</Link> every
+        In New England, wood decks need to be stained and sealed every
         1–3 years. The freeze-thaw cycles, salt air on the coast, and heavy snow loads accelerate wear.
         Composite decking needs only periodic cleaning with soap and water.
       </p>

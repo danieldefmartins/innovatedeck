@@ -81,7 +81,7 @@ export default function GHLForm({ className }: GHLFormProps) {
             <option value="porches">Porches & Screened Porches</option>
             <option value="outdoor-kitchens">Outdoor Kitchens & Living</option>
             <option value="railings">Railings & Stairs</option>
-            <option value="staining">Deck Staining & Sealing</option>
+            <option value="other">Other</option>
           </select>
         </div>
         <div>
