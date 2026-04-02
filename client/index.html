@@ -23,6 +23,20 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      window.addEventListener('error', function(e) {
+        var r = document.getElementById('root');
+        if (r && !r.hasChildNodes()) {
+          r.innerHTML = '<pre style="padding:2rem;color:red;font-size:14px;white-space:pre-wrap;">JS Error: ' + e.message + '\nFile: ' + e.filename + '\nLine: ' + e.lineno + '</pre>';
+        }
+      });
+      window.addEventListener('unhandledrejection', function(e) {
+        var r = document.getElementById('root');
+        if (r && !r.hasChildNodes()) {
+          r.innerHTML = '<pre style="padding:2rem;color:red;font-size:14px;white-space:pre-wrap;">Unhandled Promise: ' + (e.reason && e.reason.message || e.reason) + '</pre>';
+        }
+      });
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
