@@ -108,15 +108,15 @@ export default function Home() {
 
         <div className="container relative z-10 py-32 lg:py-44">
           <div className="max-w-2xl">
-            <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-6">
+            <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-4">
               New England's Trusted Deck Builders
             </p>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-8">
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-6">
               Build Your Dream
               <br />
               <span className="text-accent">Outdoor Space</span>
             </h1>
-            <p className="text-lg text-white/80 leading-relaxed mb-14 max-w-lg">
+            <p className="text-lg text-white/80 leading-relaxed mb-10 max-w-lg">
               Premium decks, pergolas, porches, and outdoor living —
               crafted for New England homeowners for over 25 years.
             </p>
@@ -145,15 +145,15 @@ export default function Home() {
       </section>
 
       {/* ───────── Stats Bar ───────── */}
-      <section className="bg-primary py-12 lg:py-16">
+      <section className="bg-primary py-10 lg:py-12">
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <p className="text-2xl lg:text-3xl font-bold text-white">
+                <p className="text-3xl lg:text-4xl font-display font-bold text-accent">
                   {stat.value}
                 </p>
-                <p className="text-sm text-white/60 mt-2">{stat.label}</p>
+                <p className="text-sm text-white/70 mt-1">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -161,10 +161,10 @@ export default function Home() {
       </section>
 
       {/* ───────── Services Grid ───────── */}
-      <section className="py-28 lg:py-40">
+      <section className="py-20 lg:py-24">
         <div className="container">
-          <div className="text-center mb-20">
-            <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-5">
+          <div className="text-center mb-12 lg:mb-14">
+            <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-3">
               What We Do
             </p>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground">
@@ -172,18 +172,18 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {homepageServices.map((service) => (
               <Link key={service.slug} href={`/services/${service.slug}`}>
-                <div className="group cursor-pointer rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 h-full bg-card">
-                  <div className="relative h-60 overflow-hidden">
+                <div className="group cursor-pointer rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 h-full bg-card border border-border/50">
+                  <div className="relative h-52 overflow-hidden">
                     <img
                       src={SERVICE_IMAGES[service.slug] || ""}
                       alt={service.title}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
-                  <div className="px-6 py-5 flex items-center justify-between">
+                  <div className="px-5 py-4 flex items-center justify-between">
                     <h3 className="font-display text-base font-semibold text-foreground group-hover:text-primary transition-colors">
                       {service.title}
                     </h3>
@@ -194,7 +194,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="text-center mt-16">
+          <div className="text-center mt-10">
             <Button variant="outline" size="lg" asChild>
               <Link href="/services">
                 View All Services
@@ -206,10 +206,10 @@ export default function Home() {
       </section>
 
       {/* ───────── Why Choose Us ───────── */}
-      <section className="py-28 lg:py-40 bg-primary text-white">
+      <section className="py-20 lg:py-24 bg-primary text-white">
         <div className="container">
-          <div className="text-center mb-20">
-            <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-5">
+          <div className="text-center mb-12 lg:mb-14">
+            <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-3">
               The Innovate Deck Difference
             </p>
             <h2 className="font-display text-3xl md:text-4xl font-bold">
@@ -217,20 +217,18 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-20 gap-y-16 max-w-3xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 max-w-4xl mx-auto">
             {differentiators.map((item) => (
-              <div key={item.title} className="flex gap-6">
-                <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center flex-shrink-0">
-                  <item.icon className="w-7 h-7 text-accent" />
+              <div key={item.title} className="text-center">
+                <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-5">
+                  <item.icon className="w-8 h-8 text-accent" />
                 </div>
-                <div>
-                  <h3 className="font-display text-lg font-semibold mb-3">
-                    {item.title}
-                  </h3>
-                  <p className="text-white/60 leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
+                <h3 className="font-display text-base font-semibold mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-white/60 text-sm leading-relaxed">
+                  {item.description}
+                </p>
               </div>
             ))}
           </div>
@@ -238,10 +236,10 @@ export default function Home() {
       </section>
 
       {/* ───────── Portfolio Preview ───────── */}
-      <section className="py-28 lg:py-40">
+      <section className="py-20 lg:py-24">
         <div className="container">
-          <div className="text-center mb-20">
-            <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-5">
+          <div className="text-center mb-12 lg:mb-14">
+            <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-3">
               Our Portfolio
             </p>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground">
@@ -249,7 +247,7 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {homepagePortfolio.map((item) => (
               <Link key={item.id} href="/portfolio">
                 <div className="group cursor-pointer">
@@ -260,7 +258,7 @@ export default function Home() {
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/50 to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 p-5">
+                    <div className="absolute bottom-0 left-0 right-0 p-4">
                       <p className="text-white font-medium text-sm">
                         {item.title}
                       </p>
@@ -271,7 +269,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="text-center mt-16">
+          <div className="text-center mt-10">
             <Button variant="outline" size="lg" asChild>
               <Link href="/portfolio">
                 View Full Portfolio
@@ -283,10 +281,10 @@ export default function Home() {
       </section>
 
       {/* ───────── Testimonials ───────── */}
-      <section className="py-28 lg:py-40 bg-muted">
+      <section className="py-20 lg:py-24 bg-muted">
         <div className="container">
-          <div className="text-center mb-20">
-            <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-5">
+          <div className="text-center mb-12 lg:mb-14">
+            <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-3">
               Client Testimonials
             </p>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground">
@@ -294,28 +292,28 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {testimonials.slice(0, 3).map((t, i) => (
               <div
                 key={i}
-                className="bg-card rounded-xl p-10 shadow-sm"
+                className="bg-card rounded-xl p-8 shadow-sm"
               >
-                <div className="flex gap-0.5 mb-8">
+                <div className="flex gap-0.5 mb-5">
                   {Array.from({ length: t.rating }).map((_, j) => (
                     <Star
                       key={j}
-                      className="w-5 h-5 fill-accent text-accent"
+                      className="w-4 h-4 fill-accent text-accent"
                     />
                   ))}
                 </div>
 
-                <p className="text-muted-foreground leading-[1.8] mb-10 line-clamp-4">
-                  {t.text}
+                <p className="text-muted-foreground text-sm leading-relaxed mb-6 line-clamp-4">
+                  "{t.text}"
                 </p>
 
                 <div>
-                  <p className="font-semibold text-foreground">{t.name}</p>
-                  <p className="text-sm text-muted-foreground mt-1">
+                  <p className="font-semibold text-sm text-foreground">{t.name}</p>
+                  <p className="text-xs text-muted-foreground mt-0.5">
                     {t.location}
                   </p>
                 </div>
@@ -326,10 +324,10 @@ export default function Home() {
       </section>
 
       {/* ───────── Service Areas ───────── */}
-      <section className="py-28 lg:py-40">
+      <section className="py-20 lg:py-24">
         <div className="container">
-          <div className="text-center mb-20">
-            <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-5">
+          <div className="text-center mb-12 lg:mb-14">
+            <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-3">
               Where We Work
             </p>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground">
@@ -338,13 +336,13 @@ export default function Home() {
           </div>
 
           <div className="max-w-3xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-12 lg:gap-16">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-10 lg:gap-14">
               {serviceAreas.map((group) => (
                 <div key={group.state}>
-                  <h3 className="text-xs font-bold text-primary uppercase tracking-wider mb-5">
+                  <h3 className="text-xs font-bold text-primary uppercase tracking-wider mb-4">
                     {group.state}
                   </h3>
-                  <ul className="space-y-3.5">
+                  <ul className="space-y-2.5">
                     {group.areas.map((area) => (
                       <li key={area.slug}>
                         <Link
@@ -361,7 +359,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="text-center mt-16">
+          <div className="text-center mt-10">
             <Button variant="outline" size="lg" asChild>
               <Link href="/areas">
                 All Service Areas
@@ -373,7 +371,7 @@ export default function Home() {
       </section>
 
       {/* ───────── Final CTA ───────── */}
-      <section className="relative py-28 lg:py-40">
+      <section className="relative py-20 lg:py-28">
         <img
           src="/images/portfolio/deck-98.jpg"
           alt="Beautiful ipe deck with outdoor furniture"
@@ -382,15 +380,15 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/65" />
 
         <div className="container relative z-10 text-center max-w-2xl mx-auto">
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-8 leading-tight">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
             Ready to Transform Your Outdoor Space?
           </h2>
-          <p className="text-white/70 leading-relaxed mb-14">
+          <p className="text-white/70 leading-relaxed mb-10">
             Get a free, no-obligation estimate from New England's trusted
             deck building experts.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button variant="accent" size="xl" asChild>
               <Link href="/contact">
                 <CalendarCheck className="w-5 h-5" />
