@@ -23,7 +23,7 @@ export default function ServiceCard({
     <Link href={`/services/${slug}`}>
       <Card className="group cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden h-full border-0 shadow-md">
         {/* Image area */}
-        <div className="relative h-52 overflow-hidden">
+        <div className="relative h-48 overflow-hidden">
           {imageUrl ? (
             <img
               src={imageUrl}
@@ -43,16 +43,16 @@ export default function ServiceCard({
           {/* Bottom gradient for readability */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
           {/* Title overlay on image */}
-          <div className="absolute bottom-3 left-4 right-4">
-            <h3 className="font-display text-lg font-semibold text-white drop-shadow-md">
+          <div className="absolute bottom-4 left-5 right-5">
+            <h3 className="font-display text-base font-semibold text-white drop-shadow-md">
               {title}
             </h3>
           </div>
         </div>
 
         {/* Content area */}
-        <CardContent className="p-6">
-          <p className="text-sm text-muted-foreground mb-4 leading-relaxed line-clamp-3">
+        <CardContent className="p-5">
+          <p className="text-sm text-muted-foreground mb-4 leading-relaxed line-clamp-2">
             {shortDescription}
           </p>
           <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary group-hover:gap-2.5 transition-all duration-300">

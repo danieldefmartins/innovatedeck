@@ -26,7 +26,7 @@ export default function AreaHero({
   const bgImage = AREA_IMAGES[slug];
 
   return (
-    <section className="relative py-28 lg:py-36 overflow-hidden">
+    <section className="relative py-24 lg:py-32 overflow-hidden">
       {/* Background image or gradient fallback */}
       {bgImage ? (
         <img
@@ -52,15 +52,15 @@ export default function AreaHero({
             </span>
           </div>
 
-          <h1 className="font-display text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 leading-tight">
+          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-[1.15]">
             {headline}
           </h1>
-          <p className="text-lg lg:text-xl text-white/80 mb-8 max-w-2xl leading-relaxed">
+          <p className="text-lg text-white/80 mb-8 max-w-2xl leading-relaxed">
             {description}
           </p>
 
           {/* CTA buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-10">
+          <div className="flex flex-col sm:flex-row gap-4 mb-8">
             <Button size="xl" variant="accent" asChild>
               <a href="/contact">Get Your Free Estimate</a>
             </Button>

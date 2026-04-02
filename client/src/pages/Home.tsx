@@ -106,31 +106,28 @@ export default function Home() {
   return (
     <>
       {/* ───────── Hero ───────── */}
-      <section className="relative min-h-[90vh] flex items-center">
-        {/* Background image — deck-30.jpg pool deck, landscape */}
+      <section className="relative min-h-[85vh] flex items-center">
         <img
           src="/images/portfolio/deck-30.jpg"
           alt="Premium pool deck with wood railings built by Innovate Deck"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
-        {/* Dark overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/70" />
 
         <div className="container relative z-10 py-24 lg:py-40">
           <div className="max-w-3xl">
-            <p className="text-accent font-medium tracking-widest uppercase text-sm mb-5">
+            <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-4">
               New England's Trusted Deck Builders
             </p>
-            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.08] mb-8">
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.15] mb-6">
               Build Your Dream
               <br />
               <span className="text-accent">Outdoor Space</span>
             </h1>
-            <p className="text-lg sm:text-xl text-white/80 leading-relaxed mb-12 max-w-2xl">
+            <p className="text-lg text-white/80 leading-relaxed mb-10 max-w-xl">
               Premium deck building, pergolas, porches, and outdoor living spaces
               crafted for New England homeowners. Licensed, insured, and trusted
-              for over 25 years across Massachusetts, New Hampshire, Rhode Island,
-              and Maine.
+              for over 25 years.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -157,15 +154,15 @@ export default function Home() {
       </section>
 
       {/* ───────── Stats Bar ───────── */}
-      <section className="bg-primary">
-        <div className="container py-8 lg:py-10">
+      <section className="bg-primary py-10 lg:py-14">
+        <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <p className="font-display text-3xl lg:text-4xl font-bold text-white">
+                <p className="text-2xl lg:text-3xl font-bold text-white">
                   {stat.value}
                 </p>
-                <p className="text-sm text-white/70 mt-1 tracking-wide">
+                <p className="text-sm text-white/60 mt-1">
                   {stat.label}
                 </p>
               </div>
@@ -175,34 +172,34 @@ export default function Home() {
       </section>
 
       {/* ───────── Services Grid ───────── */}
-      <section className="py-24 lg:py-36 bg-background">
+      <section className="py-20 lg:py-28 bg-background">
         <div className="container">
-          <div className="text-center mb-16 lg:mb-20">
-            <p className="text-accent font-medium tracking-widest uppercase text-sm mb-3">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-4">
               What We Do
             </p>
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
               Our Services
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
               From composite decks and wood decking to pergolas, porches, and
               outdoor kitchens — we handle every aspect of your outdoor
               transformation.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
             {homepageServices.map((service) => (
               <Link key={service.slug} href={`/services/${service.slug}`}>
-                <div className="group relative h-80 rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-1">
+                <div className="group relative h-72 rounded-xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-1">
                   <img
                     src={SERVICE_IMAGES[service.slug] || ""}
                     alt={service.title}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent transition-all duration-500 group-hover:from-black/90" />
-                  <div className="absolute inset-0 flex flex-col justify-end p-7">
-                    <h3 className="font-display text-xl font-bold text-white mb-2 transition-transform duration-500 group-hover:-translate-y-1">
+                  <div className="absolute inset-0 flex flex-col justify-end p-6">
+                    <h3 className="text-lg font-semibold text-white mb-2 transition-transform duration-500 group-hover:-translate-y-1">
                       {service.title}
                     </h3>
                     <p className="text-white/70 text-sm leading-relaxed line-clamp-2 transition-all duration-500 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0">
@@ -229,34 +226,34 @@ export default function Home() {
       </section>
 
       {/* ───────── Why Choose Us ───────── */}
-      <section className="py-24 lg:py-36 bg-muted">
+      <section className="py-20 lg:py-28 bg-muted">
         <div className="container">
-          <div className="text-center mb-16 lg:mb-20">
-            <p className="text-accent font-medium tracking-widest uppercase text-sm mb-3">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-4">
               The Innovate Deck Difference
             </p>
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
               Why Choose Us
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
               When you hire us, you get more than a contractor — you get a
               dedicated partner committed to building something exceptional.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
             {differentiators.map((item) => (
               <div
                 key={item.title}
-                className="bg-card rounded-2xl p-8 lg:p-10 border border-border/50 shadow-sm hover:shadow-lg transition-all duration-500"
+                className="bg-card rounded-xl p-7 lg:p-8 border border-border/60 shadow-sm hover:shadow-lg transition-all duration-500"
               >
-                <div className="w-14 h-14 rounded-xl bg-accent flex items-center justify-center mb-6 shadow-md shadow-accent/20">
-                  <item.icon className="w-7 h-7 text-white" />
+                <div className="w-12 h-12 rounded-lg bg-accent flex items-center justify-center mb-5 shadow-md shadow-accent/20">
+                  <item.icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="font-display text-xl font-semibold text-foreground mb-3">
+                <h3 className="font-display text-lg font-semibold text-foreground mb-3">
                   {item.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   {item.description}
                 </p>
               </div>
@@ -266,42 +263,38 @@ export default function Home() {
       </section>
 
       {/* ───────── Portfolio Preview ───────── */}
-      <section className="py-24 lg:py-36 bg-background">
+      <section className="py-20 lg:py-28 bg-background">
         <div className="container">
-          <div className="text-center mb-16 lg:mb-20">
-            <p className="text-accent font-medium tracking-widest uppercase text-sm mb-3">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-4">
               Our Portfolio
             </p>
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
               See Our Work
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
               Browse a selection of our recent projects across New England. Every
               build reflects our commitment to craftsmanship and quality.
             </p>
           </div>
 
-          {/* Uniform height grid — clean 3-col on desktop, 2-col on tablet */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {homepagePortfolio.map((item) => (
               <Link key={item.id} href="/portfolio">
-                <div className="group relative h-80 rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-1">
+                <div className="group relative h-72 rounded-xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-1">
                   <img
                     src={item.src}
                     alt={item.alt}
                     className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-70 group-hover:opacity-90 transition-all duration-500" />
-                  <div className="absolute inset-0 flex flex-col justify-end p-7">
-                    <h3 className="font-display text-lg font-bold text-white transition-transform duration-500 translate-y-1 group-hover:translate-y-0">
+                  <div className="absolute inset-0 flex flex-col justify-end p-6">
+                    <h3 className="font-display text-lg font-semibold text-white transition-transform duration-500 translate-y-1 group-hover:translate-y-0">
                       {item.title}
                     </h3>
                     <p className="text-white/60 text-sm mt-1 transition-all duration-500 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0">
                       {item.location}
                     </p>
-                    <span className="inline-flex items-center gap-1.5 text-accent text-sm font-medium mt-2 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-3 group-hover:translate-y-0">
-                      View Project <ArrowRight className="w-4 h-4" />
-                    </span>
                   </div>
                 </div>
               </Link>
@@ -320,31 +313,29 @@ export default function Home() {
       </section>
 
       {/* ───────── Testimonials ───────── */}
-      <section className="py-24 lg:py-36 bg-muted">
+      <section className="py-20 lg:py-28 bg-muted">
         <div className="container">
-          <div className="text-center mb-16 lg:mb-20">
-            <p className="text-accent font-medium tracking-widest uppercase text-sm mb-3">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-4">
               Client Testimonials
             </p>
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
               What Our Clients Say
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
               Real feedback from homeowners who trusted us with their outdoor
               living projects.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
             {testimonials.slice(0, 3).map((t, i) => (
               <div
                 key={i}
-                className="bg-card rounded-2xl p-8 border border-border/50 shadow-sm hover:shadow-lg transition-all duration-500 relative flex flex-col"
+                className="bg-card rounded-xl p-6 lg:p-8 border border-border/60 shadow-sm hover:shadow-lg transition-all duration-500 relative flex flex-col"
               >
-                {/* Decorative quote mark */}
                 <Quote className="w-10 h-10 text-accent/15 absolute top-6 right-6" />
 
-                {/* Star rating */}
                 <div className="flex gap-1 mb-5">
                   {Array.from({ length: t.rating }).map((_, j) => (
                     <Star
@@ -354,12 +345,10 @@ export default function Home() {
                   ))}
                 </div>
 
-                {/* Quote text */}
-                <p className="text-foreground text-sm leading-relaxed mb-6 relative z-10 flex-1">
+                <p className="text-sm text-muted-foreground leading-relaxed italic mb-6 relative z-10 flex-1">
                   "{t.text}"
                 </p>
 
-                {/* Author */}
                 <div className="flex items-center gap-3 pt-5 border-t border-border/50">
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                     <span className="text-sm font-bold text-primary">
@@ -391,26 +380,26 @@ export default function Home() {
       </section>
 
       {/* ───────── Service Areas ───────── */}
-      <section className="py-24 lg:py-36 bg-background">
+      <section className="py-20 lg:py-28 bg-background">
         <div className="container">
-          <div className="text-center mb-16 lg:mb-20">
-            <p className="text-accent font-medium tracking-widest uppercase text-sm mb-3">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-4">
               Where We Work
             </p>
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
               Proudly Serving New England
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
               Licensed and insured across four states. Wherever you are in
               southern New England, we're ready to build.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {serviceAreas.map((group) => (
               <div
                 key={group.state}
-                className="bg-card rounded-2xl p-7 border border-border/50 shadow-sm hover:shadow-lg transition-all duration-500"
+                className="bg-card rounded-xl p-6 border border-border/60 shadow-sm hover:shadow-lg transition-all duration-500"
               >
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -420,12 +409,12 @@ export default function Home() {
                     {group.state}
                   </h3>
                 </div>
-                <ul className="space-y-3">
+                <ul className="space-y-2">
                   {group.areas.map((area) => (
                     <li key={area.slug}>
                       <Link
                         href={`/areas/${area.slug}`}
-                        className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm flex items-center gap-2.5 group"
+                        className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center gap-2.5 group"
                       >
                         <span className="w-1.5 h-1.5 rounded-full bg-accent/40 group-hover:bg-accent transition-colors duration-300 flex-shrink-0" />
                         {area.name}
@@ -449,8 +438,7 @@ export default function Home() {
       </section>
 
       {/* ───────── Final CTA ───────── */}
-      <section className="relative py-28 lg:py-40">
-        {/* Background image — deck-98.jpg ipe deck with furniture */}
+      <section className="relative py-20 lg:py-28">
         <img
           src="/images/portfolio/deck-98.jpg"
           alt="Beautiful ipe deck with outdoor furniture"
@@ -459,13 +447,13 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/65" />
 
         <div className="container relative z-10 text-center">
-          <p className="text-accent font-medium tracking-widest uppercase text-sm mb-5">
+          <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-4">
             Start Your Project Today
           </p>
-          <h2 className="font-display text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-8 max-w-3xl mx-auto leading-tight">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-5 max-w-3xl mx-auto leading-tight">
             Ready to Transform Your Outdoor Space?
           </h2>
-          <p className="text-white/75 text-lg max-w-2xl mx-auto mb-12 leading-relaxed">
+          <p className="text-white/75 leading-relaxed max-w-xl mx-auto mb-10">
             Get a free, no-obligation estimate from New England's trusted deck
             building experts. Call us today or schedule your consultation online.
           </p>

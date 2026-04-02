@@ -81,7 +81,7 @@ export default function About() {
   return (
     <>
       {/* ───────── Hero ───────── */}
-      <section className="relative py-28 lg:py-40 overflow-hidden">
+      <section className="relative py-24 lg:py-32 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${HERO_IMAGES.about})` }}
@@ -92,10 +92,10 @@ export default function About() {
           <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-4">
             Who We Are
           </p>
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight mb-6 max-w-4xl mx-auto">
+          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.15] mb-6 max-w-4xl mx-auto">
             Crafting New England's Finest Outdoor Spaces
           </h1>
-          <p className="text-lg sm:text-xl text-white/85 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-lg leading-relaxed text-white/85 max-w-xl mx-auto">
             For over 25 years, we've been building premium outdoor living spaces
             for homeowners across Massachusetts, New Hampshire, Rhode Island, and
             Maine.
@@ -104,18 +104,18 @@ export default function About() {
       </section>
 
       {/* ───────── Our Story (Split Layout) ───────── */}
-      <section className="py-24 lg:py-32 bg-background">
+      <section className="py-20 lg:py-28 bg-background">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Text */}
             <div>
-              <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-3">
+              <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-4">
                 Our Story
               </p>
-              <h2 className="font-display text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground mb-8 leading-tight">
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-8 leading-tight">
                 From a Small Carpentry Shop to New England's Trusted Builder
               </h2>
-              <div className="space-y-5 text-muted-foreground leading-relaxed text-[17px]">
+              <div className="space-y-6 text-muted-foreground text-base leading-relaxed">
                 <p>
                   Innovate Deck was founded with a simple belief: every homeowner
                   deserves an outdoor space that feels like an extension of their
@@ -162,7 +162,7 @@ export default function About() {
 
           {/* Continued story text */}
           <div className="mt-16 max-w-3xl mx-auto text-center">
-            <p className="text-muted-foreground leading-relaxed text-[17px]">
+            <p className="text-muted-foreground text-base leading-relaxed">
               Today, we continue to innovate. We stay at the forefront of
               material technology, design trends, and building science. From
               premium composites like Trex and TimberTech to exotic hardwoods
@@ -175,12 +175,12 @@ export default function About() {
       </section>
 
       {/* ───────── Stats ───────── */}
-      <section className="py-20 lg:py-24 bg-primary">
+      <section className="py-10 lg:py-14 bg-primary">
         <div className="container">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <p className="font-display text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-2">
+                <p className="font-display text-3xl lg:text-4xl font-bold text-white mb-2">
                   {stat.value}
                 </p>
                 <div className="w-12 h-1 bg-accent mx-auto mb-3 rounded-full" />
@@ -194,16 +194,16 @@ export default function About() {
       </section>
 
       {/* ───────── Our Values ───────── */}
-      <section className="py-24 lg:py-32 bg-background">
+      <section className="py-20 lg:py-28 bg-background">
         <div className="container">
-          <div className="text-center mb-14">
-            <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-3">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-4">
               Our Values
             </p>
-            <h2 className="font-display text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground mb-4">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
               What We Stand For
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
               These aren't just words on a page. They're the principles that
               guide every decision we make, from the materials we select to the
               way we treat your property.
@@ -214,7 +214,7 @@ export default function About() {
             {values.map((value) => (
               <div
                 key={value.title}
-                className="group bg-card rounded-xl p-8 border border-border/50 hover:border-accent/40 hover:shadow-lg transition-all duration-300"
+                className="group bg-card rounded-xl border border-border/60 p-6 lg:p-8 hover:border-accent/40 hover:shadow-lg transition-all duration-300"
               >
                 <div className="flex items-start gap-5">
                   <div className="flex-shrink-0">
@@ -223,10 +223,10 @@ export default function About() {
                     </div>
                   </div>
                   <div>
-                    <h3 className="font-display text-xl font-semibold text-foreground mb-3">
+                    <h3 className="font-display text-lg font-semibold text-foreground mb-3">
                       {value.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-sm text-muted-foreground leading-relaxed">
                       {value.description}
                     </p>
                   </div>
@@ -238,16 +238,16 @@ export default function About() {
       </section>
 
       {/* ───────── Built for New England ───────── */}
-      <section className="py-24 lg:py-32 bg-muted">
+      <section className="py-20 lg:py-28 bg-muted">
         <div className="container">
-          <div className="text-center mb-14">
-            <p className="text-secondary font-semibold tracking-widest uppercase text-sm mb-3">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <p className="text-secondary font-semibold tracking-wider uppercase text-sm mb-4">
               Local Expertise
             </p>
-            <h2 className="font-display text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground mb-4">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
               Built for New England
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
               Building a deck in New England isn't like building one in
               California. Our climate demands specialized knowledge, materials,
               and engineering. That's what 25 years of local experience gives
@@ -259,7 +259,7 @@ export default function About() {
             {weatherChallenges.map((challenge) => (
               <div
                 key={challenge.title}
-                className="group bg-card rounded-xl p-6 lg:p-8 shadow-sm hover:shadow-md transition-all duration-300 text-center"
+                className="group bg-card rounded-xl border border-border/60 p-6 lg:p-8 shadow-sm hover:shadow-md transition-all duration-300 text-center"
               >
                 <div className="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-secondary/15 transition-colors">
                   <challenge.icon className="w-8 h-8 text-secondary" />
@@ -277,7 +277,7 @@ export default function About() {
       </section>
 
       {/* ───────── CTA ───────── */}
-      <section className="relative py-24 lg:py-32 overflow-hidden">
+      <section className="relative py-20 lg:py-28 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${HERO_IMAGES.cta})` }}
@@ -285,10 +285,10 @@ export default function About() {
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/80 to-secondary/80" />
 
         <div className="container relative z-10 text-center">
-          <h2 className="font-display text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-5">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-5">
             Let's Build Something Great Together
           </h2>
-          <p className="text-white/80 text-lg max-w-2xl mx-auto mb-10">
+          <p className="text-white/80 leading-relaxed max-w-2xl mx-auto mb-10">
             Whether you're envisioning a new composite deck, a cozy screened
             porch, or a full outdoor living area — we'd love to hear about your
             project. Reach out for a free consultation and estimate.

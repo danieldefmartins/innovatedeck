@@ -7,8 +7,8 @@
 @theme inline {
   --radius-sm: 4px;
   --radius-md: 6px;
-  --radius-lg: 8px;
-  --radius-xl: 12px;
+  --radius-lg: 10px;
+  --radius-xl: 14px;
 
   --font-display: "Playfair Display", serif;
   --font-body: "Inter", sans-serif;
@@ -63,37 +63,42 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-body);
   color: var(--foreground);
   background-color: var(--background);
-  line-height: 1.6;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  letter-spacing: -0.01em;
 }
 
+/* Headings — tighter line-height so they don't float apart */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 
+/* Container — slightly tighter for better text measure */
 .container {
   width: 100%;
-  max-width: 1320px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.25rem;
+  padding: 0 1.5rem;
 }
 
 @media (min-width: 640px) {
-  .container { padding: 0 1.5rem; }
-}
-
-@media (min-width: 1024px) {
   .container { padding: 0 2rem; }
 }
 
-/* Smooth scroll */
-html {
-  scroll-behavior: smooth;
+@media (min-width: 1024px) {
+  .container { padding: 0 2.5rem; }
 }
 
 /* Selection */

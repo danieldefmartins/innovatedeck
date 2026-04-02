@@ -60,7 +60,7 @@ export default function AreaLanding() {
           <h1 className="font-display text-4xl font-bold mb-4">
             Area Not Found
           </h1>
-          <p className="text-muted-foreground text-lg mb-8">
+          <p className="text-muted-foreground mb-8">
             The service area you're looking for doesn't exist or may have been
             moved.
           </p>
@@ -86,13 +86,13 @@ export default function AreaLanding() {
       />
 
       {/* ── Why Choose Us ── */}
-      <section className="py-16 lg:py-24">
+      <section className="py-20 lg:py-28">
         <div className="container">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="font-display text-3xl lg:text-4xl font-bold mb-4">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
               Why Choose {COMPANY.name} in {area.name}
             </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
               We're not just another contractor. We're your neighbors, with deep
               roots in the {area.name} community and a reputation built on
               quality work.
@@ -102,7 +102,7 @@ export default function AreaLanding() {
             {trustSignals.map((signal) => (
               <div
                 key={signal.title}
-                className="group bg-background rounded-xl p-6 text-center border border-border/50 hover:border-accent/40 hover:shadow-md transition-all"
+                className="group bg-background rounded-xl p-6 text-center border border-border/60 hover:border-accent/40 hover:shadow-md transition-all"
               >
                 <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-accent/10 transition-colors">
                   <signal.icon className="w-7 h-7 text-primary group-hover:text-accent transition-colors" />
@@ -120,13 +120,13 @@ export default function AreaLanding() {
       </section>
 
       {/* ── Services Available ── */}
-      <section className="py-16 lg:py-24 bg-muted/50">
+      <section className="py-20 lg:py-28 bg-muted/50">
         <div className="container">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="font-display text-3xl lg:text-4xl font-bold mb-4">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
               Deck Building Services in {area.name}
             </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
               We offer our full range of deck building and outdoor living
               services to homeowners in {area.name}, {area.state} and
               surrounding communities.
@@ -149,14 +149,14 @@ export default function AreaLanding() {
 
       {/* ── Neighborhoods ── */}
       {area.neighborhoods && area.neighborhoods.length > 0 && (
-        <section className="py-16 lg:py-24">
+        <section className="py-20 lg:py-28">
           <div className="container">
             <div className="max-w-5xl mx-auto">
-              <div className="text-center mb-10">
-                <h2 className="font-display text-3xl lg:text-4xl font-bold mb-4">
+              <div className="text-center max-w-2xl mx-auto mb-14">
+                <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
                   Neighborhoods & Communities We Serve
                 </h2>
-                <p className="text-muted-foreground text-lg leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
                   Our team builds decks and outdoor living spaces throughout{" "}
                   {area.name} and these surrounding communities.
                 </p>
@@ -179,11 +179,11 @@ export default function AreaLanding() {
 
       {/* ── Local Content (SEO prose) ── */}
       {area.localContent && (
-        <section className="py-16 lg:py-24 bg-muted/50">
+        <section className="py-20 lg:py-28 bg-muted/50">
           <div className="container">
             <div className="max-w-4xl mx-auto">
               <div className="bg-background rounded-2xl p-8 lg:p-12 border border-border/50 shadow-sm">
-                <h2 className="font-display text-3xl lg:text-4xl font-bold mb-6">
+                <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
                   Deck Building in {area.name}, {area.state}
                 </h2>
                 <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed prose-p:text-muted-foreground">
@@ -234,16 +234,18 @@ export default function AreaLanding() {
 
       {/* ── Nearby Areas (linked cards) ── */}
       {area.nearbyAreas && area.nearbyAreas.length > 0 && (
-        <section className="py-16 lg:py-24 bg-muted/50">
+        <section className="py-20 lg:py-28 bg-muted/50">
           <div className="container">
             <div className="max-w-4xl mx-auto text-center">
-              <h2 className="font-display text-3xl lg:text-4xl font-bold mb-4">
-                Nearby Areas We Serve
-              </h2>
-              <p className="text-muted-foreground text-lg mb-10">
-                In addition to {area.name}, we proudly serve homeowners across
-                these nearby regions.
-              </p>
+              <div className="text-center max-w-2xl mx-auto mb-14">
+                <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
+                  Nearby Areas We Serve
+                </h2>
+                <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
+                  In addition to {area.name}, we proudly serve homeowners across
+                  these nearby regions.
+                </p>
+              </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {area.nearbyAreas.map((slug) => {
                   const nearby = areas.find((a) => a.slug === slug);
@@ -285,10 +287,10 @@ export default function AreaLanding() {
         <div className="absolute inset-0 bg-black/70" />
         <div className="container relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-display text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-4">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">
               Get Your Free Deck Estimate in {area.name}
             </h2>
-            <p className="text-white/80 text-lg mb-8 leading-relaxed">
+            <p className="text-white/80 mb-8 leading-relaxed">
               {COMPANY.experience} years of experience building decks and
               outdoor living spaces in {area.name}, {area.state}. Licensed,
               insured, and ready to bring your vision to life.

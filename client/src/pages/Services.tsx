@@ -57,7 +57,7 @@ export default function Services() {
   return (
     <>
       {/* ───────── Hero ───────── */}
-      <section className="relative py-28 lg:py-40 overflow-hidden">
+      <section className="relative py-24 lg:py-32 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${HERO_IMAGES.services})` }}
@@ -68,10 +68,10 @@ export default function Services() {
           <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-4">
             What We Build
           </p>
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight mb-6 max-w-4xl mx-auto">
+          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.15] mb-6 max-w-4xl mx-auto">
             Premium Deck Building & Outdoor Living
           </h1>
-          <p className="text-lg sm:text-xl text-white/85 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-lg leading-relaxed text-white/85 max-w-xl mx-auto">
             From composite and hardwood decks to pergolas, porches, outdoor
             kitchens, and expert restoration — custom-designed, permitted, and
             built by our experienced team.
@@ -80,16 +80,16 @@ export default function Services() {
       </section>
 
       {/* ───────── Company Intro ───────── */}
-      <section className="py-16 lg:py-20 bg-background">
+      <section className="py-20 lg:py-28 bg-background">
         <div className="container">
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-3">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-4">
               Comprehensive Solutions
             </p>
-            <h2 className="font-display text-3xl lg:text-4xl font-bold text-foreground mb-5">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
               Everything Your Outdoor Space Needs
             </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
               {COMPANY.name} delivers comprehensive deck building and outdoor
               living solutions across New England. With {COMPANY.experience}{" "}
               years of experience and over 500 completed projects, every build is
@@ -102,13 +102,13 @@ export default function Services() {
       </section>
 
       {/* ───────── Services Grid ───────── */}
-      <section className="py-16 lg:py-24 bg-muted">
+      <section className="py-20 lg:py-28 bg-muted">
         <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="font-display text-3xl lg:text-4xl font-bold text-foreground mb-4">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
               Our Services
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
               Explore our full range of services. Click any card for details,
               features, and pricing information.
             </p>
@@ -132,14 +132,14 @@ export default function Services() {
       {/* ───────── Our Process ───────── */}
       <section className="py-20 lg:py-28 bg-background">
         <div className="container">
-          <div className="text-center mb-14">
-            <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-3">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-4">
               How We Work
             </p>
-            <h2 className="font-display text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground mb-4">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
               Our Process
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
               From first call to final walkthrough, we make building your dream
               outdoor space simple, transparent, and enjoyable.
             </p>
@@ -167,10 +167,10 @@ export default function Services() {
                       Step {step.step}
                     </span>
                   </div>
-                  <h3 className="font-display text-xl lg:text-2xl font-semibold text-foreground mb-2">
+                  <h3 className="font-display text-lg font-semibold text-foreground mb-2">
                     {step.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed max-w-xl">
+                  <p className="text-sm text-muted-foreground leading-relaxed max-w-xl">
                     {step.description}
                   </p>
                 </div>
@@ -181,7 +181,7 @@ export default function Services() {
       </section>
 
       {/* ───────── CTA ───────── */}
-      <section className="relative py-24 lg:py-32 overflow-hidden">
+      <section className="relative py-20 lg:py-28 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${HERO_IMAGES.cta})` }}
@@ -189,10 +189,10 @@ export default function Services() {
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/80 to-secondary/80" />
 
         <div className="container relative z-10 text-center">
-          <h2 className="font-display text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-5">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-5">
             Ready to Start Your Project?
           </h2>
-          <p className="text-white/80 text-lg max-w-2xl mx-auto mb-10">
+          <p className="text-white/80 leading-relaxed max-w-2xl mx-auto mb-10">
             Whether you know exactly what you want or need help exploring
             options, our team is here to guide you. Get a free, no-obligation
             estimate for your deck or outdoor living project today.

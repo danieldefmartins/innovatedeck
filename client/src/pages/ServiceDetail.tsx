@@ -24,7 +24,7 @@ export default function ServiceDetail() {
           <h1 className="font-display text-4xl font-bold mb-4">
             Service Not Found
           </h1>
-          <p className="text-muted-foreground text-lg mb-8">
+          <p className="text-muted-foreground mb-8">
             The service you're looking for doesn't exist or may have been moved.
           </p>
           <Button size="lg" asChild>
@@ -43,7 +43,7 @@ export default function ServiceDetail() {
   return (
     <>
       {/* ── Hero with background image ── */}
-      <section className="relative py-28 lg:py-36 overflow-hidden">
+      <section className="relative py-24 lg:py-32 overflow-hidden">
         {heroImage && (
           <img
             src={heroImage}
@@ -61,10 +61,10 @@ export default function ServiceDetail() {
               <ArrowRight className="w-4 h-4 rotate-180" />
               All Services
             </Link>
-            <h1 className="font-display text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 leading-tight">
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-[1.15]">
               {service.title}
             </h1>
-            <p className="text-lg lg:text-xl text-white/80 leading-relaxed max-w-2xl mb-8">
+            <p className="text-lg text-white/80 leading-relaxed max-w-2xl mb-8">
               {service.shortDescription}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -88,7 +88,7 @@ export default function ServiceDetail() {
       </section>
 
       {/* ── Description ── */}
-      <section className="py-16 lg:py-24">
+      <section className="py-16 lg:py-20">
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-3 mb-6">
@@ -98,7 +98,7 @@ export default function ServiceDetail() {
               </span>
               <div className="h-px flex-1 bg-border" />
             </div>
-            <p className="text-muted-foreground text-lg leading-relaxed text-center">
+            <p className="text-muted-foreground text-base leading-relaxed text-center">
               {service.description}
             </p>
           </div>
@@ -106,14 +106,14 @@ export default function ServiceDetail() {
       </section>
 
       {/* ── What's Included (2-column grid with check icons) ── */}
-      <section className="py-16 lg:py-24 bg-muted/50">
+      <section className="py-20 lg:py-28 bg-muted/50">
         <div className="container">
           <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="font-display text-3xl lg:text-4xl font-bold mb-4">
+            <div className="text-center max-w-2xl mx-auto mb-14">
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
                 What's Included
               </h2>
-              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
                 Every project includes these features as standard, ensuring
                 quality and completeness.
               </p>
@@ -127,7 +127,7 @@ export default function ServiceDetail() {
                   <div className="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center shrink-0 mt-0.5">
                     <Check className="w-4 h-4 text-secondary" />
                   </div>
-                  <span className="text-[15px] leading-relaxed font-medium">
+                  <span className="text-sm leading-relaxed font-medium">
                     {feature}
                   </span>
                 </div>
@@ -138,13 +138,13 @@ export default function ServiceDetail() {
       </section>
 
       {/* ── Benefits (numbered cards with accent numbers) ── */}
-      <section className="py-16 lg:py-24">
+      <section className="py-20 lg:py-28">
         <div className="container">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="font-display text-3xl lg:text-4xl font-bold mb-4">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
               Why Choose {service.title}
             </h2>
-            <p className="text-muted-foreground text-lg">
+            <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
               The advantages that make this service a smart investment for your
               home.
             </p>
@@ -158,7 +158,7 @@ export default function ServiceDetail() {
                 <span className="inline-block font-display text-4xl font-bold text-accent/80 mb-4">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <p className="text-[15px] leading-relaxed text-muted-foreground group-hover:text-foreground transition-colors">
+                <p className="text-sm leading-relaxed text-muted-foreground group-hover:text-foreground transition-colors">
                   {benefit}
                 </p>
               </div>
@@ -168,13 +168,13 @@ export default function ServiceDetail() {
       </section>
 
       {/* ── Our Process (timeline with connected dots) ── */}
-      <section className="py-16 lg:py-24 bg-muted/50">
+      <section className="py-20 lg:py-28 bg-muted/50">
         <div className="container">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="font-display text-3xl lg:text-4xl font-bold mb-4">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
               Our Process
             </h2>
-            <p className="text-muted-foreground text-lg">
+            <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
               A clear, proven approach from first conversation to final
               walkthrough.
             </p>
@@ -193,10 +193,10 @@ export default function ServiceDetail() {
                     </div>
                     {/* Content card */}
                     <div className="flex-1 bg-background rounded-xl p-6 border border-border/50 shadow-sm group-hover:shadow-md group-hover:border-accent/30 transition-all -mt-1">
-                      <h3 className="font-display text-xl font-semibold mb-2">
+                      <h3 className="font-display text-lg font-semibold mb-2">
                         {step.title}
                       </h3>
-                      <p className="text-muted-foreground leading-relaxed">
+                      <p className="text-sm text-muted-foreground leading-relaxed">
                         {step.description}
                       </p>
                     </div>
@@ -210,14 +210,14 @@ export default function ServiceDetail() {
 
       {/* ── FAQ Accordion ── */}
       {service.faqs.length > 0 && (
-        <section className="py-16 lg:py-24">
+        <section className="py-20 lg:py-28">
           <div className="container">
             <div className="max-w-3xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="font-display text-3xl lg:text-4xl font-bold mb-4">
+              <div className="text-center max-w-2xl mx-auto mb-14">
+                <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
                   Frequently Asked Questions
                 </h2>
-                <p className="text-muted-foreground text-lg">
+                <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
                   Common questions about {service.title.toLowerCase()} answered
                   by our team.
                 </p>
@@ -245,13 +245,13 @@ export default function ServiceDetail() {
 
       {/* ── Related Services (photo cards) ── */}
       {relatedServiceData.length > 0 && (
-        <section className="py-16 lg:py-24 bg-muted/50">
+        <section className="py-20 lg:py-28 bg-muted/50">
           <div className="container">
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <h2 className="font-display text-3xl lg:text-4xl font-bold mb-4">
+            <div className="text-center max-w-2xl mx-auto mb-14">
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
                 Related Services
               </h2>
-              <p className="text-muted-foreground text-lg">
+              <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
                 Explore other services that pair well with{" "}
                 {service.title.toLowerCase()}.
               </p>
@@ -317,10 +317,10 @@ export default function ServiceDetail() {
                 {COMPANY.experience} Years Experience
               </span>
             </div>
-            <h2 className="font-display text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-4">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">
               Ready to Get Started?
             </h2>
-            <p className="text-white/80 text-lg mb-8 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-white/80 mb-8 leading-relaxed max-w-2xl mx-auto">
               Get a free, no-obligation estimate for your{" "}
               {service.title.toLowerCase()} project. {COMPANY.experience} years
               of experience. Licensed and insured.

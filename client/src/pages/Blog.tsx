@@ -19,10 +19,10 @@ export default function Blog() {
             <span className="inline-block text-accent text-sm font-semibold uppercase tracking-wider mb-4">
               Our Blog
             </span>
-            <h1 className="font-display text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 leading-tight">
+            <h1 className="font-display text-4xl md:text-5xl font-bold text-white mb-5 leading-[1.15]">
               Deck Building Blog
             </h1>
-            <p className="text-lg lg:text-xl text-white/80 leading-relaxed">
+            <p className="text-lg text-white/80 leading-relaxed">
               Expert advice, cost guides, and inspiration for your New England
               deck project.
             </p>
@@ -31,16 +31,16 @@ export default function Blog() {
       </section>
 
       {/* ── Blog Grid ── */}
-      <section className="py-16 lg:py-24">
+      <section className="py-20 lg:py-28">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {blogPosts.map((post) => {
               const postImage = BLOG_IMAGES[post.slug];
               return (
                 <Link key={post.slug} href={`/blog/${post.slug}`}>
                   <article className="group cursor-pointer h-full bg-background rounded-2xl border border-border/50 overflow-hidden hover:border-accent/40 hover:shadow-xl transition-all duration-300">
                     {/* Card image */}
-                    <div className="relative h-52 overflow-hidden">
+                    <div className="relative h-48 overflow-hidden">
                       {postImage ? (
                         <img
                           src={postImage}

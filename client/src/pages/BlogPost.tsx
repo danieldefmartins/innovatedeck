@@ -71,7 +71,7 @@ export default function BlogPost() {
               </span>
             </div>
 
-            <h1 className="font-display text-3xl lg:text-4xl xl:text-5xl font-bold text-white leading-tight">
+            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.15]">
               {post.title}
             </h1>
           </div>
@@ -79,7 +79,7 @@ export default function BlogPost() {
       </section>
 
       {/* ── Article Content ── */}
-      <section className="py-12 lg:py-20">
+      <section className="py-16 lg:py-24">
         <div className="container">
           <div className="max-w-3xl mx-auto">
             <article className="prose prose-lg max-w-none prose-headings:font-display prose-headings:text-foreground prose-headings:leading-tight prose-p:text-muted-foreground prose-p:leading-relaxed prose-a:text-primary prose-a:font-medium hover:prose-a:text-accent prose-strong:text-foreground prose-li:text-muted-foreground prose-blockquote:border-accent prose-blockquote:text-muted-foreground prose-img:rounded-xl">
@@ -106,7 +106,7 @@ export default function BlogPost() {
                     {COMPANY.experience} Years
                   </span>
                 </div>
-                <h3 className="font-display text-2xl lg:text-3xl font-bold text-white mb-3">
+                <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-3">
                   Ready to Start Your Deck Project?
                 </h3>
                 <p className="text-white/70 mb-8 max-w-lg mx-auto leading-relaxed">

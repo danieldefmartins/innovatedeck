@@ -23,7 +23,7 @@ export default function Portfolio() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative h-[50vh] min-h-[400px] flex items-center overflow-hidden">
+      <section className="relative min-h-[400px] flex items-center overflow-hidden py-24 lg:py-32">
         {/* Background image */}
         <img
           src={HERO_IMAGES.portfolio}
@@ -38,10 +38,10 @@ export default function Portfolio() {
             <p className="text-primary-foreground/70 uppercase tracking-widest text-sm font-medium mb-3">
               Our Work
             </p>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 leading-tight">
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 leading-[1.15]">
               Portfolio
             </h1>
-            <p className="text-lg md:text-xl text-white/80 leading-relaxed">
+            <p className="text-lg text-white/80 leading-relaxed">
               Browse our collection of custom deck builds, pergolas, porches,
               and outdoor living spaces across New England.
             </p>
@@ -53,7 +53,7 @@ export default function Portfolio() {
       <section className="py-20 lg:py-28 bg-background">
         <div className="container">
           {/* Category filter pills */}
-          <div className="flex flex-wrap gap-3 mb-12 justify-center">
+          <div className="flex flex-wrap gap-2 mb-10 justify-center">
             {PORTFOLIO_CATEGORIES.map((cat) => (
               <button
                 key={cat}
@@ -183,7 +183,7 @@ export default function Portfolio() {
       </Dialog>
 
       {/* ── CTA with background image ── */}
-      <section className="relative py-24 lg:py-32 overflow-hidden">
+      <section className="relative py-20 lg:py-28 overflow-hidden">
         {/* Background image */}
         <img
           src={HERO_IMAGES.cta}
@@ -193,10 +193,10 @@ export default function Portfolio() {
         <div className="absolute inset-0 bg-black/70" />
 
         <div className="container relative z-10 text-center">
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-5">
             Ready to Start Your Project?
           </h2>
-          <p className="text-white/75 mb-10 max-w-xl mx-auto text-lg leading-relaxed">
+          <p className="text-white/75 mb-10 max-w-xl mx-auto leading-relaxed">
             Every project in our portfolio started with a free consultation.
             Let's discuss your vision and bring it to life.
           </p>

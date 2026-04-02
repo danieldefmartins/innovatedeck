@@ -55,8 +55,8 @@ export default function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground">
       {/* Main footer content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           {/* Company Info */}
           <div className="lg:col-span-1">
             <Link href="/" className="inline-block mb-4">
@@ -64,7 +64,7 @@ export default function Footer() {
                 INNOVATE DECK
               </span>
             </Link>
-            <p className="text-white/70 text-sm leading-relaxed mb-6">
+            <p className="text-white/70 text-sm leading-relaxed mb-8">
               Premium deck building and outdoor living solutions across New England.
               Quality craftsmanship that transforms your outdoor space.
             </p>
@@ -89,10 +89,10 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-display font-semibold text-white text-base mb-4">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-white mb-5">
               Quick Links
             </h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-3">
               {QUICK_LINKS.map((link) => (
                 <li key={link.name}>
                   <Link
@@ -108,10 +108,10 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="font-display font-semibold text-white text-base mb-4">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-white mb-5">
               Our Services
             </h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-3">
               {SERVICES.map((service) => (
                 <li key={service.slug}>
                   <Link
@@ -127,16 +127,16 @@ export default function Footer() {
 
           {/* Service Areas */}
           <div>
-            <h3 className="font-display font-semibold text-white text-base mb-4">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-white mb-5">
               Service Areas
             </h3>
             <div className="space-y-4">
               {SERVICE_AREAS.map((area) => (
                 <div key={area.state}>
-                  <h4 className="text-xs font-semibold text-accent uppercase tracking-wider mb-1.5">
+                  <h4 className="text-xs font-semibold text-accent uppercase tracking-wider mb-2">
                     {area.state}
                   </h4>
-                  <ul className="space-y-1.5">
+                  <ul className="space-y-2">
                     {area.regions.map((region) => (
                       <li key={region.slug}>
                         <Link
@@ -157,7 +157,7 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-white/50">
             <p>&copy; {new Date().getFullYear()} Innovate Deck. All rights reserved.</p>
             <div className="flex items-center gap-3">
