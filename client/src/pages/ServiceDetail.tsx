@@ -9,8 +9,9 @@ import {
 import ServiceCard from "@/components/ServiceCard";
 import PhoneLink from "@/components/PhoneLink";
 import { getServiceBySlug, services } from "@/data/services";
+import { SERVICE_IMAGES, HERO_IMAGES } from "@/data/images";
 import { COMPANY } from "@/lib/constants";
-import { Check, Phone, ArrowRight } from "lucide-react";
+import { Check, Phone, ArrowRight, Shield, Star } from "lucide-react";
 
 export default function ServiceDetail() {
   const params = useParams<{ slug: string }>();
@@ -34,17 +35,23 @@ export default function ServiceDetail() {
     );
   }
 
+  const heroImage = SERVICE_IMAGES[service.slug];
   const relatedServiceData = service.relatedServices
     .map((slug) => services.find((s) => s.slug === slug))
     .filter(Boolean);
 
   return (
     <>
-      {/* Hero */}
-      <section
-        className="relative py-20 lg:py-28"
-        style={{ background: service.heroGradient }}
-      >
+      {/* ── Hero with background image ── */}
+      <section className="relative py-28 lg:py-36 overflow-hidden">
+        {heroImage && (
+          <img
+            src={heroImage}
+            alt={service.title}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
         <div className="container relative z-10">
           <div className="max-w-3xl">
             <Link
@@ -57,44 +64,72 @@ export default function ServiceDetail() {
             <h1 className="font-display text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 leading-tight">
               {service.title}
             </h1>
-            <p className="text-lg lg:text-xl text-white/80 leading-relaxed max-w-2xl">
+            <p className="text-lg lg:text-xl text-white/80 leading-relaxed max-w-2xl mb-8">
               {service.shortDescription}
             </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button size="xl" variant="accent" asChild>
+                <Link href="/contact">Get Your Free Estimate</Link>
+              </Button>
+              <Button
+                size="xl"
+                variant="outline"
+                className="border-white/30 text-white hover:bg-white/10"
+                asChild
+              >
+                <PhoneLink>
+                  <Phone className="w-5 h-5 mr-2" />
+                  Call {COMPANY.phone.display}
+                </PhoneLink>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Description */}
+      {/* ── Description ── */}
       <section className="py-16 lg:py-24">
         <div className="container">
-          <div className="max-w-4xl">
-            <h2 className="font-display text-3xl lg:text-4xl font-bold mb-6">
-              About This Service
-            </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="h-px flex-1 bg-border" />
+              <span className="text-sm font-medium text-accent uppercase tracking-wider">
+                About This Service
+              </span>
+              <div className="h-px flex-1 bg-border" />
+            </div>
+            <p className="text-muted-foreground text-lg leading-relaxed text-center">
               {service.description}
             </p>
           </div>
         </div>
       </section>
 
-      {/* Features */}
-      <section className="py-16 lg:py-24 bg-muted">
+      {/* ── What's Included (2-column grid with check icons) ── */}
+      <section className="py-16 lg:py-24 bg-muted/50">
         <div className="container">
-          <div className="max-w-4xl">
-            <h2 className="font-display text-3xl lg:text-4xl font-bold mb-8">
-              What's Included
-            </h2>
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="font-display text-3xl lg:text-4xl font-bold mb-4">
+                What's Included
+              </h2>
+              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                Every project includes these features as standard, ensuring
+                quality and completeness.
+              </p>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {service.features.map((feature, i) => (
                 <div
                   key={i}
-                  className="flex items-start gap-3 bg-background rounded-lg p-4"
+                  className="flex items-start gap-4 bg-background rounded-xl p-5 border border-border/50 hover:border-accent/30 hover:shadow-sm transition-all"
                 >
-                  <div className="w-6 h-6 rounded-full bg-secondary/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center shrink-0 mt-0.5">
                     <Check className="w-4 h-4 text-secondary" />
                   </div>
-                  <span className="text-sm leading-relaxed">{feature}</span>
+                  <span className="text-[15px] leading-relaxed font-medium">
+                    {feature}
+                  </span>
                 </div>
               ))}
             </div>
@@ -102,7 +137,7 @@ export default function ServiceDetail() {
         </div>
       </section>
 
-      {/* Benefits */}
+      {/* ── Benefits (numbered cards with accent numbers) ── */}
       <section className="py-16 lg:py-24">
         <div className="container">
           <div className="text-center max-w-2xl mx-auto mb-12">
@@ -114,28 +149,28 @@ export default function ServiceDetail() {
               home.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {service.benefits.map((benefit, i) => (
               <div
                 key={i}
-                className="bg-muted rounded-lg p-6 border border-border"
+                className="group bg-background rounded-xl p-6 border border-border hover:border-accent/40 hover:shadow-md transition-all"
               >
-                <div className="w-10 h-10 rounded-md bg-accent/10 flex items-center justify-center mb-4">
-                  <span className="font-display font-bold text-accent">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                </div>
-                <p className="text-sm leading-relaxed">{benefit}</p>
+                <span className="inline-block font-display text-4xl font-bold text-accent/80 mb-4">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <p className="text-[15px] leading-relaxed text-muted-foreground group-hover:text-foreground transition-colors">
+                  {benefit}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Our Process */}
-      <section className="py-16 lg:py-24 bg-muted">
+      {/* ── Our Process (timeline with connected dots) ── */}
+      <section className="py-16 lg:py-24 bg-muted/50">
         <div className="container">
-          <div className="text-center max-w-2xl mx-auto mb-12">
+          <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="font-display text-3xl lg:text-4xl font-bold mb-4">
               Our Process
             </h2>
@@ -147,17 +182,17 @@ export default function ServiceDetail() {
           <div className="max-w-3xl mx-auto">
             <div className="relative">
               {/* Vertical connector line */}
-              <div className="absolute left-6 top-0 bottom-0 w-px bg-border hidden md:block" />
+              <div className="absolute left-6 top-6 bottom-6 w-0.5 bg-gradient-to-b from-accent via-primary to-secondary hidden md:block" />
 
-              <div className="space-y-8">
-                {service.process.map((step) => (
-                  <div key={step.step} className="relative flex gap-6">
-                    {/* Step number */}
-                    <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-display font-bold text-lg shrink-0 relative z-10">
+              <div className="space-y-10">
+                {service.process.map((step, i) => (
+                  <div key={step.step} className="relative flex gap-6 group">
+                    {/* Step number circle */}
+                    <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-display font-bold text-lg shrink-0 relative z-10 shadow-lg group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
                       {step.step}
                     </div>
-                    {/* Content */}
-                    <div className="pb-2 pt-1">
+                    {/* Content card */}
+                    <div className="flex-1 bg-background rounded-xl p-6 border border-border/50 shadow-sm group-hover:shadow-md group-hover:border-accent/30 transition-all -mt-1">
                       <h3 className="font-display text-xl font-semibold mb-2">
                         {step.title}
                       </h3>
@@ -173,7 +208,7 @@ export default function ServiceDetail() {
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* ── FAQ Accordion ── */}
       {service.faqs.length > 0 && (
         <section className="py-16 lg:py-24">
           <div className="container">
@@ -187,13 +222,17 @@ export default function ServiceDetail() {
                   by our team.
                 </p>
               </div>
-              <Accordion type="single" collapsible className="w-full">
+              <Accordion type="single" collapsible className="w-full space-y-3">
                 {service.faqs.map((faq, i) => (
-                  <AccordionItem key={i} value={`faq-${i}`}>
-                    <AccordionTrigger className="text-left font-display font-semibold">
+                  <AccordionItem
+                    key={i}
+                    value={`faq-${i}`}
+                    className="bg-muted/50 rounded-xl border border-border/50 px-6 data-[state=open]:border-accent/30 data-[state=open]:shadow-sm transition-all"
+                  >
+                    <AccordionTrigger className="text-left font-display font-semibold hover:no-underline py-5">
                       {faq.question}
                     </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground leading-relaxed">
+                    <AccordionContent className="text-muted-foreground leading-relaxed pb-5">
                       {faq.answer}
                     </AccordionContent>
                   </AccordionItem>
@@ -204,9 +243,9 @@ export default function ServiceDetail() {
         </section>
       )}
 
-      {/* Related Services */}
+      {/* ── Related Services (photo cards) ── */}
       {relatedServiceData.length > 0 && (
-        <section className="py-16 lg:py-24 bg-muted">
+        <section className="py-16 lg:py-24 bg-muted/50">
           <div className="container">
             <div className="text-center max-w-2xl mx-auto mb-12">
               <h2 className="font-display text-3xl lg:text-4xl font-bold mb-4">
@@ -221,14 +260,35 @@ export default function ServiceDetail() {
               {relatedServiceData.map(
                 (related) =>
                   related && (
-                    <ServiceCard
+                    <Link
                       key={related.slug}
-                      slug={related.slug}
-                      title={related.title}
-                      shortDescription={related.shortDescription}
-                      icon={related.icon}
-                      heroGradient={related.heroGradient}
-                    />
+                      href={`/services/${related.slug}`}
+                      className="group block"
+                    >
+                      <div className="relative rounded-xl overflow-hidden h-64 mb-4">
+                        {SERVICE_IMAGES[related.slug] ? (
+                          <img
+                            src={SERVICE_IMAGES[related.slug]}
+                            alt={related.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                        ) : (
+                          <div
+                            className="w-full h-full"
+                            style={{ background: related.heroGradient }}
+                          />
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                        <div className="absolute bottom-0 left-0 right-0 p-6">
+                          <h3 className="font-display text-xl font-bold text-white mb-1">
+                            {related.title}
+                          </h3>
+                          <span className="inline-flex items-center gap-1 text-sm text-white/80 group-hover:text-accent group-hover:gap-2 transition-all">
+                            Learn More <ArrowRight className="w-4 h-4" />
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
                   )
               )}
             </div>
@@ -236,20 +296,34 @@ export default function ServiceDetail() {
         </section>
       )}
 
-      {/* CTA */}
-      <section
-        className="py-16 lg:py-24"
-        style={{ background: service.heroGradient }}
-      >
-        <div className="container">
+      {/* ── CTA with background image ── */}
+      <section className="relative py-20 lg:py-28 overflow-hidden">
+        <img
+          src={HERO_IMAGES.cta}
+          alt="Beautiful deck project"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/70" />
+        <div className="container relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-display text-3xl lg:text-4xl font-bold text-white mb-4">
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <Shield className="w-5 h-5 text-accent" />
+              <span className="text-white/70 text-sm font-medium">
+                Licensed & Insured
+              </span>
+              <span className="text-white/30">|</span>
+              <Star className="w-5 h-5 text-accent" />
+              <span className="text-white/70 text-sm font-medium">
+                {COMPANY.experience} Years Experience
+              </span>
+            </div>
+            <h2 className="font-display text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-4">
               Ready to Get Started?
             </h2>
-            <p className="text-white/80 text-lg mb-8 leading-relaxed">
-              Get a free, no-obligation estimate for your {service.title.toLowerCase()}{" "}
-              project. {COMPANY.experience} years of experience.
-              Licensed and insured.
+            <p className="text-white/80 text-lg mb-8 leading-relaxed max-w-2xl mx-auto">
+              Get a free, no-obligation estimate for your{" "}
+              {service.title.toLowerCase()} project. {COMPANY.experience} years
+              of experience. Licensed and insured.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button size="xl" variant="accent" asChild>

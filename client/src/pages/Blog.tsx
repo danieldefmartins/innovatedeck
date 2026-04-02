@@ -1,75 +1,88 @@
 import { Link } from "wouter";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
 import { blogPosts } from "@/data/blog";
-
-const CATEGORY_GRADIENTS: Record<string, string> = {
-  "Materials": "linear-gradient(135deg, #5C3D2E 0%, #D4A853 100%)",
-  "Cost Guide": "linear-gradient(135deg, #2D5A3D 0%, #5C3D2E 100%)",
-  "Permits": "linear-gradient(135deg, #3D2820 0%, #2D5A3D 100%)",
-  "Design": "linear-gradient(135deg, #D4A853 0%, #5C3D2E 100%)",
-  "Maintenance": "linear-gradient(135deg, #5C3D2E 0%, #2D5A3D 100%)",
-};
+import { HERO_IMAGES, BLOG_IMAGES } from "@/data/images";
 
 export default function Blog() {
   return (
     <>
-      {/* Hero */}
-      <section
-        className="relative py-16 lg:py-20"
-        style={{ background: "linear-gradient(135deg, #2D5A3D 0%, #5C3D2E 100%)" }}
-      >
+      {/* ── Hero with background image ── */}
+      <section className="relative py-24 lg:py-32 overflow-hidden">
+        <img
+          src={HERO_IMAGES.blog}
+          alt="Deck building blog"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
         <div className="container relative z-10">
           <div className="max-w-2xl">
-            <h1 className="font-display text-4xl lg:text-5xl font-bold text-white mb-4">
+            <span className="inline-block text-accent text-sm font-semibold uppercase tracking-wider mb-4">
+              Our Blog
+            </span>
+            <h1 className="font-display text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 leading-tight">
               Deck Building Blog
             </h1>
-            <p className="text-lg text-white/80">
-              Expert advice, cost guides, and inspiration for your New England deck project.
+            <p className="text-lg lg:text-xl text-white/80 leading-relaxed">
+              Expert advice, cost guides, and inspiration for your New England
+              deck project.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Blog Grid */}
+      {/* ── Blog Grid ── */}
       <section className="py-16 lg:py-24">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post) => (
-              <Link key={post.slug} href={`/blog/${post.slug}`}>
-                <Card className="group cursor-pointer hover:shadow-lg transition-all duration-300 overflow-hidden h-full">
-                  <div
-                    className="h-48 flex items-center justify-center"
-                    style={{ background: CATEGORY_GRADIENTS[post.category] || CATEGORY_GRADIENTS["Materials"] }}
-                  >
-                    <span className="text-white/60 text-sm font-medium px-3 py-1 rounded-full bg-white/10">
-                      {post.category}
-                    </span>
-                  </div>
-                  <CardContent className="p-6">
-                    <div className="flex items-center gap-4 text-xs text-muted-foreground mb-3">
-                      <span className="flex items-center gap-1">
-                        <Calendar className="w-3 h-3" />
-                        {post.date}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Clock className="w-3 h-3" />
-                        {post.readTime}
+            {blogPosts.map((post) => {
+              const postImage = BLOG_IMAGES[post.slug];
+              return (
+                <Link key={post.slug} href={`/blog/${post.slug}`}>
+                  <article className="group cursor-pointer h-full bg-background rounded-2xl border border-border/50 overflow-hidden hover:border-accent/40 hover:shadow-xl transition-all duration-300">
+                    {/* Card image */}
+                    <div className="relative h-52 overflow-hidden">
+                      {postImage ? (
+                        <img
+                          src={postImage}
+                          alt={post.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-gradient-to-br from-primary/80 to-secondary/80" />
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                      {/* Category badge */}
+                      <span className="absolute top-4 left-4 text-xs font-semibold uppercase tracking-wider bg-accent text-accent-foreground px-3 py-1 rounded-full">
+                        {post.category}
                       </span>
                     </div>
-                    <h2 className="font-display text-lg font-semibold mb-2 group-hover:text-primary transition-colors leading-snug">
-                      {post.title}
-                    </h2>
-                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                      {post.excerpt}
-                    </p>
-                    <span className="inline-flex items-center gap-1 text-sm font-medium text-primary group-hover:gap-2 transition-all">
-                      Read More <ArrowRight className="w-4 h-4" />
-                    </span>
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
+
+                    {/* Card content */}
+                    <div className="p-6">
+                      <div className="flex items-center gap-4 text-xs text-muted-foreground mb-3">
+                        <span className="flex items-center gap-1.5">
+                          <Calendar className="w-3.5 h-3.5" />
+                          {post.date}
+                        </span>
+                        <span className="flex items-center gap-1.5">
+                          <Clock className="w-3.5 h-3.5" />
+                          {post.readTime}
+                        </span>
+                      </div>
+                      <h2 className="font-display text-lg font-semibold mb-3 group-hover:text-accent transition-colors leading-snug">
+                        {post.title}
+                      </h2>
+                      <p className="text-sm text-muted-foreground mb-4 leading-relaxed line-clamp-3">
+                        {post.excerpt}
+                      </p>
+                      <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary group-hover:text-accent group-hover:gap-2.5 transition-all">
+                        Read Article <ArrowRight className="w-4 h-4" />
+                      </span>
+                    </div>
+                  </article>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>

@@ -1,6 +1,8 @@
-import { MapPin, Phone, Shield, Clock } from "lucide-react";
+import { MapPin, Phone, Shield, Clock, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PhoneLink from "./PhoneLink";
+import { AREA_IMAGES } from "@/data/images";
+import { COMPANY } from "@/lib/constants";
 
 interface AreaHeroProps {
   name: string;
@@ -9,45 +11,85 @@ interface AreaHeroProps {
   description: string;
   heroGradient: string;
   phone: { display: string; tel: string; label: string };
+  slug: string;
 }
 
-export default function AreaHero({ name, state, headline, description, heroGradient, phone }: AreaHeroProps) {
+export default function AreaHero({
+  name,
+  state,
+  headline,
+  description,
+  heroGradient,
+  phone,
+  slug,
+}: AreaHeroProps) {
+  const bgImage = AREA_IMAGES[slug];
+
   return (
-    <section
-      className="relative py-20 lg:py-28"
-      style={{ background: heroGradient }}
-    >
+    <section className="relative py-28 lg:py-36 overflow-hidden">
+      {/* Background image or gradient fallback */}
+      {bgImage ? (
+        <img
+          src={bgImage}
+          alt={`Deck building in ${name}, ${state}`}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      ) : (
+        <div
+          className="absolute inset-0"
+          style={{ background: heroGradient }}
+        />
+      )}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
+
       <div className="container relative z-10">
         <div className="max-w-3xl">
-          <div className="flex items-center gap-2 mb-4">
-            <MapPin className="w-5 h-5 text-accent" />
-            <span className="text-white/80 font-medium">
+          {/* Location badge */}
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-white/10">
+            <MapPin className="w-4 h-4 text-accent" />
+            <span className="text-white/90 text-sm font-medium">
               {name}, {state}
             </span>
           </div>
+
           <h1 className="font-display text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 leading-tight">
             {headline}
           </h1>
-          <p className="text-lg text-white/80 mb-8 max-w-2xl leading-relaxed">
+          <p className="text-lg lg:text-xl text-white/80 mb-8 max-w-2xl leading-relaxed">
             {description}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 mb-8">
+
+          {/* CTA buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 mb-10">
             <Button size="xl" variant="accent" asChild>
               <a href="/contact">Get Your Free Estimate</a>
             </Button>
-            <Button size="xl" variant="outline" className="border-white/30 text-white hover:bg-white/10" asChild>
+            <Button
+              size="xl"
+              variant="outline"
+              className="border-white/30 text-white hover:bg-white/10"
+              asChild
+            >
               <PhoneLink phone={phone}>
                 <Phone className="w-5 h-5 mr-2" />
                 Call {phone.display}
               </PhoneLink>
             </Button>
           </div>
-          <div className="flex flex-wrap gap-6 text-white/70 text-sm">
-            <span className="flex items-center gap-2">
-              <Shield className="w-4 h-4" /> Licensed & Insured
+
+          {/* Trust badges */}
+          <div className="flex flex-wrap gap-x-6 gap-y-3">
+            <span className="flex items-center gap-2 text-white/70 text-sm bg-white/5 backdrop-blur-sm rounded-full px-4 py-2 border border-white/10">
+              <Shield className="w-4 h-4 text-accent" />
+              Licensed & Insured
             </span>
-            <span className="flex items-center gap-2">
-              <Clock className="w-4 h-4" /> 25+ Years Experience
+            <span className="flex items-center gap-2 text-white/70 text-sm bg-white/5 backdrop-blur-sm rounded-full px-4 py-2 border border-white/10">
+              <Clock className="w-4 h-4 text-accent" />
+              {COMPANY.experience} Years Experience
+            </span>
+            <span className="flex items-center gap-2 text-white/70 text-sm bg-white/5 backdrop-blur-sm rounded-full px-4 py-2 border border-white/10">
+              <Star className="w-4 h-4 text-accent" />
+              5-Star Rated
             </span>
           </div>
         </div>

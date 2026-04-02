@@ -4,3 +4,5 @@ dist/
 .env.local
 .DS_Store
 *.log
+# Raw project photos (originals with videos — web copies are in client/public/images/)
+/images/

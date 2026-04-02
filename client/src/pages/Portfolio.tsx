@@ -1,160 +1,228 @@
 import { useState } from "react";
-import { Camera, Phone } from "lucide-react";
+import { ArrowRight, Eye, MapPin, Phone, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import PhoneLink from "@/components/PhoneLink";
 import { COMPANY } from "@/lib/constants";
-
-const CATEGORIES = [
-  "All",
-  "Composite Decks",
-  "Wood Decks",
-  "Pergolas",
-  "Porches",
-  "Outdoor Kitchens",
-  "Railings",
-] as const;
-
-// Placeholder portfolio items until real photos are added
-const PORTFOLIO_ITEMS = [
-  { id: "1", category: "Composite Decks", title: "Trex Composite Deck", location: "Boston, MA", gradient: "linear-gradient(135deg, #8B6914 0%, #5C3D2E 100%)" },
-  { id: "2", category: "Composite Decks", title: "TimberTech Multi-Level", location: "Newton, MA", gradient: "linear-gradient(135deg, #6B4226 0%, #D4A853 100%)" },
-  { id: "3", category: "Wood Decks", title: "Cedar Deck with Planters", location: "Hingham, MA", gradient: "linear-gradient(135deg, #5C3D2E 0%, #2D5A3D 100%)" },
-  { id: "4", category: "Wood Decks", title: "Ipe Hardwood Deck", location: "Newport, RI", gradient: "linear-gradient(135deg, #3D2820 0%, #6B4226 100%)" },
-  { id: "5", category: "Pergolas", title: "Attached Pergola", location: "Portsmouth, NH", gradient: "linear-gradient(135deg, #2D5A3D 0%, #D4A853 100%)" },
-  { id: "6", category: "Pergolas", title: "Freestanding Louvered Pergola", location: "Cape Cod, MA", gradient: "linear-gradient(135deg, #D4A853 0%, #5C3D2E 100%)" },
-  { id: "7", category: "Porches", title: "Screened-In Porch", location: "Wellesley, MA", gradient: "linear-gradient(135deg, #5C3D2E 0%, #8B6914 100%)" },
-  { id: "8", category: "Porches", title: "Four-Season Porch", location: "Portland, ME", gradient: "linear-gradient(135deg, #2D5A3D 0%, #3D2820 100%)" },
-  { id: "9", category: "Outdoor Kitchens", title: "Outdoor Kitchen & Bar", location: "Andover, MA", gradient: "linear-gradient(135deg, #6B4226 0%, #2D5A3D 100%)" },
-  { id: "10", category: "Railings", title: "Cable Railing System", location: "Scituate, MA", gradient: "linear-gradient(135deg, #3D2820 0%, #D4A853 100%)" },
-  { id: "11", category: "Composite Decks", title: "Azek Pool Deck", location: "Warwick, RI", gradient: "linear-gradient(135deg, #D4A853 0%, #2D5A3D 100%)" },
-  { id: "12", category: "Railings", title: "Aluminum Railing with Lights", location: "Salem, MA", gradient: "linear-gradient(135deg, #5C3D2E 0%, #D4A853 50%, #2D5A3D 100%)" },
-];
+import {
+  HERO_IMAGES,
+  PORTFOLIO_IMAGES,
+  PORTFOLIO_CATEGORIES,
+  type PortfolioImage,
+} from "@/data/images";
 
 export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState<string>("All");
-  const [selectedItem, setSelectedItem] = useState<(typeof PORTFOLIO_ITEMS)[0] | null>(null);
+  const [selectedItem, setSelectedItem] = useState<PortfolioImage | null>(null);
 
-  const filtered = activeCategory === "All"
-    ? PORTFOLIO_ITEMS
-    : PORTFOLIO_ITEMS.filter((item) => item.category === activeCategory);
+  const filtered =
+    activeCategory === "All"
+      ? PORTFOLIO_IMAGES
+      : PORTFOLIO_IMAGES.filter((item) => item.category === activeCategory);
 
   return (
     <>
-      {/* Hero */}
-      <section
-        className="relative py-16 lg:py-20"
-        style={{ background: "linear-gradient(135deg, #5C3D2E 0%, #2D5A3D 100%)" }}
-      >
+      {/* ── Hero ── */}
+      <section className="relative h-[50vh] min-h-[400px] flex items-center overflow-hidden">
+        {/* Background image */}
+        <img
+          src={HERO_IMAGES.portfolio}
+          alt="Beautiful outdoor deck and living space"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/60" />
+
         <div className="container relative z-10">
           <div className="max-w-2xl">
-            <h1 className="font-display text-4xl lg:text-5xl font-bold text-white mb-4">
-              Our Portfolio
+            <p className="text-primary-foreground/70 uppercase tracking-widest text-sm font-medium mb-3">
+              Our Work
+            </p>
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 leading-tight">
+              Portfolio
             </h1>
-            <p className="text-lg text-white/80">
-              Browse our collection of custom deck builds, pergolas, porches, and outdoor living spaces
-              across New England.
+            <p className="text-lg md:text-xl text-white/80 leading-relaxed">
+              Browse our collection of custom deck builds, pergolas, porches,
+              and outdoor living spaces across New England.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Filter + Gallery */}
-      <section className="py-16 lg:py-24">
+      {/* ── Filter + Gallery ── */}
+      <section className="py-16 lg:py-24 bg-background">
         <div className="container">
-          {/* Category Filter */}
-          <div className="flex flex-wrap gap-2 mb-10">
-            {CATEGORIES.map((cat) => (
+          {/* Category filter pills */}
+          <div className="flex flex-wrap gap-2 mb-12 justify-center">
+            {PORTFOLIO_CATEGORIES.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                  activeCategory === cat
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-muted text-muted-foreground hover:bg-muted/80"
-                }`}
+                className={`
+                  px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200
+                  ${
+                    activeCategory === cat
+                      ? "bg-primary text-primary-foreground shadow-md shadow-primary/25"
+                      : "bg-muted text-muted-foreground hover:bg-muted/80 hover:text-foreground"
+                  }
+                `}
               >
                 {cat}
               </button>
             ))}
           </div>
 
-          {/* Gallery Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => setSelectedItem(item)}
-                className="group relative aspect-[4/3] rounded-lg overflow-hidden cursor-pointer text-left"
-              >
-                <div
-                  className="absolute inset-0 transition-transform duration-300 group-hover:scale-105"
-                  style={{ background: item.gradient }}
-                />
-                {/* Placeholder overlay */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <Camera className="w-10 h-10 text-white/40 mb-2" />
-                  <span className="text-white/40 text-sm">Photo Coming Soon</span>
-                </div>
-                {/* Info overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                  <p className="text-white font-semibold text-sm">{item.title}</p>
-                  <p className="text-white/70 text-xs">{item.location}</p>
-                </div>
-              </button>
-            ))}
+          {/* Masonry-style gallery grid */}
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-5 space-y-5">
+            {filtered.map((item, index) => {
+              // Alternate tall / short aspect ratios for visual interest
+              const isTall = index % 3 === 0;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => setSelectedItem(item)}
+                  className="group relative w-full break-inside-avoid rounded-xl overflow-hidden cursor-pointer text-left block"
+                >
+                  <div
+                    className={`relative overflow-hidden ${
+                      isTall ? "aspect-[3/4]" : "aspect-[4/3]"
+                    }`}
+                  >
+                    {/* Image */}
+                    <img
+                      src={item.src}
+                      alt={item.alt}
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+
+                    {/* Hover overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                    {/* Category label (always visible, bottom-left) */}
+                    <div className="absolute top-4 left-4 z-10">
+                      <span className="inline-block px-3 py-1 rounded-full bg-black/50 backdrop-blur-sm text-white text-xs font-medium">
+                        {item.category}
+                      </span>
+                    </div>
+
+                    {/* Hover content */}
+                    <div className="absolute inset-x-0 bottom-0 p-5 translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 z-10">
+                      <h3 className="text-white font-semibold text-base mb-1">
+                        {item.title}
+                      </h3>
+                      <div className="flex items-center gap-1.5 text-white/70 text-sm mb-3">
+                        <MapPin className="w-3.5 h-3.5" />
+                        {item.location}
+                      </div>
+                      <span className="inline-flex items-center gap-1.5 text-white text-sm font-medium">
+                        <Eye className="w-4 h-4" />
+                        View Project
+                      </span>
+                    </div>
+                  </div>
+                </button>
+              );
+            })}
           </div>
 
           {filtered.length === 0 && (
-            <p className="text-center text-muted-foreground py-12">
-              No projects in this category yet. Check back soon!
-            </p>
+            <div className="text-center py-20">
+              <p className="text-muted-foreground text-lg">
+                No projects in this category yet. Check back soon!
+              </p>
+            </div>
           )}
         </div>
       </section>
 
-      {/* Lightbox Dialog */}
+      {/* ── Lightbox Dialog ── */}
       <Dialog open={!!selectedItem} onOpenChange={() => setSelectedItem(null)}>
-        <DialogContent className="max-w-3xl">
-          <DialogTitle className="font-display text-xl">{selectedItem?.title}</DialogTitle>
-          <div
-            className="aspect-video rounded-md flex items-center justify-center"
-            style={{ background: selectedItem?.gradient }}
+        <DialogContent className="max-w-4xl p-0 overflow-hidden bg-black border-none">
+          <DialogTitle className="sr-only">
+            {selectedItem?.title}
+          </DialogTitle>
+
+          {/* Close button */}
+          <button
+            onClick={() => setSelectedItem(null)}
+            className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/80 transition-colors"
           >
-            <div className="text-center">
-              <Camera className="w-16 h-16 text-white/30 mx-auto mb-3" />
-              <p className="text-white/50">Photo Coming Soon</p>
+            <X className="w-5 h-5" />
+          </button>
+
+          {/* Image */}
+          {selectedItem && (
+            <div className="relative">
+              <img
+                src={selectedItem.src}
+                alt={selectedItem.alt}
+                className="w-full max-h-[70vh] object-contain bg-black"
+              />
+
+              {/* Info bar */}
+              <div className="bg-background p-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                  <h3 className="font-display text-lg font-semibold">
+                    {selectedItem.title}
+                  </h3>
+                  <div className="flex items-center gap-4 mt-1">
+                    <span className="text-sm text-muted-foreground">
+                      {selectedItem.category}
+                    </span>
+                    <span className="flex items-center gap-1 text-sm text-muted-foreground">
+                      <MapPin className="w-3.5 h-3.5" />
+                      {selectedItem.location}
+                    </span>
+                  </div>
+                </div>
+                <Button variant="accent" size="sm" asChild>
+                  <a href="/contact" className="inline-flex items-center gap-2">
+                    Get a Similar Build
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                </Button>
+              </div>
             </div>
-          </div>
-          <div className="flex justify-between items-center">
-            <div>
-              <p className="text-sm text-muted-foreground">{selectedItem?.category}</p>
-              <p className="text-sm text-muted-foreground">{selectedItem?.location}</p>
-            </div>
-            <Button variant="accent" size="sm" asChild>
-              <a href="/contact">Get a Similar Build</a>
-            </Button>
-          </div>
+          )}
         </DialogContent>
       </Dialog>
 
-      {/* CTA */}
-      <section className="py-16 lg:py-24 bg-muted">
-        <div className="container text-center">
-          <h2 className="font-display text-3xl lg:text-4xl font-bold mb-4">
+      {/* ── CTA with background image ── */}
+      <section className="relative py-24 lg:py-32 overflow-hidden">
+        {/* Background image */}
+        <img
+          src={HERO_IMAGES.cta}
+          alt="Outdoor living space"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/70" />
+
+        <div className="container relative z-10 text-center">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5">
             Ready to Start Your Project?
           </h2>
-          <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
+          <p className="text-white/75 mb-10 max-w-xl mx-auto text-lg leading-relaxed">
             Every project in our portfolio started with a free consultation.
-            Let's discuss your vision.
+            Let's discuss your vision and bring it to life.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" variant="accent" asChild>
-              <a href="/contact">Get Your Free Estimate</a>
+              <a
+                href="/contact"
+                className="inline-flex items-center gap-2 text-base"
+              >
+                Get Your Free Estimate
+                <ArrowRight className="w-5 h-5" />
+              </a>
             </Button>
-            <Button size="lg" variant="outline" asChild>
-              <PhoneLink className="inline-flex items-center gap-2">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white/30 text-white hover:bg-white/10"
+              asChild
+            >
+              <PhoneLink className="inline-flex items-center gap-2 text-base">
                 <Phone className="w-4 h-4" />
                 Call {COMPANY.phone.display}
               </PhoneLink>

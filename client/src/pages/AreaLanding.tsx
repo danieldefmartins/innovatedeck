@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useParams, Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import AreaHero from "@/components/AreaHero";
@@ -5,9 +6,19 @@ import ServiceCard from "@/components/ServiceCard";
 import PhoneLink from "@/components/PhoneLink";
 import { getAreaBySlug, areas } from "@/data/areas";
 import { services } from "@/data/services";
-import { PHONE_NUMBERS, COMPANY } from "@/lib/constants";
+import { HERO_IMAGES } from "@/data/images";
+import { COMPANY } from "@/lib/constants";
 import { useLocalPhone } from "@/lib/useLocalPhone";
-import { MapPin, Phone, Shield, Clock, CheckCircle } from "lucide-react";
+import {
+  MapPin,
+  Phone,
+  Shield,
+  Clock,
+  CheckCircle,
+  ChevronDown,
+  ChevronUp,
+  ArrowRight,
+} from "lucide-react";
 
 const trustSignals = [
   {
@@ -40,6 +51,7 @@ export default function AreaLanding() {
   const params = useParams<{ slug: string }>();
   const area = getAreaBySlug(params.slug);
   const phone = useLocalPhone(params.slug);
+  const [showZips, setShowZips] = useState(false);
 
   if (!area) {
     return (
@@ -62,7 +74,7 @@ export default function AreaLanding() {
 
   return (
     <>
-      {/* Hero */}
+      {/* ── Hero ── */}
       <AreaHero
         name={area.name}
         state={area.state}
@@ -70,9 +82,10 @@ export default function AreaLanding() {
         description={area.description}
         heroGradient={area.heroGradient}
         phone={phone}
+        slug={area.slug}
       />
 
-      {/* Why Choose Us */}
+      {/* ── Why Choose Us ── */}
       <section className="py-16 lg:py-24">
         <div className="container">
           <div className="text-center max-w-2xl mx-auto mb-12">
@@ -89,12 +102,12 @@ export default function AreaLanding() {
             {trustSignals.map((signal) => (
               <div
                 key={signal.title}
-                className="bg-muted rounded-lg p-6 text-center"
+                className="group bg-background rounded-xl p-6 text-center border border-border/50 hover:border-accent/40 hover:shadow-md transition-all"
               >
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <signal.icon className="w-6 h-6 text-primary" />
+                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-accent/10 transition-colors">
+                  <signal.icon className="w-7 h-7 text-primary group-hover:text-accent transition-colors" />
                 </div>
-                <h3 className="font-display font-semibold mb-2">
+                <h3 className="font-display font-semibold text-lg mb-2">
                   {signal.title}
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
@@ -106,8 +119,8 @@ export default function AreaLanding() {
         </div>
       </section>
 
-      {/* Services Available */}
-      <section className="py-16 lg:py-24 bg-muted">
+      {/* ── Services Available ── */}
+      <section className="py-16 lg:py-24 bg-muted/50">
         <div className="container">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="font-display text-3xl lg:text-4xl font-bold mb-4">
@@ -115,8 +128,8 @@ export default function AreaLanding() {
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed">
               We offer our full range of deck building and outdoor living
-              services to homeowners in {area.name}, {area.state} and surrounding
-              communities.
+              services to homeowners in {area.name}, {area.state} and
+              surrounding communities.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
@@ -134,25 +147,27 @@ export default function AreaLanding() {
         </div>
       </section>
 
-      {/* Neighborhoods */}
+      {/* ── Neighborhoods ── */}
       {area.neighborhoods && area.neighborhoods.length > 0 && (
         <section className="py-16 lg:py-24">
           <div className="container">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="font-display text-3xl lg:text-4xl font-bold mb-4 text-center">
-                Neighborhoods & Communities We Serve
-              </h2>
-              <p className="text-muted-foreground text-lg text-center mb-10 leading-relaxed">
-                Our team builds decks and outdoor living spaces throughout{" "}
-                {area.name} and these surrounding communities.
-              </p>
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-10">
+                <h2 className="font-display text-3xl lg:text-4xl font-bold mb-4">
+                  Neighborhoods & Communities We Serve
+                </h2>
+                <p className="text-muted-foreground text-lg leading-relaxed">
+                  Our team builds decks and outdoor living spaces throughout{" "}
+                  {area.name} and these surrounding communities.
+                </p>
+              </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
                 {area.neighborhoods.map((neighborhood) => (
                   <div
                     key={neighborhood}
-                    className="flex items-center gap-2 bg-muted rounded-md px-4 py-3"
+                    className="flex items-center gap-3 bg-muted/50 rounded-xl px-4 py-3.5 border border-border/50 hover:border-accent/30 hover:bg-accent/5 transition-all"
                   >
-                    <MapPin className="w-4 h-4 text-primary shrink-0" />
+                    <MapPin className="w-4 h-4 text-accent shrink-0" />
                     <span className="text-sm font-medium">{neighborhood}</span>
                   </div>
                 ))}
@@ -162,62 +177,74 @@ export default function AreaLanding() {
         </section>
       )}
 
-      {/* Local Content (SEO) */}
+      {/* ── Local Content (SEO prose) ── */}
       {area.localContent && (
-        <section className="py-16 lg:py-24 bg-muted">
+        <section className="py-16 lg:py-24 bg-muted/50">
           <div className="container">
             <div className="max-w-4xl mx-auto">
-              <h2 className="font-display text-3xl lg:text-4xl font-bold mb-6">
-                Deck Building in {area.name}, {area.state}
-              </h2>
-              <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed">
-                <p>{area.localContent}</p>
+              <div className="bg-background rounded-2xl p-8 lg:p-12 border border-border/50 shadow-sm">
+                <h2 className="font-display text-3xl lg:text-4xl font-bold mb-6">
+                  Deck Building in {area.name}, {area.state}
+                </h2>
+                <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed prose-p:text-muted-foreground">
+                  <p>{area.localContent}</p>
+                </div>
               </div>
             </div>
           </div>
         </section>
       )}
 
-      {/* ZIP Codes */}
+      {/* ── ZIP Codes (collapsible) ── */}
       {area.zipCodes && area.zipCodes.length > 0 && (
-        <section className="py-16 lg:py-24">
+        <section className="py-12 lg:py-16">
           <div className="container">
             <div className="max-w-4xl mx-auto">
-              <h2 className="font-display text-3xl lg:text-4xl font-bold mb-4 text-center">
-                ZIP Codes We Serve in {area.name}
-              </h2>
-              <p className="text-muted-foreground text-lg text-center mb-8">
-                We provide deck building and outdoor living services to the
-                following ZIP codes in and around {area.name}.
-              </p>
-              <div className="flex flex-wrap justify-center gap-2">
-                {area.zipCodes.map((zip) => (
-                  <span
-                    key={zip}
-                    className="inline-flex items-center rounded-full bg-muted px-4 py-1.5 text-sm font-medium border border-border"
-                  >
-                    {zip}
-                  </span>
-                ))}
-              </div>
+              <button
+                onClick={() => setShowZips(!showZips)}
+                className="w-full flex items-center justify-between bg-muted/50 rounded-xl px-6 py-4 border border-border/50 hover:border-accent/30 transition-all group"
+              >
+                <span className="font-display font-semibold text-lg">
+                  ZIP Codes We Serve in {area.name}
+                </span>
+                {showZips ? (
+                  <ChevronUp className="w-5 h-5 text-muted-foreground group-hover:text-accent transition-colors" />
+                ) : (
+                  <ChevronDown className="w-5 h-5 text-muted-foreground group-hover:text-accent transition-colors" />
+                )}
+              </button>
+              {showZips && (
+                <div className="mt-4 px-6 pb-2">
+                  <div className="flex flex-wrap gap-2">
+                    {area.zipCodes.map((zip) => (
+                      <span
+                        key={zip}
+                        className="inline-flex items-center rounded-full bg-muted/50 px-4 py-1.5 text-sm font-medium text-muted-foreground border border-border/50"
+                      >
+                        {zip}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </section>
       )}
 
-      {/* Nearby Areas */}
+      {/* ── Nearby Areas (linked cards) ── */}
       {area.nearbyAreas && area.nearbyAreas.length > 0 && (
-        <section className="py-16 lg:py-24 bg-muted">
+        <section className="py-16 lg:py-24 bg-muted/50">
           <div className="container">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="font-display text-3xl lg:text-4xl font-bold mb-4">
                 Nearby Areas We Serve
               </h2>
-              <p className="text-muted-foreground text-lg mb-8">
+              <p className="text-muted-foreground text-lg mb-10">
                 In addition to {area.name}, we proudly serve homeowners across
                 these nearby regions.
               </p>
-              <div className="flex flex-wrap justify-center gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {area.nearbyAreas.map((slug) => {
                   const nearby = areas.find((a) => a.slug === slug);
                   if (!nearby) return null;
@@ -225,10 +252,20 @@ export default function AreaLanding() {
                     <Link
                       key={slug}
                       href={`/areas/${slug}`}
-                      className="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-5 py-3 text-sm font-medium hover:border-primary hover:text-primary transition-colors"
+                      className="group flex items-center gap-3 rounded-xl border border-border/50 bg-background px-6 py-5 hover:border-accent/40 hover:shadow-md transition-all"
                     >
-                      <MapPin className="w-4 h-4" />
-                      {nearby.name}
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-accent/10 transition-colors">
+                        <MapPin className="w-5 h-5 text-primary group-hover:text-accent transition-colors" />
+                      </div>
+                      <div className="text-left">
+                        <span className="font-display font-semibold block group-hover:text-accent transition-colors">
+                          {nearby.name}
+                        </span>
+                        <span className="text-xs text-muted-foreground">
+                          {nearby.state}
+                        </span>
+                      </div>
+                      <ArrowRight className="w-4 h-4 text-muted-foreground ml-auto group-hover:text-accent group-hover:translate-x-1 transition-all" />
                     </Link>
                   );
                 })}
@@ -238,14 +275,17 @@ export default function AreaLanding() {
         </section>
       )}
 
-      {/* CTA */}
-      <section
-        className="py-16 lg:py-24"
-        style={{ background: area.heroGradient }}
-      >
-        <div className="container">
+      {/* ── CTA with background image ── */}
+      <section className="relative py-20 lg:py-28 overflow-hidden">
+        <img
+          src={HERO_IMAGES.cta}
+          alt="Beautiful deck project"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/70" />
+        <div className="container relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-display text-3xl lg:text-4xl font-bold text-white mb-4">
+            <h2 className="font-display text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-4">
               Get Your Free Deck Estimate in {area.name}
             </h2>
             <p className="text-white/80 text-lg mb-8 leading-relaxed">
