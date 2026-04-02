@@ -31,27 +31,27 @@ const stats = [
 const differentiators = [
   {
     icon: Clock,
-    title: "25+ Years of Experience",
+    title: "25+ Years Experience",
     description:
-      "Over two decades of building premium decks and outdoor living spaces across New England. Our experience means fewer surprises and better results.",
+      "Hundreds of projects completed across New England. Fewer surprises, better results.",
   },
   {
     icon: Leaf,
-    title: "Quality Materials",
+    title: "Premium Materials",
     description:
-      "Certified installers of Trex, TimberTech, and Azek. We use only premium-grade lumber and materials backed by industry-leading warranties.",
+      "Certified Trex, TimberTech, and Azek installers with manufacturer-backed warranties.",
   },
   {
     icon: MapPin,
-    title: "Local Expertise",
+    title: "Built for Our Climate",
     description:
-      "We build for New England weather. Freeze-thaw cycles, coastal salt air, heavy snow loads — our designs and materials are chosen to last in our climate.",
+      "Engineered for freeze-thaw cycles, coastal salt air, and heavy New England snow loads.",
   },
   {
     icon: Shield,
-    title: "Workmanship Warranty",
+    title: "Guaranteed Work",
     description:
-      "Every project is backed by our craftsmanship guarantee. We stand behind our work because we know it's built to last.",
+      "Every project backed by our craftsmanship warranty. We stand behind what we build.",
   },
 ];
 
@@ -112,7 +112,7 @@ export default function Home() {
           alt="Premium pool deck with wood railings built by Innovate Deck"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60" />
 
         <div className="container relative z-10 py-24 lg:py-40">
           <div className="max-w-3xl">
@@ -191,9 +191,9 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {homepageServices.map((service) => (
               <Link key={service.slug} href={`/services/${service.slug}`}>
-                <div className="group cursor-pointer bg-card rounded-xl overflow-hidden border border-border/60 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 h-full">
+                <div className="group cursor-pointer bg-card rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full">
                   {/* Photo */}
-                  <div className="relative h-52 overflow-hidden">
+                  <div className="relative h-56 overflow-hidden">
                     <img
                       src={SERVICE_IMAGES[service.slug] || ""}
                       alt={service.title}
@@ -201,11 +201,11 @@ export default function Home() {
                     />
                   </div>
                   {/* Content */}
-                  <div className="p-5">
-                    <h3 className="font-display text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+                  <div className="p-6">
+                    <h3 className="font-display text-base font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
                       {service.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2 mb-3">
+                    <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2 mb-4">
                       {service.shortDescription}
                     </p>
                     <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary group-hover:text-accent group-hover:gap-2 transition-all duration-300">
@@ -244,21 +244,20 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 max-w-3xl mx-auto">
             {differentiators.map((item) => (
-              <div
-                key={item.title}
-                className="text-center"
-              >
-                <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mx-auto mb-5">
-                  <item.icon className="w-7 h-7 text-accent" />
+              <div key={item.title} className="flex gap-4">
+                <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
+                  <item.icon className="w-6 h-6 text-accent" />
                 </div>
-                <h3 className="font-display text-lg font-semibold mb-3">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-white/60 leading-relaxed">
-                  {item.description}
-                </p>
+                <div>
+                  <h3 className="font-display text-base font-semibold mb-1.5">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-white/60 leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -266,7 +265,7 @@ export default function Home() {
       </section>
 
       {/* ───────── Portfolio Preview ───────── */}
-      <section className="py-20 lg:py-28 bg-muted">
+      <section className="py-20 lg:py-28 bg-background">
         <div className="container">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-4">
@@ -327,21 +326,15 @@ export default function Home() {
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
               What Our Clients Say
             </h2>
-            <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
-              Real feedback from homeowners who trusted us with their outdoor
-              living projects.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {testimonials.slice(0, 3).map((t, i) => (
               <div
                 key={i}
-                className="bg-card rounded-xl p-6 lg:p-8 border border-border/60 shadow-sm hover:shadow-lg transition-all duration-500 relative flex flex-col"
+                className="bg-card rounded-xl p-6 shadow-sm flex flex-col"
               >
-                <Quote className="w-10 h-10 text-accent/15 absolute top-6 right-6" />
-
-                <div className="flex gap-1 mb-5">
+                <div className="flex gap-1 mb-4">
                   {Array.from({ length: t.rating }).map((_, j) => (
                     <Star
                       key={j}
@@ -350,13 +343,13 @@ export default function Home() {
                   ))}
                 </div>
 
-                <p className="text-sm text-muted-foreground leading-relaxed italic mb-6 relative z-10 flex-1">
+                <p className="text-sm text-muted-foreground leading-relaxed mb-5 flex-1 line-clamp-4">
                   "{t.text}"
                 </p>
 
-                <div className="flex items-center gap-3 pt-5 border-t border-border/50">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <span className="text-sm font-bold text-primary">
+                <div className="flex items-center gap-3 pt-4 border-t border-border/40">
+                  <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <span className="text-xs font-bold text-primary">
                       {t.name.charAt(0)}
                     </span>
                   </div>
@@ -365,21 +358,12 @@ export default function Home() {
                       {t.name}
                     </p>
                     <p className="text-xs text-muted-foreground">
-                      {t.location} &middot; {t.service}
+                      {t.location}
                     </p>
                   </div>
                 </div>
               </div>
             ))}
-          </div>
-
-          <div className="text-center mt-14">
-            <Button variant="outline" size="lg" asChild>
-              <Link href="/testimonials">
-                Read More Reviews
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </Button>
           </div>
         </div>
       </section>
