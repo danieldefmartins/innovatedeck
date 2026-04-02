@@ -6,12 +6,10 @@ import {
   Leaf,
   MapPin,
   Phone,
-  Quote,
   Shield,
   Star,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import PhoneLink from "@/components/PhoneLink";
 import { services } from "@/data/services";
 import { testimonials } from "@/data/testimonials";
 import { SERVICE_IMAGES, PORTFOLIO_IMAGES } from "@/data/images";
@@ -328,13 +326,13 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {testimonials.slice(0, 3).map((t, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {testimonials.slice(0, 4).map((t, i) => (
               <div
                 key={i}
-                className="bg-card rounded-xl p-6 shadow-sm flex flex-col"
+                className="bg-card rounded-xl p-8 shadow-sm flex flex-col"
               >
-                <div className="flex gap-1 mb-4">
+                <div className="flex gap-1 mb-5">
                   {Array.from({ length: t.rating }).map((_, j) => (
                     <Star
                       key={j}
@@ -343,13 +341,13 @@ export default function Home() {
                   ))}
                 </div>
 
-                <p className="text-sm text-muted-foreground leading-relaxed mb-5 flex-1 line-clamp-4">
-                  "{t.text}"
+                <p className="text-sm text-muted-foreground leading-relaxed mb-6 flex-1 line-clamp-3">
+                  {t.text}
                 </p>
 
-                <div className="flex items-center gap-3 pt-4 border-t border-border/40">
-                  <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <span className="text-xs font-bold text-primary">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <span className="text-sm font-bold text-primary">
                       {t.name.charAt(0)}
                     </span>
                   </div>
@@ -358,7 +356,7 @@ export default function Home() {
                       {t.name}
                     </p>
                     <p className="text-xs text-muted-foreground">
-                      {t.location}
+                      {t.location} &middot; {t.service}
                     </p>
                   </div>
                 </div>
@@ -384,35 +382,28 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-            {serviceAreas.map((group) => (
-              <div
-                key={group.state}
-                className="bg-card rounded-xl p-6 border border-border/60 shadow-sm hover:shadow-lg transition-all duration-500"
-              >
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-5 h-5 text-primary" />
-                  </div>
-                  <h3 className="font-display text-lg font-semibold text-foreground">
+          <div className="max-w-3xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-10 lg:gap-14">
+              {serviceAreas.map((group) => (
+                <div key={group.state}>
+                  <h3 className="font-display text-sm font-bold text-primary uppercase tracking-wider mb-4">
                     {group.state}
                   </h3>
+                  <ul className="space-y-2.5">
+                    {group.areas.map((area) => (
+                      <li key={area.slug}>
+                        <Link
+                          href={`/areas/${area.slug}`}
+                          className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          {area.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="space-y-2">
-                  {group.areas.map((area) => (
-                    <li key={area.slug}>
-                      <Link
-                        href={`/areas/${area.slug}`}
-                        className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center gap-2.5 group"
-                      >
-                        <span className="w-1.5 h-1.5 rounded-full bg-accent/40 group-hover:bg-accent transition-colors duration-300 flex-shrink-0" />
-                        {area.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
           <div className="text-center mt-14">
@@ -454,17 +445,13 @@ export default function Home() {
                 Get Free Estimate
               </Link>
             </Button>
-            <Button
-              variant="outline"
-              size="xl"
-              className="border-white/30 text-white hover:bg-white/10 hover:text-white backdrop-blur-sm"
-              asChild
+            <a
+              href={`tel:+${COMPANY.phone.tel}`}
+              className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-transparent px-8 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/10"
             >
-              <PhoneLink className="inline-flex items-center gap-2">
-                <Phone className="w-5 h-5" />
-                {COMPANY.phone.display}
-              </PhoneLink>
-            </Button>
+              <Phone className="w-5 h-5" />
+              {COMPANY.phone.display}
+            </a>
           </div>
         </div>
       </section>
