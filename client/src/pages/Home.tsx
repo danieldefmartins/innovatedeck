@@ -188,25 +188,28 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {homepageServices.map((service) => (
               <Link key={service.slug} href={`/services/${service.slug}`}>
-                <div className="group relative h-72 rounded-xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-1">
-                  <img
-                    src={SERVICE_IMAGES[service.slug] || ""}
-                    alt={service.title}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent transition-all duration-500 group-hover:from-black/90" />
-                  <div className="absolute inset-0 flex flex-col justify-end p-6">
-                    <h3 className="text-lg font-semibold text-white mb-2 transition-transform duration-500 group-hover:-translate-y-1">
+                <div className="group cursor-pointer bg-card rounded-xl overflow-hidden border border-border/60 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 h-full">
+                  {/* Photo */}
+                  <div className="relative h-52 overflow-hidden">
+                    <img
+                      src={SERVICE_IMAGES[service.slug] || ""}
+                      alt={service.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  {/* Content */}
+                  <div className="p-5">
+                    <h3 className="font-display text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
                       {service.title}
                     </h3>
-                    <p className="text-white/70 text-sm leading-relaxed line-clamp-2 transition-all duration-500 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0">
+                    <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2 mb-3">
                       {service.shortDescription}
                     </p>
-                    <span className="inline-flex items-center gap-1.5 text-accent text-sm font-medium mt-3 transition-all duration-500 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0">
-                      Learn More <ArrowRight className="w-4 h-4" />
+                    <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary group-hover:text-accent group-hover:gap-2 transition-all duration-300">
+                      Learn More <ArrowRight className="w-3.5 h-3.5" />
                     </span>
                   </div>
                 </div>
@@ -214,7 +217,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="text-center mt-14">
+          <div className="text-center mt-12">
             <Button variant="outline" size="lg" asChild>
               <Link href="/services">
                 View All Services
@@ -226,34 +229,34 @@ export default function Home() {
       </section>
 
       {/* ───────── Why Choose Us ───────── */}
-      <section className="py-20 lg:py-28 bg-muted">
+      <section className="py-20 lg:py-28 bg-primary text-white">
         <div className="container">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-4">
               The Innovate Deck Difference
             </p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
+            <h2 className="font-display text-3xl md:text-4xl font-bold mb-5">
               Why Choose Us
             </h2>
-            <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
+            <p className="text-white/70 leading-relaxed max-w-xl mx-auto">
               When you hire us, you get more than a contractor — you get a
               dedicated partner committed to building something exceptional.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {differentiators.map((item) => (
               <div
                 key={item.title}
-                className="bg-card rounded-xl p-7 lg:p-8 border border-border/60 shadow-sm hover:shadow-lg transition-all duration-500"
+                className="text-center"
               >
-                <div className="w-12 h-12 rounded-lg bg-accent flex items-center justify-center mb-5 shadow-md shadow-accent/20">
-                  <item.icon className="w-6 h-6 text-white" />
+                <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mx-auto mb-5">
+                  <item.icon className="w-7 h-7 text-accent" />
                 </div>
-                <h3 className="font-display text-lg font-semibold text-foreground mb-3">
+                <h3 className="font-display text-lg font-semibold mb-3">
                   {item.title}
                 </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-sm text-white/60 leading-relaxed">
                   {item.description}
                 </p>
               </div>
@@ -263,7 +266,7 @@ export default function Home() {
       </section>
 
       {/* ───────── Portfolio Preview ───────── */}
-      <section className="py-20 lg:py-28 bg-background">
+      <section className="py-20 lg:py-28 bg-muted">
         <div className="container">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-4">
@@ -273,35 +276,37 @@ export default function Home() {
               See Our Work
             </h2>
             <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
-              Browse a selection of our recent projects across New England. Every
-              build reflects our commitment to craftsmanship and quality.
+              Browse a selection of our recent projects across New England.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {homepagePortfolio.map((item) => (
               <Link key={item.id} href="/portfolio">
-                <div className="group relative h-72 rounded-xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-1">
-                  <img
-                    src={item.src}
-                    alt={item.alt}
-                    className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-70 group-hover:opacity-90 transition-all duration-500" />
-                  <div className="absolute inset-0 flex flex-col justify-end p-6">
-                    <h3 className="font-display text-lg font-semibold text-white transition-transform duration-500 translate-y-1 group-hover:translate-y-0">
-                      {item.title}
-                    </h3>
-                    <p className="text-white/60 text-sm mt-1 transition-all duration-500 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0">
-                      {item.location}
-                    </p>
+                <div className="group cursor-pointer rounded-xl overflow-hidden">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
+                    <img
+                      src={item.src}
+                      alt={item.alt}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    {/* Subtle gradient only at bottom for text */}
+                    <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-4">
+                      <p className="text-white font-medium text-sm">
+                        {item.title}
+                      </p>
+                      <p className="text-white/50 text-xs mt-0.5">
+                        {item.location}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </Link>
             ))}
           </div>
 
-          <div className="text-center mt-14">
+          <div className="text-center mt-12">
             <Button variant="outline" size="lg" asChild>
               <Link href="/portfolio">
                 View Full Portfolio
