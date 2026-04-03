@@ -24,7 +24,7 @@ export default function Portfolio() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative min-h-[400px] flex items-center overflow-hidden pt-36 lg:pt-44 pb-20 lg:pb-28">
+      <section className="relative min-h-[400px] flex items-center overflow-hidden pt-40 lg:pt-52 pb-16 lg:pb-24">
         <img
           src={HERO_IMAGES.portfolio}
           alt="Beautiful outdoor deck and living space"
@@ -35,10 +35,10 @@ export default function Portfolio() {
         <div className="container relative z-10">
           <FadeIn>
             <div className="max-w-2xl">
-              <p className="text-primary-foreground/70 uppercase tracking-widest text-sm font-medium mb-5">
+              <p className="text-primary-foreground/70 uppercase tracking-widest text-sm font-medium mb-3">
                 Our Work
               </p>
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-[1.15]">
+              <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-[1.15]">
                 Portfolio
               </h1>
               <p className="text-lg text-white/80 leading-relaxed">
@@ -51,17 +51,17 @@ export default function Portfolio() {
       </section>
 
       {/* ── Filter + Gallery ── */}
-      <section className="py-28 lg:py-36 bg-background">
+      <section className="py-20 lg:py-28 bg-background">
         <div className="container">
           {/* Category filter pills */}
           <FadeIn>
-            <div className="flex flex-wrap gap-3 mb-12 justify-center">
+            <div className="flex flex-wrap gap-3 mb-10 justify-center">
               {PORTFOLIO_CATEGORIES.map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
                   className={`
-                    px-6 py-3 rounded-full text-sm font-medium transition-all duration-200
+                    px-5 py-2 rounded-full text-sm font-medium transition-all duration-200
                     ${
                       activeCategory === cat
                         ? "bg-primary text-primary-foreground shadow-md shadow-primary/25"
@@ -174,7 +174,7 @@ export default function Portfolio() {
       </Dialog>
 
       {/* ── CTA with background image ── */}
-      <section className="relative py-28 lg:py-36 overflow-hidden">
+      <section className="relative py-20 lg:py-28 overflow-hidden">
         <img
           src={HERO_IMAGES.cta}
           alt="Outdoor living space"
@@ -184,10 +184,10 @@ export default function Portfolio() {
 
         <div className="container relative z-10 text-center">
           <FadeIn>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+            <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
               Ready to Start Your Project?
             </h2>
-            <p className="text-white/75 text-lg mb-12 max-w-xl mx-auto leading-relaxed">
+            <p className="text-white/75 mb-8 max-w-xl mx-auto leading-relaxed">
               Every project in our portfolio started with a free consultation.
               Let's discuss your vision and bring it to life.
             </p>

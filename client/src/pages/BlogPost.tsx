@@ -15,7 +15,7 @@ export default function BlogPost() {
 
   if (!post || !Content) {
     return (
-      <section className="pt-36 lg:pt-44 py-24">
+      <section className="pt-40 lg:pt-52 py-24">
         <div className="container text-center">
           <h1 className="font-display text-3xl font-bold mb-4">
             Article Not Found
@@ -36,7 +36,7 @@ export default function BlogPost() {
   return (
     <>
       {/* ── Hero with blog post image ── */}
-      <section className="relative pt-36 lg:pt-44 pb-20 lg:pb-28 overflow-hidden">
+      <section className="relative pt-40 lg:pt-52 pb-16 lg:pb-24 overflow-hidden">
         {heroImage ? (
           <img
             src={heroImage}
@@ -73,7 +73,7 @@ export default function BlogPost() {
                 </span>
               </div>
 
-              <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.15]">
+              <h1 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-[1.15]">
                 {post.title}
               </h1>
             </div>
@@ -82,7 +82,7 @@ export default function BlogPost() {
       </section>
 
       {/* ── Article Content ── */}
-      <section className="py-20 lg:py-28">
+      <section className="py-16 lg:py-24">
         <div className="container">
           <div className="max-w-3xl lg:max-w-[52rem] mx-auto">
             <FadeIn>
