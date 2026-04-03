@@ -276,7 +276,7 @@ export default function Home() {
       </section>
 
       {/* ───────── 5. How We Work ───────── */}
-      <section className="py-20 lg:py-28">
+      <section className="py-20 lg:py-28 bg-muted">
         <div className="container">
           <FadeIn>
             <div className="text-center mb-16 lg:mb-20">
@@ -310,7 +310,7 @@ export default function Home() {
       </section>
 
       {/* ───────── 6. Portfolio Preview ───────── */}
-      <section className="py-20 lg:py-28 bg-muted">
+      <section className="py-20 lg:py-28">
         <div className="container">
           <FadeIn>
             <div className="text-center mb-12 lg:mb-16">
@@ -361,23 +361,33 @@ export default function Home() {
       </section>
 
       {/* ───────── 7. Featured Testimonial ───────── */}
-      <section className="py-20 lg:py-28">
+      <section className="py-20 lg:py-28 bg-primary text-white">
         <div className="container">
           <FadeIn>
-            <div className="max-w-2xl mx-auto text-center">
-              <span className="font-display text-6xl text-accent/25 leading-none block mb-6">
+            <div className="max-w-3xl mx-auto text-center">
+              <p className="text-accent font-semibold tracking-wider uppercase text-xs mb-6">
+                What Our Clients Say
+              </p>
+              <span className="font-display text-5xl text-white/15 leading-none block mb-4">
                 &ldquo;
               </span>
-              <p className="text-lg md:text-xl italic text-foreground leading-relaxed mb-8">
+              <p className="text-base md:text-lg italic text-white/85 leading-relaxed mb-8 max-w-2xl mx-auto">
                 {featuredTestimonial.text}
               </p>
-              <div>
-                <p className="font-semibold text-foreground">
-                  {featuredTestimonial.name}
-                </p>
-                <p className="text-sm text-muted-foreground mt-1">
-                  {featuredTestimonial.location}
-                </p>
+              <div className="flex items-center justify-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
+                  <span className="font-display font-bold text-accent text-sm">
+                    {featuredTestimonial.name.charAt(0)}
+                  </span>
+                </div>
+                <div className="text-left">
+                  <p className="font-semibold text-white text-sm">
+                    {featuredTestimonial.name}
+                  </p>
+                  <p className="text-xs text-white/50">
+                    {featuredTestimonial.location}
+                  </p>
+                </div>
               </div>
             </div>
           </FadeIn>
@@ -410,13 +420,17 @@ export default function Home() {
                   Get Free Estimate
                 </Link>
               </Button>
-              <a
-                href={`tel:+${COMPANY.phone.tel}`}
-                className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-transparent px-8 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/10"
+              <Button
+                variant="outline"
+                size="xl"
+                className="border-white/40 bg-white/5 text-white hover:bg-white/15 hover:text-white backdrop-blur-sm"
+                asChild
               >
-                <Phone className="w-5 h-5" />
-                {COMPANY.phone.display}
-              </a>
+                <a href={`tel:+${COMPANY.phone.tel}`}>
+                  <Phone className="w-5 h-5" />
+                  {COMPANY.phone.display}
+                </a>
+              </Button>
             </div>
           </FadeIn>
         </div>
