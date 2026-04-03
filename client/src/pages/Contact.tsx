@@ -106,7 +106,7 @@ export default function Contact() {
       </section>
 
       {/* ───────── Form + Contact Info ───────── */}
-      <section className="py-20 lg:py-24 bg-background">
+      <section className="py-24 lg:py-32 bg-background">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
             {/* Form */}
@@ -207,7 +207,7 @@ export default function Contact() {
       </section>
 
       {/* ───────── Map / Location Section ───────── */}
-      <section className="py-20 lg:py-24 bg-muted">
+      <section className="py-24 lg:py-32 bg-muted">
         <div className="container">
           <FadeIn>
             <div className="max-w-3xl mx-auto text-center">

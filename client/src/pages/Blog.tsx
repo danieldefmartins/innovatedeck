@@ -34,7 +34,7 @@ export default function Blog() {
       </section>
 
       {/* ── Blog Grid ── */}
-      <section className="py-20 lg:py-24">
+      <section className="py-24 lg:py-32">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {blogPosts.map((post, i) => {

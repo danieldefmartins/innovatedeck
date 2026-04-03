@@ -83,10 +83,10 @@ export default function Services() {
       </section>
 
       {/* ───────── Company Intro ───────── */}
-      <section className="py-20 lg:py-28 bg-background">
+      <section className="py-24 lg:py-32 bg-background">
         <div className="container">
           <FadeIn>
-            <div className="text-center max-w-2xl mx-auto mb-14">
+            <div className="text-center max-w-2xl mx-auto mb-16">
               <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-4">
                 Comprehensive Solutions
               </p>
@@ -107,10 +107,10 @@ export default function Services() {
       </section>
 
       {/* ───────── Services Grid ───────── */}
-      <section className="py-20 lg:py-28 bg-muted">
+      <section className="py-24 lg:py-32 bg-muted">
         <div className="container">
           <FadeIn>
-            <div className="text-center max-w-2xl mx-auto mb-14">
+            <div className="text-center max-w-2xl mx-auto mb-16">
               <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
                 Our Services
               </h2>
@@ -138,10 +138,10 @@ export default function Services() {
       </section>
 
       {/* ───────── Our Process ───────── */}
-      <section className="py-20 lg:py-28 bg-background">
+      <section className="py-24 lg:py-32 bg-background">
         <div className="container">
           <FadeIn>
-            <div className="text-center max-w-2xl mx-auto mb-14">
+            <div className="text-center max-w-2xl mx-auto mb-16">
               <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-4">
                 How We Work
               </p>
@@ -193,7 +193,7 @@ export default function Services() {
       </section>
 
       {/* ───────── CTA ───────── */}
-      <section className="relative py-20 lg:py-28 overflow-hidden">
+      <section className="relative py-24 lg:py-32 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${HERO_IMAGES.cta})` }}

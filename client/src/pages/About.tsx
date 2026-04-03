@@ -107,7 +107,7 @@ export default function About() {
       </section>
 
       {/* ───────── Our Story (Split Layout) ───────── */}
-      <section className="py-20 lg:py-24 bg-background">
+      <section className="py-24 lg:py-32 bg-background">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Text */}
@@ -205,10 +205,10 @@ export default function About() {
       </section>
 
       {/* ───────── Our Values ───────── */}
-      <section className="py-20 lg:py-24 bg-background">
+      <section className="py-24 lg:py-32 bg-background">
         <div className="container">
           <FadeIn>
-            <div className="text-center max-w-2xl mx-auto mb-14">
+            <div className="text-center max-w-2xl mx-auto mb-16">
               <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-4">
                 Our Values
               </p>
@@ -250,10 +250,10 @@ export default function About() {
       </section>
 
       {/* ───────── Built for New England ───────── */}
-      <section className="py-20 lg:py-24 bg-muted">
+      <section className="py-24 lg:py-32 bg-muted">
         <div className="container">
           <FadeIn>
-            <div className="text-center max-w-2xl mx-auto mb-14">
+            <div className="text-center max-w-2xl mx-auto mb-16">
               <p className="text-secondary font-semibold tracking-wider uppercase text-sm mb-4">
                 Local Expertise
               </p>
@@ -290,7 +290,7 @@ export default function About() {
       </section>
 
       {/* ───────── CTA ───────── */}
-      <section className="relative py-20 lg:py-24 overflow-hidden">
+      <section className="relative py-24 lg:py-32 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${HERO_IMAGES.cta})` }}

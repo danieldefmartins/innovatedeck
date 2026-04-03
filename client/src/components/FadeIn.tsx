@@ -12,7 +12,7 @@ export default function FadeIn({
   children,
   delay = 0,
   direction = "up",
-  duration = 600,
+  duration = 500,
   className = "",
 }: FadeInProps) {
   const ref = useRef<HTMLDivElement>(null);
@@ -22,6 +22,13 @@ export default function FadeIn({
     const el = ref.current;
     if (!el) return;
 
+    // If element is already in viewport on mount, show immediately
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      setVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -29,7 +36,7 @@ export default function FadeIn({
           observer.unobserve(el);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.05, rootMargin: "0px 0px 60px 0px" }
     );
 
     observer.observe(el);
@@ -37,9 +44,9 @@ export default function FadeIn({
   }, []);
 
   const transforms: Record<string, string> = {
-    up: "translateY(24px)",
-    left: "translateX(-24px)",
-    right: "translateX(24px)",
+    up: "translateY(16px)",
+    left: "translateX(-16px)",
+    right: "translateX(16px)",
     none: "none",
   };
 

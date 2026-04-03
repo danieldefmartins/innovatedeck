@@ -51,7 +51,7 @@ export default function Portfolio() {
       </section>
 
       {/* ── Filter + Gallery ── */}
-      <section className="py-20 lg:py-24 bg-background">
+      <section className="py-24 lg:py-32 bg-background">
         <div className="container">
           {/* Category filter pills */}
           <FadeIn>
@@ -174,7 +174,7 @@ export default function Portfolio() {
       </Dialog>
 
       {/* ── CTA with background image ── */}
-      <section className="relative py-20 lg:py-24 overflow-hidden">
+      <section className="relative py-24 lg:py-32 overflow-hidden">
         <img
           src={HERO_IMAGES.cta}
           alt="Outdoor living space"

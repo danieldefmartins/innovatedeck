@@ -111,11 +111,11 @@ export default function ServiceDetail() {
       </section>
 
       {/* ── What's Included ── */}
-      <section className="py-20 lg:py-24 bg-muted/50">
+      <section className="py-24 lg:py-32 bg-muted/50">
         <div className="container">
           <div className="max-w-5xl mx-auto">
             <FadeIn>
-              <div className="text-center max-w-2xl mx-auto mb-14">
+              <div className="text-center max-w-2xl mx-auto mb-16">
                 <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
                   What's Included
                 </h2>
@@ -144,10 +144,10 @@ export default function ServiceDetail() {
       </section>
 
       {/* ── Benefits ── */}
-      <section className="py-20 lg:py-24">
+      <section className="py-24 lg:py-32">
         <div className="container">
           <FadeIn>
-            <div className="text-center max-w-2xl mx-auto mb-14">
+            <div className="text-center max-w-2xl mx-auto mb-16">
               <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
                 Why Choose {service.title}
               </h2>
@@ -175,10 +175,10 @@ export default function ServiceDetail() {
       </section>
 
       {/* ── Our Process ── */}
-      <section className="py-20 lg:py-24 bg-muted/50">
+      <section className="py-24 lg:py-32 bg-muted/50">
         <div className="container">
           <FadeIn>
-            <div className="text-center max-w-2xl mx-auto mb-14">
+            <div className="text-center max-w-2xl mx-auto mb-16">
               <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
                 Our Process
               </h2>
@@ -219,11 +219,11 @@ export default function ServiceDetail() {
 
       {/* ── FAQ Accordion ── */}
       {service.faqs.length > 0 && (
-        <section className="py-20 lg:py-24">
+        <section className="py-24 lg:py-32">
           <div className="container">
             <div className="max-w-3xl mx-auto">
               <FadeIn>
-                <div className="text-center max-w-2xl mx-auto mb-14">
+                <div className="text-center max-w-2xl mx-auto mb-16">
                   <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
                     Frequently Asked Questions
                   </h2>
@@ -258,10 +258,10 @@ export default function ServiceDetail() {
 
       {/* ── Related Services ── */}
       {relatedServiceData.length > 0 && (
-        <section className="py-20 lg:py-24 bg-muted/50">
+        <section className="py-24 lg:py-32 bg-muted/50">
           <div className="container">
             <FadeIn>
-              <div className="text-center max-w-2xl mx-auto mb-14">
+              <div className="text-center max-w-2xl mx-auto mb-16">
                 <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
                   Related Services
                 </h2>
@@ -313,7 +313,7 @@ export default function ServiceDetail() {
       )}
 
       {/* ── CTA with background image ── */}
-      <section className="relative py-20 lg:py-24 overflow-hidden">
+      <section className="relative py-24 lg:py-32 overflow-hidden">
         <img
           src={HERO_IMAGES.cta}
           alt="Beautiful deck project"
