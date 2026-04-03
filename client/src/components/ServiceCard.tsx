@@ -21,7 +21,7 @@ export default function ServiceCard({
 
   return (
     <Link href={`/services/${slug}`}>
-      <Card className="group cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden h-full border-0 shadow-md">
+      <Card className="group cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden h-full border border-border/40 shadow-md">
         {/* Image area */}
         <div className="relative h-48 overflow-hidden">
           {imageUrl ? (

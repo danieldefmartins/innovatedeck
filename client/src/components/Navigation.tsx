@@ -74,7 +74,7 @@ export default function Navigation() {
   const areasTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 10);
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -126,14 +126,19 @@ export default function Navigation() {
     return location.startsWith(href);
   };
 
+  // Transparent state: before scroll
+  const isTransparent = !scrolled;
+
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-300 ${
-          scrolled ? "shadow-md" : "shadow-none"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isTransparent
+            ? "bg-transparent"
+            : "bg-white/95 backdrop-blur-sm shadow-md"
         }`}
       >
-        {geoArea && (
+        {geoArea && !isTransparent && (
           <div className="bg-primary text-primary-foreground text-xs py-1">
             <div className="max-w-7xl mx-auto px-4 flex items-center justify-center gap-1.5">
               <MapPin className="h-3 w-3" />
@@ -145,7 +150,11 @@ export default function Navigation() {
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
             <Link href="/" className="flex-shrink-0">
-              <span className="font-display font-bold text-xl lg:text-2xl text-primary tracking-wide">
+              <span
+                className={`font-display font-bold text-xl lg:text-2xl tracking-wide transition-colors duration-300 ${
+                  isTransparent ? "text-white" : "text-primary"
+                }`}
+              >
                 INNOVATE DECK
               </span>
             </Link>
@@ -164,9 +173,13 @@ export default function Navigation() {
                       <Link
                         href={link.href}
                         className={`inline-flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-md transition-colors ${
-                          isActive(link.href)
-                            ? "text-primary"
-                            : "text-foreground/70 hover:text-primary"
+                          isTransparent
+                            ? isActive(link.href)
+                              ? "text-white"
+                              : "text-white/90 hover:text-white"
+                            : isActive(link.href)
+                              ? "text-primary"
+                              : "text-foreground/70 hover:text-primary"
                         }`}
                       >
                         {link.label}
@@ -206,9 +219,13 @@ export default function Navigation() {
                       <Link
                         href={link.href}
                         className={`inline-flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-md transition-colors ${
-                          isActive("/areas")
-                            ? "text-primary"
-                            : "text-foreground/70 hover:text-primary"
+                          isTransparent
+                            ? isActive("/areas")
+                              ? "text-white"
+                              : "text-white/90 hover:text-white"
+                            : isActive("/areas")
+                              ? "text-primary"
+                              : "text-foreground/70 hover:text-primary"
                         }`}
                       >
                         {link.label}
@@ -253,9 +270,13 @@ export default function Navigation() {
                     key={link.label}
                     href={link.href}
                     className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
-                      isActive(link.href)
-                        ? "text-primary"
-                        : "text-foreground/70 hover:text-primary"
+                      isTransparent
+                        ? isActive(link.href)
+                          ? "text-white"
+                          : "text-white/90 hover:text-white"
+                        : isActive(link.href)
+                          ? "text-primary"
+                          : "text-foreground/70 hover:text-primary"
                     }`}
                   >
                     {link.label}
@@ -266,11 +287,24 @@ export default function Navigation() {
 
             {/* Desktop CTA */}
             <div className="hidden lg:flex items-center gap-4">
-              <PhoneLink className="flex items-center gap-1.5 text-sm font-medium text-foreground/70 hover:text-primary transition-colors">
+              <PhoneLink
+                className={`flex items-center gap-1.5 text-sm font-medium transition-colors ${
+                  isTransparent
+                    ? "text-white/90 hover:text-white"
+                    : "text-foreground/70 hover:text-primary"
+                }`}
+              >
                 <Phone className="h-4 w-4" />
                 {COMPANY.phone.display}
               </PhoneLink>
-              <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
+              <Button
+                asChild
+                className={
+                  isTransparent
+                    ? "bg-white text-primary hover:bg-white/90 font-semibold"
+                    : "bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
+                }
+              >
                 <Link href="/contact">Free Estimate</Link>
               </Button>
             </div>
@@ -278,7 +312,11 @@ export default function Navigation() {
             {/* Mobile menu button */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden p-2 rounded-md text-foreground/70 hover:text-primary hover:bg-muted transition-colors"
+              className={`lg:hidden p-2 rounded-md transition-colors ${
+                isTransparent
+                  ? "text-white hover:bg-white/10"
+                  : "text-foreground/70 hover:text-primary hover:bg-muted"
+              }`}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
             >
               {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -287,7 +325,7 @@ export default function Navigation() {
         </nav>
       </header>
 
-      {/* Mobile slide-out panel — SCROLLABLE */}
+      {/* Mobile slide-out panel */}
       {mobileOpen && (
         <div className="fixed inset-0 z-40 lg:hidden">
           <div

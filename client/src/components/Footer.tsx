@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { COMPANY } from "@/lib/constants";
 import PhoneLink from "@/components/PhoneLink";
+import FadeIn from "@/components/FadeIn";
 
 const SERVICES = [
   { name: "Composite Decking", slug: "composite-decking" },
@@ -58,7 +59,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           {/* Company Info */}
-          <div className="lg:col-span-1">
+          <FadeIn className="lg:col-span-1">
             <Link href="/" className="inline-block mb-4">
               <span className="font-display font-bold text-xl text-white tracking-wide">
                 INNOVATE DECK
@@ -85,10 +86,10 @@ export default function Footer() {
                 <span>Serving MA, NH, RI &amp; Southern ME</span>
               </div>
             </div>
-          </div>
+          </FadeIn>
 
           {/* Quick Links */}
-          <div>
+          <FadeIn delay={100}>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-white mb-5">
               Quick Links
             </h3>
@@ -104,10 +105,10 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </FadeIn>
 
           {/* Services */}
-          <div>
+          <FadeIn delay={200}>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-white mb-5">
               Our Services
             </h3>
@@ -123,10 +124,10 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </FadeIn>
 
           {/* Service Areas */}
-          <div>
+          <FadeIn delay={300}>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-white mb-5">
               Service Areas
             </h3>
@@ -151,7 +152,7 @@ export default function Footer() {
                 </div>
               ))}
             </div>
-          </div>
+          </FadeIn>
         </div>
       </div>
 

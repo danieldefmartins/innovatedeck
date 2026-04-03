@@ -3,6 +3,7 @@ import { ArrowRight, Eye, MapPin, Phone, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import PhoneLink from "@/components/PhoneLink";
+import FadeIn from "@/components/FadeIn";
 import { COMPANY } from "@/lib/constants";
 import {
   HERO_IMAGES,
@@ -23,85 +24,78 @@ export default function Portfolio() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative min-h-[400px] flex items-center overflow-hidden py-24 lg:py-32">
-        {/* Background image */}
+      <section className="relative min-h-[400px] flex items-center overflow-hidden pt-24 lg:pt-32 pb-16 lg:pb-20">
         <img
           src={HERO_IMAGES.portfolio}
           alt="Beautiful outdoor deck and living space"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/60" />
 
         <div className="container relative z-10">
-          <div className="max-w-2xl">
-            <p className="text-primary-foreground/70 uppercase tracking-widest text-sm font-medium mb-3">
-              Our Work
-            </p>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 leading-[1.15]">
-              Portfolio
-            </h1>
-            <p className="text-lg text-white/80 leading-relaxed">
-              Browse our collection of custom deck builds, pergolas, porches,
-              and outdoor living spaces across New England.
-            </p>
-          </div>
+          <FadeIn>
+            <div className="max-w-2xl">
+              <p className="text-primary-foreground/70 uppercase tracking-widest text-sm font-medium mb-3">
+                Our Work
+              </p>
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 leading-[1.15]">
+                Portfolio
+              </h1>
+              <p className="text-lg text-white/80 leading-relaxed">
+                Browse our collection of custom deck builds, pergolas, porches,
+                and outdoor living spaces across New England.
+              </p>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* ── Filter + Gallery ── */}
-      <section className="py-20 lg:py-28 bg-background">
+      <section className="py-20 lg:py-24 bg-background">
         <div className="container">
           {/* Category filter pills */}
-          <div className="flex flex-wrap gap-2 mb-10 justify-center">
-            {PORTFOLIO_CATEGORIES.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`
-                  px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200
-                  ${
-                    activeCategory === cat
-                      ? "bg-primary text-primary-foreground shadow-md shadow-primary/25"
-                      : "bg-muted text-muted-foreground hover:bg-muted/80 hover:text-foreground"
-                  }
-                `}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
+          <FadeIn>
+            <div className="flex flex-wrap gap-2 mb-10 justify-center">
+              {PORTFOLIO_CATEGORIES.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  className={`
+                    px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200
+                    ${
+                      activeCategory === cat
+                        ? "bg-primary text-primary-foreground shadow-md shadow-primary/25"
+                        : "bg-muted text-muted-foreground hover:bg-muted/80 hover:text-foreground"
+                    }
+                  `}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+          </FadeIn>
 
           {/* Gallery grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered.map((item) => (
+            {filtered.map((item, i) => (
+              <FadeIn key={item.id} delay={i * 60}>
                 <button
-                  key={item.id}
                   onClick={() => setSelectedItem(item)}
                   className="group relative w-full rounded-xl overflow-hidden cursor-pointer text-left block"
                 >
-                  <div
-                    className="relative overflow-hidden aspect-[4/3]"
-                  >
-                    {/* Image */}
+                  <div className="relative overflow-hidden aspect-[4/3]">
                     <img
                       src={item.src}
                       alt={item.alt}
                       loading="lazy"
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-
-                    {/* Hover overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                    {/* Category label (always visible, bottom-left) */}
                     <div className="absolute top-4 left-4 z-10">
                       <span className="inline-block px-3 py-1 rounded-full bg-black/50 backdrop-blur-sm text-white text-xs font-medium">
                         {item.category}
                       </span>
                     </div>
-
-                    {/* Hover content */}
                     <div className="absolute inset-x-0 bottom-0 p-5 translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 z-10">
                       <h3 className="text-white font-semibold text-base mb-1">
                         {item.title}
@@ -117,6 +111,7 @@ export default function Portfolio() {
                     </div>
                   </div>
                 </button>
+              </FadeIn>
             ))}
           </div>
 
@@ -137,7 +132,6 @@ export default function Portfolio() {
             {selectedItem?.title}
           </DialogTitle>
 
-          {/* Close button */}
           <button
             onClick={() => setSelectedItem(null)}
             className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/80 transition-colors"
@@ -145,7 +139,6 @@ export default function Portfolio() {
             <X className="w-5 h-5" />
           </button>
 
-          {/* Image */}
           {selectedItem && (
             <div className="relative">
               <img
@@ -153,8 +146,6 @@ export default function Portfolio() {
                 alt={selectedItem.alt}
                 className="w-full max-h-[70vh] object-contain bg-black"
               />
-
-              {/* Info bar */}
               <div className="bg-background p-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div>
                   <h3 className="font-display text-lg font-semibold">
@@ -183,8 +174,7 @@ export default function Portfolio() {
       </Dialog>
 
       {/* ── CTA with background image ── */}
-      <section className="relative py-20 lg:py-28 overflow-hidden">
-        {/* Background image */}
+      <section className="relative py-20 lg:py-24 overflow-hidden">
         <img
           src={HERO_IMAGES.cta}
           alt="Outdoor living space"
@@ -193,35 +183,37 @@ export default function Portfolio() {
         <div className="absolute inset-0 bg-black/70" />
 
         <div className="container relative z-10 text-center">
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-5">
-            Ready to Start Your Project?
-          </h2>
-          <p className="text-white/75 mb-10 max-w-xl mx-auto leading-relaxed">
-            Every project in our portfolio started with a free consultation.
-            Let's discuss your vision and bring it to life.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="accent" asChild>
-              <a
-                href="/contact"
-                className="inline-flex items-center gap-2 text-base"
+          <FadeIn>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-5">
+              Ready to Start Your Project?
+            </h2>
+            <p className="text-white/75 mb-10 max-w-xl mx-auto leading-relaxed">
+              Every project in our portfolio started with a free consultation.
+              Let's discuss your vision and bring it to life.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" variant="accent" asChild>
+                <a
+                  href="/contact"
+                  className="inline-flex items-center gap-2 text-base"
+                >
+                  Get Your Free Estimate
+                  <ArrowRight className="w-5 h-5" />
+                </a>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white/30 text-white hover:bg-white/10"
+                asChild
               >
-                Get Your Free Estimate
-                <ArrowRight className="w-5 h-5" />
-              </a>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white/30 text-white hover:bg-white/10"
-              asChild
-            >
-              <PhoneLink className="inline-flex items-center gap-2 text-base">
-                <Phone className="w-4 h-4" />
-                Call {COMPANY.phone.display}
-              </PhoneLink>
-            </Button>
-          </div>
+                <PhoneLink className="inline-flex items-center gap-2 text-base">
+                  <Phone className="w-4 h-4" />
+                  Call {COMPANY.phone.display}
+                </PhoneLink>
+              </Button>
+            </div>
+          </FadeIn>
         </div>
       </section>
     </>

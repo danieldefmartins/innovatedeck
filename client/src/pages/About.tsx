@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PhoneLink from "@/components/PhoneLink";
+import FadeIn from "@/components/FadeIn";
 import { COMPANY } from "@/lib/constants";
 import { HERO_IMAGES } from "@/data/images";
 
@@ -81,7 +82,7 @@ export default function About() {
   return (
     <>
       {/* ───────── Hero ───────── */}
-      <section className="relative py-24 lg:py-32 overflow-hidden">
+      <section className="relative pt-24 lg:pt-32 pb-16 lg:pb-20 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${HERO_IMAGES.about})` }}
@@ -89,195 +90,207 @@ export default function About() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/60 to-black/40" />
 
         <div className="container relative z-10 text-center">
-          <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-4">
-            Who We Are
-          </p>
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.15] mb-6 max-w-4xl mx-auto">
-            Crafting New England's Finest Outdoor Spaces
-          </h1>
-          <p className="text-lg leading-relaxed text-white/85 max-w-xl mx-auto">
-            For over 25 years, we've been building premium outdoor living spaces
-            for homeowners across Massachusetts, New Hampshire, Rhode Island, and
-            Maine.
-          </p>
+          <FadeIn>
+            <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-4">
+              Who We Are
+            </p>
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.15] mb-6 max-w-4xl mx-auto">
+              Crafting New England's Finest Outdoor Spaces
+            </h1>
+            <p className="text-lg leading-relaxed text-white/85 max-w-xl mx-auto">
+              For over 25 years, we've been building premium outdoor living spaces
+              for homeowners across Massachusetts, New Hampshire, Rhode Island, and
+              Maine.
+            </p>
+          </FadeIn>
         </div>
       </section>
 
       {/* ───────── Our Story (Split Layout) ───────── */}
-      <section className="py-20 lg:py-28 bg-background">
+      <section className="py-20 lg:py-24 bg-background">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Text */}
-            <div>
-              <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-4">
-                Our Story
-              </p>
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-8 leading-tight">
-                From a Small Carpentry Shop to New England's Trusted Builder
-              </h2>
-              <div className="space-y-6 text-muted-foreground text-base leading-relaxed">
-                <p>
-                  Innovate Deck was founded with a simple belief: every homeowner
-                  deserves an outdoor space that feels like an extension of their
-                  home — a place to gather, relax, and create lasting memories.
-                  What started as a small carpentry operation driven by a passion
-                  for outdoor living has grown into one of New England's most
-                  trusted deck building companies.
+            <FadeIn direction="left">
+              <div>
+                <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-4">
+                  Our Story
                 </p>
-                <p>
-                  Over the past 25 years, we've built more than 500 decks,
-                  porches, pergolas, and outdoor kitchens across four states.
-                  Each project has reinforced the values we were founded on:
-                  meticulous craftsmanship, honest communication, and an
-                  unwavering commitment to doing the job right — even when no one
-                  is watching.
-                </p>
-                <p>
-                  We're a family-oriented company that treats every client's home
-                  with the same care and attention we'd give our own. Our crew
-                  members are experienced carpenters — many have been with us for
-                  over a decade — and they take genuine pride in the work they
-                  do.
-                </p>
+                <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-8 leading-tight">
+                  From a Small Carpentry Shop to New England's Trusted Builder
+                </h2>
+                <div className="space-y-6 text-muted-foreground text-base leading-relaxed">
+                  <p>
+                    Innovate Deck was founded with a simple belief: every homeowner
+                    deserves an outdoor space that feels like an extension of their
+                    home — a place to gather, relax, and create lasting memories.
+                    What started as a small carpentry operation driven by a passion
+                    for outdoor living has grown into one of New England's most
+                    trusted deck building companies.
+                  </p>
+                  <p>
+                    Over the past 25 years, we've built more than 500 decks,
+                    porches, pergolas, and outdoor kitchens across four states.
+                    Each project has reinforced the values we were founded on:
+                    meticulous craftsmanship, honest communication, and an
+                    unwavering commitment to doing the job right — even when no one
+                    is watching.
+                  </p>
+                  <p>
+                    We're a family-oriented company that treats every client's home
+                    with the same care and attention we'd give our own. Our crew
+                    members are experienced carpenters — many have been with us for
+                    over a decade — and they take genuine pride in the work they
+                    do.
+                  </p>
+                </div>
               </div>
-            </div>
+            </FadeIn>
 
             {/* Image */}
-            <div className="relative">
-              <div className="rounded-2xl overflow-hidden shadow-2xl">
-                <img
-                  src={HERO_IMAGES.story}
-                  alt="Innovate Deck team completing a premium outdoor living project"
-                  className="w-full h-80 lg:h-[500px] object-cover"
-                  loading="lazy"
-                />
+            <FadeIn direction="right">
+              <div className="relative">
+                <div className="rounded-2xl overflow-hidden shadow-2xl">
+                  <img
+                    src={HERO_IMAGES.story}
+                    alt="Innovate Deck team completing a premium outdoor living project"
+                    className="w-full h-80 lg:h-[500px] object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                {/* Floating badge */}
+                <div className="absolute -bottom-6 -left-4 lg:-left-8 bg-primary text-white rounded-xl p-5 shadow-xl">
+                  <p className="font-display text-3xl font-bold">25+</p>
+                  <p className="text-sm text-white/80">Years of Excellence</p>
+                </div>
               </div>
-              {/* Floating badge */}
-              <div className="absolute -bottom-6 -left-4 lg:-left-8 bg-primary text-white rounded-xl p-5 shadow-xl">
-                <p className="font-display text-3xl font-bold">25+</p>
-                <p className="text-sm text-white/80">Years of Excellence</p>
-              </div>
-            </div>
+            </FadeIn>
           </div>
 
           {/* Continued story text */}
-          <div className="mt-16 max-w-3xl mx-auto text-center">
-            <p className="text-muted-foreground text-base leading-relaxed">
-              Today, we continue to innovate. We stay at the forefront of
-              material technology, design trends, and building science. From
-              premium composites like Trex and TimberTech to exotic hardwoods
-              like ipe, from classic screened porches to motorized louvered
-              pergolas — we bring the best of what's possible to every project we
-              take on.
-            </p>
-          </div>
+          <FadeIn>
+            <div className="mt-16 max-w-3xl mx-auto text-center">
+              <p className="text-muted-foreground text-base leading-relaxed">
+                Today, we continue to innovate. We stay at the forefront of
+                material technology, design trends, and building science. From
+                premium composites like Trex and TimberTech to exotic hardwoods
+                like ipe, from classic screened porches to motorized louvered
+                pergolas — we bring the best of what's possible to every project we
+                take on.
+              </p>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* ───────── Stats ───────── */}
       <section className="py-10 lg:py-14 bg-primary">
         <div className="container">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <p className="font-display text-3xl lg:text-4xl font-bold text-white mb-2">
-                  {stat.value}
-                </p>
-                <div className="w-12 h-1 bg-accent mx-auto mb-3 rounded-full" />
-                <p className="text-white/75 font-medium text-sm uppercase tracking-wide">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </div>
+          <FadeIn>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+              {stats.map((stat) => (
+                <div key={stat.label} className="text-center">
+                  <p className="font-display text-3xl lg:text-4xl font-bold text-white mb-2">
+                    {stat.value}
+                  </p>
+                  <div className="w-12 h-1 bg-accent mx-auto mb-3 rounded-full" />
+                  <p className="text-white/75 font-medium text-sm uppercase tracking-wide">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* ───────── Our Values ───────── */}
-      <section className="py-20 lg:py-28 bg-background">
+      <section className="py-20 lg:py-24 bg-background">
         <div className="container">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-4">
-              Our Values
-            </p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
-              What We Stand For
-            </h2>
-            <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
-              These aren't just words on a page. They're the principles that
-              guide every decision we make, from the materials we select to the
-              way we treat your property.
-            </p>
-          </div>
+          <FadeIn>
+            <div className="text-center max-w-2xl mx-auto mb-14">
+              <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-4">
+                Our Values
+              </p>
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
+                What We Stand For
+              </h2>
+              <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
+                These aren't just words on a page. They're the principles that
+                guide every decision we make, from the materials we select to the
+                way we treat your property.
+              </p>
+            </div>
+          </FadeIn>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
-            {values.map((value) => (
-              <div
-                key={value.title}
-                className="group bg-card rounded-xl border border-border/60 p-6 lg:p-8 hover:border-accent/40 hover:shadow-lg transition-all duration-300"
-              >
-                <div className="flex items-start gap-5">
-                  <div className="flex-shrink-0">
-                    <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-                      <value.icon className="w-7 h-7 text-accent" />
+            {values.map((value, i) => (
+              <FadeIn key={value.title} delay={i * 100}>
+                <div className="group bg-card rounded-xl border border-border/60 p-6 lg:p-8 hover:border-accent/40 hover:shadow-lg transition-all duration-300">
+                  <div className="flex items-start gap-5">
+                    <div className="flex-shrink-0">
+                      <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                        <value.icon className="w-7 h-7 text-accent" />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="font-display text-lg font-semibold text-foreground mb-3">
+                        {value.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {value.description}
+                      </p>
                     </div>
                   </div>
-                  <div>
-                    <h3 className="font-display text-lg font-semibold text-foreground mb-3">
-                      {value.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {value.description}
-                    </p>
-                  </div>
                 </div>
-              </div>
+              </FadeIn>
             ))}
           </div>
         </div>
       </section>
 
       {/* ───────── Built for New England ───────── */}
-      <section className="py-20 lg:py-28 bg-muted">
+      <section className="py-20 lg:py-24 bg-muted">
         <div className="container">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <p className="text-secondary font-semibold tracking-wider uppercase text-sm mb-4">
-              Local Expertise
-            </p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
-              Built for New England
-            </h2>
-            <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
-              Building a deck in New England isn't like building one in
-              California. Our climate demands specialized knowledge, materials,
-              and engineering. That's what 25 years of local experience gives
-              you.
-            </p>
-          </div>
+          <FadeIn>
+            <div className="text-center max-w-2xl mx-auto mb-14">
+              <p className="text-secondary font-semibold tracking-wider uppercase text-sm mb-4">
+                Local Expertise
+              </p>
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
+                Built for New England
+              </h2>
+              <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
+                Building a deck in New England isn't like building one in
+                California. Our climate demands specialized knowledge, materials,
+                and engineering. That's what 25 years of local experience gives
+                you.
+              </p>
+            </div>
+          </FadeIn>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            {weatherChallenges.map((challenge) => (
-              <div
-                key={challenge.title}
-                className="group bg-card rounded-xl border border-border/60 p-6 lg:p-8 shadow-sm hover:shadow-md transition-all duration-300 text-center"
-              >
-                <div className="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-secondary/15 transition-colors">
-                  <challenge.icon className="w-8 h-8 text-secondary" />
+            {weatherChallenges.map((challenge, i) => (
+              <FadeIn key={challenge.title} delay={i * 100}>
+                <div className="group bg-card rounded-xl border border-border/60 p-6 lg:p-8 shadow-sm hover:shadow-md transition-all duration-300 text-center">
+                  <div className="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-secondary/15 transition-colors">
+                    <challenge.icon className="w-8 h-8 text-secondary" />
+                  </div>
+                  <h3 className="font-display text-lg font-semibold text-foreground mb-3">
+                    {challenge.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {challenge.description}
+                  </p>
                 </div>
-                <h3 className="font-display text-lg font-semibold text-foreground mb-3">
-                  {challenge.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {challenge.description}
-                </p>
-              </div>
+              </FadeIn>
             ))}
           </div>
         </div>
       </section>
 
       {/* ───────── CTA ───────── */}
-      <section className="relative py-20 lg:py-28 overflow-hidden">
+      <section className="relative py-20 lg:py-24 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${HERO_IMAGES.cta})` }}
@@ -285,34 +298,36 @@ export default function About() {
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/80 to-secondary/80" />
 
         <div className="container relative z-10 text-center">
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-5">
-            Let's Build Something Great Together
-          </h2>
-          <p className="text-white/80 leading-relaxed max-w-2xl mx-auto mb-10">
-            Whether you're envisioning a new composite deck, a cozy screened
-            porch, or a full outdoor living area — we'd love to hear about your
-            project. Reach out for a free consultation and estimate.
-          </p>
+          <FadeIn>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-5">
+              Let's Build Something Great Together
+            </h2>
+            <p className="text-white/80 leading-relaxed max-w-2xl mx-auto mb-10">
+              Whether you're envisioning a new composite deck, a cozy screened
+              porch, or a full outdoor living area — we'd love to hear about your
+              project. Reach out for a free consultation and estimate.
+            </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button variant="accent" size="xl" asChild>
-              <Link href="/contact">
-                <CalendarCheck className="w-5 h-5" />
-                Get Free Estimate
-              </Link>
-            </Button>
-            <Button
-              variant="outline"
-              size="xl"
-              className="border-white/40 text-white hover:bg-white/10 hover:text-white"
-              asChild
-            >
-              <PhoneLink className="inline-flex items-center gap-2">
-                <Phone className="w-5 h-5" />
-                {COMPANY.phone.display}
-              </PhoneLink>
-            </Button>
-          </div>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Button variant="accent" size="xl" asChild>
+                <Link href="/contact">
+                  <CalendarCheck className="w-5 h-5" />
+                  Get Free Estimate
+                </Link>
+              </Button>
+              <Button
+                variant="outline"
+                size="xl"
+                className="border-white/40 text-white hover:bg-white/10 hover:text-white"
+                asChild
+              >
+                <PhoneLink className="inline-flex items-center gap-2">
+                  <Phone className="w-5 h-5" />
+                  {COMPANY.phone.display}
+                </PhoneLink>
+              </Button>
+            </div>
+          </FadeIn>
         </div>
       </section>
     </>
