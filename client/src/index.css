@@ -6,11 +6,11 @@
 
 @theme inline {
   --radius-sm: 4px;
-  --radius-md: 6px;
-  --radius-lg: 10px;
-  --radius-xl: 14px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
 
-  --font-display: "Playfair Display", serif;
+  --font-display: "Plus Jakarta Sans", sans-serif;
   --font-body: "Inter", sans-serif;
 
   --color-primary: var(--primary);
@@ -38,23 +38,23 @@
   /* Warm Modern Outdoor palette */
   --primary: #5C3D2E;
   --primary-foreground: #FDFAF6;
-  --accent: #D4A853;
-  --accent-foreground: #1A1A1A;
+  --accent: #C9963B;
+  --accent-foreground: #FFFFFF;
   --secondary: #2D5A3D;
   --secondary-foreground: #FDFAF6;
-  --background: #FDFAF6;
-  --foreground: #1A1A1A;
-  --muted: #F5F0EB;
+  --background: #FAFAF9;
+  --foreground: #1C1917;
+  --muted: #F3F0EC;
   --muted-foreground: #6B5E54;
   --card: #FFFFFF;
-  --card-foreground: #1A1A1A;
-  --border: #E0D5CA;
-  --input: #E0D5CA;
+  --card-foreground: #1C1917;
+  --border: #E5DDD4;
+  --input: #E5DDD4;
   --ring: #5C3D2E;
   --destructive: #DC2626;
   --destructive-foreground: #FDFAF6;
   --popover: #FFFFFF;
-  --popover-foreground: #1A1A1A;
+  --popover-foreground: #1C1917;
 }
 
 * {
@@ -71,27 +71,28 @@ body {
   font-family: var(--font-body);
   color: var(--foreground);
   background-color: var(--background);
-  line-height: 1.75;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 17px;
-  letter-spacing: -0.01em;
+  font-size: 16px;
+  letter-spacing: -0.011em;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
 
-/* Headings — tighter line-height so they don't float apart */
+/* Headings — clean modern sans-serif */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  font-weight: 700;
 }
 
-/* Container — slightly tighter for better text measure */
+/* Container */
 .container {
   width: 100%;
-  max-width: 1280px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1.25rem;
 }
 
 @media (min-width: 640px) {
@@ -99,11 +100,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (min-width: 1024px) {
-  .container { padding: 0 2.5rem; }
+  .container { padding: 0 3rem; }
 }
 
 /* Selection */
 ::selection {
-  background-color: #D4A853;
-  color: #1A1A1A;
+  background-color: #C9963B;
+  color: #FFFFFF;
+}
+
+/* Smooth image loading */
+img {
+  transition: opacity 0.3s ease;
 }

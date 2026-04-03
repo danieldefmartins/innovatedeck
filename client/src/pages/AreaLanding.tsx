@@ -56,7 +56,7 @@ export default function AreaLanding() {
 
   if (!area) {
     return (
-      <section className="pt-36 lg:pt-44 py-24">
+      <section className="pt-40 lg:pt-52 py-24">
         <div className="container text-center">
           <h1 className="font-display text-4xl font-bold mb-4">
             Area Not Found
@@ -87,11 +87,11 @@ export default function AreaLanding() {
       />
 
       {/* ── Why Choose Us ── */}
-      <section className="py-28 lg:py-36">
+      <section className="py-20 lg:py-28">
         <div className="container">
           <FadeIn>
             <div className="text-center max-w-2xl mx-auto mb-16">
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-5">
                 Why Choose {COMPANY.name} in {area.name}
               </h2>
               <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
@@ -122,11 +122,11 @@ export default function AreaLanding() {
       </section>
 
       {/* ── Services Available ── */}
-      <section className="py-28 lg:py-36 bg-muted/50">
+      <section className="py-20 lg:py-28 bg-muted/50">
         <div className="container">
           <FadeIn>
             <div className="text-center max-w-2xl mx-auto mb-16">
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-5">
                 Deck Building Services in {area.name}
               </h2>
               <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
@@ -154,12 +154,12 @@ export default function AreaLanding() {
 
       {/* ── Neighborhoods ── */}
       {area.neighborhoods && area.neighborhoods.length > 0 && (
-        <section className="py-28 lg:py-36">
+        <section className="py-20 lg:py-28">
           <div className="container">
             <div className="max-w-5xl mx-auto">
               <FadeIn>
                 <div className="text-center max-w-2xl mx-auto mb-16">
-                  <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
+                  <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-5">
                     Neighborhoods & Communities We Serve
                   </h2>
                   <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
@@ -188,12 +188,12 @@ export default function AreaLanding() {
 
       {/* ── Local Content (SEO prose) ── */}
       {area.localContent && (
-        <section className="py-28 lg:py-36 bg-muted/50">
+        <section className="py-20 lg:py-28 bg-muted/50">
           <div className="container">
             <FadeIn>
               <div className="max-w-4xl mx-auto">
                 <div className="bg-background rounded-2xl p-8 lg:p-12 border border-border/50 shadow-sm">
-                  <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
+                  <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold mb-6">
                     Deck Building in {area.name}, {area.state}
                   </h2>
                   <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed prose-p:text-muted-foreground">
@@ -247,12 +247,12 @@ export default function AreaLanding() {
 
       {/* ── Nearby Areas ── */}
       {area.nearbyAreas && area.nearbyAreas.length > 0 && (
-        <section className="py-28 lg:py-36 bg-muted/50">
+        <section className="py-20 lg:py-28 bg-muted/50">
           <div className="container">
             <div className="max-w-4xl mx-auto text-center">
               <FadeIn>
                 <div className="text-center max-w-2xl mx-auto mb-16">
-                  <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
+                  <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-5">
                     Nearby Areas We Serve
                   </h2>
                   <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
@@ -294,7 +294,7 @@ export default function AreaLanding() {
       )}
 
       {/* ── CTA with background image ── */}
-      <section className="relative py-28 lg:py-36 overflow-hidden">
+      <section className="relative py-20 lg:py-28 overflow-hidden">
         <img
           src={HERO_IMAGES.cta}
           alt="Beautiful deck project"
@@ -304,7 +304,7 @@ export default function AreaLanding() {
         <div className="container relative z-10">
           <FadeIn>
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
                 Get Your Free Deck Estimate in {area.name}
               </h2>
               <p className="text-white/80 mb-8 leading-relaxed">

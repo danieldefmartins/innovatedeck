@@ -58,7 +58,7 @@ export default function Services() {
   return (
     <>
       {/* ───────── Hero ───────── */}
-      <section className="relative pt-36 lg:pt-44 pb-20 lg:pb-28 overflow-hidden">
+      <section className="relative pt-40 lg:pt-52 pb-16 lg:pb-24 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${HERO_IMAGES.services})` }}
@@ -67,13 +67,13 @@ export default function Services() {
 
         <div className="container relative z-10 text-center">
           <FadeIn>
-            <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-5">
+            <p className="text-accent font-semibold tracking-widest uppercase text-xs mb-3">
               What We Build
             </p>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.15] mb-8 max-w-4xl mx-auto">
+            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.15] mb-6 max-w-4xl mx-auto">
               Premium Deck Building & Outdoor Living
             </h1>
-            <p className="text-lg md:text-xl leading-relaxed text-white/85 max-w-xl mx-auto">
+            <p className="text-base md:text-lg leading-relaxed text-white/70 max-w-xl mx-auto">
               From composite and hardwood decks to pergolas, porches, outdoor
               kitchens, and expert restoration — custom-designed, permitted, and
               built by our experienced team.
@@ -83,14 +83,14 @@ export default function Services() {
       </section>
 
       {/* ───────── Company Intro ───────── */}
-      <section className="py-28 lg:py-36 bg-background">
+      <section className="py-20 lg:py-28 bg-background">
         <div className="container">
           <FadeIn>
             <div className="text-center max-w-2xl mx-auto mb-16">
-              <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-5">
+              <p className="text-accent font-semibold tracking-wider uppercase text-xs mb-3">
                 Comprehensive Solutions
               </p>
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
                 Everything Your Outdoor Space Needs
               </h2>
               <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
@@ -107,11 +107,11 @@ export default function Services() {
       </section>
 
       {/* ───────── Services Grid ───────── */}
-      <section className="py-28 lg:py-36 bg-muted">
+      <section className="py-20 lg:py-28 bg-muted">
         <div className="container">
           <FadeIn>
             <div className="text-center max-w-2xl mx-auto mb-16">
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
                 Our Services
               </h2>
               <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
@@ -138,14 +138,14 @@ export default function Services() {
       </section>
 
       {/* ───────── Our Process ───────── */}
-      <section className="py-28 lg:py-36 bg-background">
+      <section className="py-20 lg:py-28 bg-background">
         <div className="container">
           <FadeIn>
             <div className="text-center max-w-2xl mx-auto mb-16">
-              <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-5">
+              <p className="text-accent font-semibold tracking-wider uppercase text-xs mb-3">
                 How We Work
               </p>
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
                 Our Process
               </h2>
               <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
@@ -172,7 +172,7 @@ export default function Services() {
                   </div>
 
                   {/* Content */}
-                  <div className="pb-14 lg:pb-18">
+                  <div className="pb-12 lg:pb-16">
                     <div className="flex items-center gap-3 mb-2">
                       <span className="text-accent font-bold text-sm uppercase tracking-wide">
                         Step {step.step}
@@ -193,7 +193,7 @@ export default function Services() {
       </section>
 
       {/* ───────── CTA ───────── */}
-      <section className="relative py-28 lg:py-36 overflow-hidden">
+      <section className="relative py-20 lg:py-28 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${HERO_IMAGES.cta})` }}
@@ -202,10 +202,10 @@ export default function Services() {
 
         <div className="container relative z-10 text-center">
           <FadeIn>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+            <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
               Ready to Start Your Project?
             </h2>
-            <p className="text-white/80 text-lg leading-relaxed max-w-2xl mx-auto mb-12">
+            <p className="text-white/80 text-lg leading-relaxed max-w-2xl mx-auto mb-8">
               Whether you know exactly what you want or need help exploring
               options, our team is here to guide you. Get a free, no-obligation
               estimate for your deck or outdoor living project today.

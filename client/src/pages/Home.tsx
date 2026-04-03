@@ -105,18 +105,18 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
 
-        <div className="container relative z-10 pt-32 lg:pt-44 pb-32 lg:pb-44">
+        <div className="container relative z-10 pt-40 lg:pt-52 pb-24 lg:pb-32">
           <FadeIn>
             <div className="max-w-2xl">
-              <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-5">
+              <p className="text-accent font-semibold tracking-wider uppercase text-xs mb-4">
                 New England's Trusted Deck Builders
               </p>
-              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-8">
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
                 Build Your Dream
                 <br />
                 <span className="text-accent">Outdoor Space</span>
               </h1>
-              <p className="text-lg md:text-xl text-white/80 leading-relaxed mb-12 max-w-lg">
+              <p className="text-base md:text-lg text-white/70 leading-relaxed mb-10 max-w-lg">
                 Premium decks, pergolas, and outdoor living — crafted for New
                 England homeowners for over 25 years.
               </p>
@@ -131,7 +131,7 @@ export default function Home() {
                 <Button
                   variant="outline"
                   size="xl"
-                  className="border-white/30 text-white hover:bg-white/10 hover:text-white backdrop-blur-sm"
+                  className="border-white/50 text-white hover:bg-white/15 hover:text-white backdrop-blur-sm bg-white/5"
                   asChild
                 >
                   <Link href="/portfolio">
@@ -146,7 +146,7 @@ export default function Home() {
       </section>
 
       {/* ───────── 2. Trust & Stats Bar ───────── */}
-      <section className="bg-primary py-12 lg:py-14">
+      <section className="bg-primary py-6 lg:py-8">
         <div className="container">
           <FadeIn>
             <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 text-center">
@@ -156,13 +156,13 @@ export default function Home() {
               <span className="hidden md:block w-px h-8 bg-white/20" />
               <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
                 <div className="flex items-baseline gap-2">
-                  <span className="font-display text-3xl font-bold text-accent">
+                  <span className="font-display text-2xl font-bold text-accent">
                     25+
                   </span>
                   <span className="text-sm text-white/70">Years</span>
                 </div>
                 <div className="flex items-baseline gap-2">
-                  <span className="font-display text-3xl font-bold text-accent">
+                  <span className="font-display text-2xl font-bold text-accent">
                     500+
                   </span>
                   <span className="text-sm text-white/70">Projects</span>
@@ -177,14 +177,14 @@ export default function Home() {
       </section>
 
       {/* ───────── 3. Services Grid ───────── */}
-      <section className="py-28 lg:py-36">
+      <section className="py-20 lg:py-28">
         <div className="container">
           <FadeIn>
-            <div className="text-center mb-16 lg:mb-20">
-              <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-5">
+            <div className="text-center mb-12 lg:mb-16">
+              <p className="text-accent font-semibold tracking-wider uppercase text-xs mb-3">
                 What We Do
               </p>
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground">
                 Our Services
               </h2>
             </div>
@@ -194,8 +194,8 @@ export default function Home() {
             {homepageServices.map((service, i) => (
               <FadeIn key={service.slug} delay={i * 60}>
                 <Link href={`/services/${service.slug}`}>
-                  <div className="group cursor-pointer rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 h-full bg-card border border-border/40">
-                    <div className="relative h-60 overflow-hidden">
+                  <div className="group cursor-pointer rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 h-full bg-card border border-border/40">
+                    <div className="relative h-52 overflow-hidden">
                       <img
                         src={SERVICE_IMAGES[service.slug] || ""}
                         alt={service.title}
@@ -228,30 +228,30 @@ export default function Home() {
       </section>
 
       {/* ───────── 4. Why Choose Us — Split Layout ───────── */}
-      <section className="py-28 lg:py-36 bg-primary text-white">
+      <section className="py-20 lg:py-28 bg-primary text-white">
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <FadeIn direction="left">
               <div className="relative">
                 <img
                   src="/images/portfolio/deck-30.jpg"
                   alt="Premium outdoor deck project by Innovate Deck"
-                  className="w-full aspect-[4/5] object-cover rounded-2xl"
+                  className="w-full aspect-[4/5] object-cover rounded-xl"
                 />
               </div>
             </FadeIn>
 
             <div>
               <FadeIn direction="right">
-                <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-5">
+                <p className="text-accent font-semibold tracking-wider uppercase text-xs mb-3">
                   The Innovate Deck Difference
                 </p>
-                <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-14">
+                <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold mb-10">
                   Why Choose Us
                 </h2>
               </FadeIn>
 
-              <div className="space-y-12">
+              <div className="space-y-8">
                 {differentiators.map((item, i) => (
                   <FadeIn key={item.title} direction="right" delay={i * 80}>
                     <div className="flex items-start gap-6">
@@ -262,7 +262,7 @@ export default function Home() {
                         <h3 className="font-display text-lg font-semibold mb-2">
                           {item.title}
                         </h3>
-                        <p className="text-white/60 text-base leading-relaxed">
+                        <p className="text-white/70 text-sm leading-relaxed">
                           {item.description}
                         </p>
                       </div>
@@ -276,30 +276,30 @@ export default function Home() {
       </section>
 
       {/* ───────── 5. How We Work ───────── */}
-      <section className="py-28 lg:py-36">
+      <section className="py-20 lg:py-28">
         <div className="container">
           <FadeIn>
             <div className="text-center mb-16 lg:mb-20">
-              <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-5">
+              <p className="text-accent font-semibold tracking-wider uppercase text-xs mb-3">
                 Our Process
               </p>
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground">
                 How We Work
               </h2>
             </div>
           </FadeIn>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-10 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 max-w-5xl mx-auto">
             {processSteps.map((step, i) => (
               <FadeIn key={step.num} delay={i * 120}>
                 <div className="text-center">
-                  <span className="font-display text-7xl font-bold text-accent/15 block mb-6">
+                  <span className="font-display text-5xl font-bold text-accent/20 block mb-4">
                     {step.num}
                   </span>
                   <h3 className="font-display text-lg font-semibold text-foreground mb-3">
                     {step.title}
                   </h3>
-                  <p className="text-base text-muted-foreground leading-relaxed">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     {step.description}
                   </p>
                 </div>
@@ -310,14 +310,14 @@ export default function Home() {
       </section>
 
       {/* ───────── 6. Portfolio Preview ───────── */}
-      <section className="py-28 lg:py-36 bg-muted">
+      <section className="py-20 lg:py-28 bg-muted">
         <div className="container">
           <FadeIn>
-            <div className="text-center mb-16 lg:mb-20">
-              <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-5">
+            <div className="text-center mb-12 lg:mb-16">
+              <p className="text-accent font-semibold tracking-wider uppercase text-xs mb-3">
                 Our Portfolio
               </p>
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground">
                 See Our Work
               </h2>
             </div>
@@ -361,14 +361,14 @@ export default function Home() {
       </section>
 
       {/* ───────── 7. Featured Testimonial ───────── */}
-      <section className="py-28 lg:py-36">
+      <section className="py-20 lg:py-28">
         <div className="container">
           <FadeIn>
             <div className="max-w-2xl mx-auto text-center">
-              <span className="font-display text-7xl text-accent/25 leading-none block mb-10">
+              <span className="font-display text-6xl text-accent/25 leading-none block mb-6">
                 &ldquo;
               </span>
-              <p className="text-xl md:text-2xl italic text-foreground leading-relaxed mb-12">
+              <p className="text-lg md:text-xl italic text-foreground leading-relaxed mb-8">
                 {featuredTestimonial.text}
               </p>
               <div>
@@ -385,7 +385,7 @@ export default function Home() {
       </section>
 
       {/* ───────── 8. Final CTA ───────── */}
-      <section className="relative py-28 lg:py-36">
+      <section className="relative py-20 lg:py-28">
         <img
           src="/images/portfolio/deck-98.jpg"
           alt="Beautiful ipe deck with outdoor furniture"
@@ -395,10 +395,10 @@ export default function Home() {
 
         <div className="container relative z-10 text-center max-w-2xl mx-auto">
           <FadeIn>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8 leading-tight">
+            <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-5 leading-tight">
               Ready to Transform Your Outdoor Space?
             </h2>
-            <p className="text-white/70 text-lg leading-relaxed mb-14">
+            <p className="text-white/70 text-lg leading-relaxed mb-10">
               Get a free, no-obligation estimate from New England's trusted
               deck building experts.
             </p>

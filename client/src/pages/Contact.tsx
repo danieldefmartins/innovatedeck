@@ -82,7 +82,7 @@ export default function Contact() {
   return (
     <>
       {/* ───────── Hero ───────── */}
-      <section className="relative pt-36 lg:pt-44 pb-20 lg:pb-28 overflow-hidden">
+      <section className="relative pt-40 lg:pt-52 pb-16 lg:pb-24 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${HERO_IMAGES.contact})` }}
@@ -91,13 +91,13 @@ export default function Contact() {
 
         <div className="container relative z-10 text-center">
           <FadeIn>
-            <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-5">
+            <p className="text-accent font-semibold tracking-widest uppercase text-xs mb-3">
               Get In Touch
             </p>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.15] mb-8 max-w-3xl mx-auto">
+            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.15] mb-6 max-w-3xl mx-auto">
               Start Your Deck Project Today
             </h1>
-            <p className="text-lg md:text-xl leading-relaxed text-white/85 max-w-xl mx-auto">
+            <p className="text-base md:text-lg leading-relaxed text-white/70 max-w-xl mx-auto">
               Ready to transform your outdoor space? Get a free, no-obligation
               estimate. We typically respond within 24 hours.
             </p>
@@ -106,15 +106,15 @@ export default function Contact() {
       </section>
 
       {/* ───────── Form + Contact Info ───────── */}
-      <section className="py-28 lg:py-36 bg-background">
+      <section className="py-20 lg:py-28 bg-background">
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-14 lg:gap-20">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16">
             {/* Form */}
             <FadeIn className="lg:col-span-2">
-              <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-4">
+              <p className="text-accent font-semibold tracking-wider uppercase text-xs mb-3">
                 Free Estimate
               </p>
-              <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">
+              <h2 className="font-display text-xl md:text-2xl font-bold text-foreground mb-2">
                 Tell Us About Your Project
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-8">
@@ -130,11 +130,11 @@ export default function Contact() {
                 {contactInfo.map((item) => (
                   <div
                     key={item.title}
-                    className="bg-card rounded-2xl p-7 border border-border/50 hover:border-accent/30 hover:shadow-md transition-all duration-300"
+                    className="bg-card rounded-xl p-5 border border-border/50 hover:border-accent/30 hover:shadow-md transition-all duration-300"
                   >
                     <div className="flex items-start gap-4">
-                      <div className="w-14 h-14 rounded-xl bg-primary/8 flex items-center justify-center flex-shrink-0">
-                        <item.icon className="w-6 h-6 text-primary" />
+                      <div className="w-11 h-11 rounded-xl bg-primary/8 flex items-center justify-center flex-shrink-0">
+                        <item.icon className="w-5 h-5 text-primary" />
                       </div>
                       <div className="min-w-0">
                         <p className="font-semibold text-foreground text-sm mb-1">
@@ -186,7 +186,7 @@ export default function Contact() {
       </section>
 
       {/* ───────── Trust Badges ───────── */}
-      <section className="py-18 lg:py-24 bg-primary">
+      <section className="py-10 lg:py-14 bg-primary">
         <div className="container">
           <FadeIn>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
@@ -207,17 +207,17 @@ export default function Contact() {
       </section>
 
       {/* ───────── Map / Location Section ───────── */}
-      <section className="py-28 lg:py-36 bg-muted">
+      <section className="py-20 lg:py-28 bg-muted">
         <div className="container">
           <FadeIn>
             <div className="max-w-3xl mx-auto text-center">
-              <p className="text-secondary font-semibold tracking-wider uppercase text-sm mb-4">
+              <p className="text-secondary font-semibold tracking-wider uppercase text-xs mb-3">
                 Our Coverage
               </p>
-              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-6">
+              <h2 className="font-display text-xl md:text-2xl lg:text-3xl font-bold text-foreground mb-4">
                 Proudly Serving All of Southern New England
               </h2>
-              <p className="text-muted-foreground leading-relaxed mb-8">
+              <p className="text-muted-foreground leading-relaxed mb-6">
                 From Boston to Cape Cod, the Seacoast of New Hampshire to Southern
                 Maine, and throughout Rhode Island — wherever you are, we're ready
                 to build.

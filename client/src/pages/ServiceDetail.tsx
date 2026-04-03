@@ -20,7 +20,7 @@ export default function ServiceDetail() {
 
   if (!service) {
     return (
-      <section className="pt-36 lg:pt-44 py-24">
+      <section className="pt-40 lg:pt-52 py-24">
         <div className="container text-center">
           <h1 className="font-display text-4xl font-bold mb-4">
             Service Not Found
@@ -44,7 +44,7 @@ export default function ServiceDetail() {
   return (
     <>
       {/* ── Hero with background image ── */}
-      <section className="relative pt-36 lg:pt-44 pb-20 lg:pb-28 overflow-hidden">
+      <section className="relative pt-40 lg:pt-52 pb-16 lg:pb-24 overflow-hidden">
         {heroImage && (
           <img
             src={heroImage}
@@ -63,7 +63,7 @@ export default function ServiceDetail() {
                 <ArrowRight className="w-4 h-4 rotate-180" />
                 All Services
               </Link>
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-[1.15]">
+              <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-[1.15]">
                 {service.title}
               </h1>
               <p className="text-lg text-white/80 leading-relaxed max-w-2xl mb-8">
@@ -91,7 +91,7 @@ export default function ServiceDetail() {
       </section>
 
       {/* ── Description ── */}
-      <section className="py-20 lg:py-24">
+      <section className="py-16 lg:py-20">
         <div className="container">
           <FadeIn>
             <div className="max-w-4xl mx-auto">
@@ -111,12 +111,12 @@ export default function ServiceDetail() {
       </section>
 
       {/* ── What's Included ── */}
-      <section className="py-28 lg:py-36 bg-muted/50">
+      <section className="py-20 lg:py-28 bg-muted/50">
         <div className="container">
           <div className="max-w-5xl mx-auto">
             <FadeIn>
               <div className="text-center max-w-2xl mx-auto mb-16">
-                <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+                <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
                   What's Included
                 </h2>
                 <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
@@ -128,7 +128,7 @@ export default function ServiceDetail() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {service.features.map((feature, i) => (
                 <FadeIn key={i} delay={i * 60}>
-                  <div className="flex items-start gap-4 bg-background rounded-2xl p-6 border border-border/50 hover:border-accent/30 hover:shadow-sm transition-all">
+                  <div className="flex items-start gap-4 bg-background rounded-2xl p-5 border border-border/50 hover:border-accent/30 hover:shadow-sm transition-all">
                     <div className="w-9 h-9 rounded-full bg-secondary/10 flex items-center justify-center shrink-0 mt-0.5">
                       <Check className="w-4.5 h-4.5 text-secondary" />
                     </div>
@@ -144,11 +144,11 @@ export default function ServiceDetail() {
       </section>
 
       {/* ── Benefits ── */}
-      <section className="py-28 lg:py-36">
+      <section className="py-20 lg:py-28">
         <div className="container">
           <FadeIn>
             <div className="text-center max-w-2xl mx-auto mb-16">
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
                 Why Choose {service.title}
               </h2>
               <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
@@ -160,8 +160,8 @@ export default function ServiceDetail() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {service.benefits.map((benefit, i) => (
               <FadeIn key={i} delay={i * 80}>
-                <div className="group bg-background rounded-2xl p-7 border border-border/50 hover:border-accent/30 hover:shadow-md transition-all">
-                  <span className="inline-block font-display text-5xl font-bold text-accent/70 mb-5">
+                <div className="group bg-background rounded-2xl p-6 border border-border/50 hover:border-accent/30 hover:shadow-md transition-all">
+                  <span className="inline-block font-display text-4xl font-bold text-accent/70 mb-3">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <p className="text-base leading-relaxed text-muted-foreground group-hover:text-foreground transition-colors">
@@ -175,11 +175,11 @@ export default function ServiceDetail() {
       </section>
 
       {/* ── Our Process ── */}
-      <section className="py-28 lg:py-36 bg-muted/50">
+      <section className="py-20 lg:py-28 bg-muted/50">
         <div className="container">
           <FadeIn>
             <div className="text-center max-w-2xl mx-auto mb-16">
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
                 Our Process
               </h2>
               <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
@@ -193,14 +193,14 @@ export default function ServiceDetail() {
               {/* Vertical connector line */}
               <div className="absolute left-6 top-6 bottom-6 w-0.5 bg-gradient-to-b from-accent via-primary to-secondary hidden md:block" />
 
-              <div className="space-y-12">
+              <div className="space-y-10">
                 {service.process.map((step, i) => (
                   <FadeIn key={step.step} delay={i * 100}>
                     <div className="relative flex gap-6 group">
                       <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-display font-bold text-lg shrink-0 relative z-10 shadow-lg group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
                         {step.step}
                       </div>
-                      <div className="flex-1 bg-background rounded-2xl p-7 border border-border/50 shadow-sm group-hover:shadow-md group-hover:border-accent/30 transition-all -mt-1">
+                      <div className="flex-1 bg-background rounded-2xl p-6 border border-border/50 shadow-sm group-hover:shadow-md group-hover:border-accent/30 transition-all -mt-1">
                         <h3 className="font-display text-lg font-semibold mb-2">
                           {step.title}
                         </h3>
@@ -219,12 +219,12 @@ export default function ServiceDetail() {
 
       {/* ── FAQ Accordion ── */}
       {service.faqs.length > 0 && (
-        <section className="py-28 lg:py-36">
+        <section className="py-20 lg:py-28">
           <div className="container">
             <div className="max-w-3xl mx-auto">
               <FadeIn>
                 <div className="text-center max-w-2xl mx-auto mb-16">
-                  <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+                  <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
                     Frequently Asked Questions
                   </h2>
                   <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
@@ -234,12 +234,12 @@ export default function ServiceDetail() {
                 </div>
               </FadeIn>
               <FadeIn>
-                <Accordion type="single" collapsible className="w-full space-y-4">
+                <Accordion type="single" collapsible className="w-full space-y-3">
                   {service.faqs.map((faq, i) => (
                     <AccordionItem
                       key={i}
                       value={`faq-${i}`}
-                      className="bg-muted/50 rounded-2xl border border-border/50 px-7 data-[state=open]:border-accent/30 data-[state=open]:shadow-sm transition-all"
+                      className="bg-muted/50 rounded-2xl border border-border/50 px-6 data-[state=open]:border-accent/30 data-[state=open]:shadow-sm transition-all"
                     >
                       <AccordionTrigger className="text-left font-display font-semibold hover:no-underline py-5">
                         {faq.question}
@@ -258,11 +258,11 @@ export default function ServiceDetail() {
 
       {/* ── Related Services ── */}
       {relatedServiceData.length > 0 && (
-        <section className="py-28 lg:py-36 bg-muted/50">
+        <section className="py-20 lg:py-28 bg-muted/50">
           <div className="container">
             <FadeIn>
               <div className="text-center max-w-2xl mx-auto mb-16 lg:mb-20">
-                <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+                <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
                   Related Services
                 </h2>
                 <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
@@ -313,7 +313,7 @@ export default function ServiceDetail() {
       )}
 
       {/* ── CTA with background image ── */}
-      <section className="relative py-28 lg:py-36 overflow-hidden">
+      <section className="relative py-20 lg:py-28 overflow-hidden">
         <img
           src={HERO_IMAGES.cta}
           alt="Beautiful deck project"
@@ -334,7 +334,7 @@ export default function ServiceDetail() {
                   {COMPANY.experience} Years Experience
                 </span>
               </div>
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
                 Ready to Get Started?
               </h2>
               <p className="text-white/80 mb-8 leading-relaxed max-w-2xl mx-auto">

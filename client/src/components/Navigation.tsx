@@ -126,7 +126,6 @@ export default function Navigation() {
     return location.startsWith(href);
   };
 
-  // Transparent state: before scroll
   const isTransparent = !scrolled;
 
   return (
@@ -134,24 +133,24 @@ export default function Navigation() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isTransparent
-            ? "bg-transparent"
-            : "bg-white/95 backdrop-blur-sm shadow-md"
+            ? "bg-black/20 backdrop-blur-sm"
+            : "bg-white shadow-sm border-b border-border/40"
         }`}
       >
         {geoArea && !isTransparent && (
-          <div className="bg-primary text-primary-foreground text-xs py-1">
-            <div className="max-w-7xl mx-auto px-4 flex items-center justify-center gap-1.5">
+          <div className="bg-primary text-primary-foreground text-xs py-1.5">
+            <div className="max-w-7xl mx-auto px-5 flex items-center justify-center gap-1.5">
               <MapPin className="h-3 w-3" />
               <span>Serving {geoArea}</span>
             </div>
           </div>
         )}
 
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-18 lg:h-22">
+        <nav className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 lg:h-[72px]">
             <Link href="/" className="flex-shrink-0">
               <span
-                className={`font-display font-bold text-xl lg:text-2xl tracking-wide transition-colors duration-300 ${
+                className={`font-display font-extrabold text-lg lg:text-xl tracking-tight transition-colors duration-300 ${
                   isTransparent ? "text-white" : "text-primary"
                 }`}
               >
@@ -172,31 +171,31 @@ export default function Navigation() {
                     >
                       <Link
                         href={link.href}
-                        className={`inline-flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+                        className={`inline-flex items-center gap-1 px-3.5 py-2 text-[13px] font-medium tracking-wide uppercase rounded-md transition-colors ${
                           isTransparent
                             ? isActive(link.href)
                               ? "text-white"
-                              : "text-white/90 hover:text-white"
+                              : "text-white/80 hover:text-white"
                             : isActive(link.href)
                               ? "text-primary"
-                              : "text-foreground/70 hover:text-primary"
+                              : "text-foreground/60 hover:text-foreground"
                         }`}
                       >
                         {link.label}
                         <ChevronDown
-                          className={`h-3.5 w-3.5 transition-transform ${
+                          className={`h-3 w-3 transition-transform ${
                             servicesOpen ? "rotate-180" : ""
                           }`}
                         />
                       </Link>
                       {servicesOpen && (
-                        <div className="absolute top-full left-0 pt-2">
-                          <div className="bg-white rounded-xl shadow-xl border border-border/40 py-3 w-64">
+                        <div className="absolute top-full left-0 pt-3">
+                          <div className="bg-white rounded-xl shadow-2xl border border-border/30 py-2 w-60 ring-1 ring-black/5">
                             {SERVICES.map((service) => (
                               <Link
                                 key={service.slug}
                                 href={`/services/${service.slug}`}
-                                className="block px-4 py-2.5 text-sm text-foreground/80 hover:bg-muted hover:text-primary transition-colors"
+                                className="block px-4 py-2.5 text-sm text-foreground/70 hover:bg-muted hover:text-primary transition-colors"
                               >
                                 {service.name}
                               </Link>
@@ -218,30 +217,30 @@ export default function Navigation() {
                     >
                       <Link
                         href={link.href}
-                        className={`inline-flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+                        className={`inline-flex items-center gap-1 px-3.5 py-2 text-[13px] font-medium tracking-wide uppercase rounded-md transition-colors ${
                           isTransparent
                             ? isActive("/areas")
                               ? "text-white"
-                              : "text-white/90 hover:text-white"
+                              : "text-white/80 hover:text-white"
                             : isActive("/areas")
                               ? "text-primary"
-                              : "text-foreground/70 hover:text-primary"
+                              : "text-foreground/60 hover:text-foreground"
                         }`}
                       >
                         {link.label}
                         <ChevronDown
-                          className={`h-3.5 w-3.5 transition-transform ${
+                          className={`h-3 w-3 transition-transform ${
                             areasOpen ? "rotate-180" : ""
                           }`}
                         />
                       </Link>
                       {areasOpen && (
-                        <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2">
-                          <div className="bg-white rounded-xl shadow-xl border border-border/40 py-5 px-7 w-[480px]">
+                        <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3">
+                          <div className="bg-white rounded-xl shadow-2xl border border-border/30 py-5 px-6 w-[460px] ring-1 ring-black/5">
                             <div className="grid grid-cols-2 gap-6">
                               {AREAS.map((area) => (
                                 <div key={area.state}>
-                                  <h4 className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">
+                                  <h4 className="text-[11px] font-semibold text-primary uppercase tracking-wider mb-2.5">
                                     {area.state}
                                   </h4>
                                   <div className="space-y-1">
@@ -249,7 +248,7 @@ export default function Navigation() {
                                       <Link
                                         key={region.slug}
                                         href={`/areas/${region.slug}`}
-                                        className="block text-sm text-foreground/70 hover:text-primary transition-colors py-1"
+                                        className="block text-sm text-foreground/60 hover:text-primary transition-colors py-1"
                                       >
                                         {region.name}
                                       </Link>
@@ -269,14 +268,14 @@ export default function Navigation() {
                   <Link
                     key={link.label}
                     href={link.href}
-                    className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+                    className={`px-3.5 py-2 text-[13px] font-medium tracking-wide uppercase rounded-md transition-colors ${
                       isTransparent
                         ? isActive(link.href)
                           ? "text-white"
-                          : "text-white/90 hover:text-white"
+                          : "text-white/80 hover:text-white"
                         : isActive(link.href)
                           ? "text-primary"
-                          : "text-foreground/70 hover:text-primary"
+                          : "text-foreground/60 hover:text-foreground"
                     }`}
                   >
                     {link.label}
@@ -286,24 +285,21 @@ export default function Navigation() {
             </div>
 
             {/* Desktop CTA */}
-            <div className="hidden lg:flex items-center gap-4">
+            <div className="hidden lg:flex items-center gap-5">
               <PhoneLink
                 className={`flex items-center gap-1.5 text-sm font-medium transition-colors ${
                   isTransparent
-                    ? "text-white/90 hover:text-white"
-                    : "text-foreground/70 hover:text-primary"
+                    ? "text-white/80 hover:text-white"
+                    : "text-foreground/60 hover:text-primary"
                 }`}
               >
-                <Phone className="h-4 w-4" />
+                <Phone className="h-3.5 w-3.5" />
                 {COMPANY.phone.display}
               </PhoneLink>
               <Button
                 asChild
-                className={
-                  isTransparent
-                    ? "bg-white text-primary hover:bg-white/90 font-semibold"
-                    : "bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
-                }
+                size="sm"
+                className="bg-accent hover:bg-accent/90 text-white font-semibold rounded-lg px-5 shadow-sm"
               >
                 <Link href="/contact">Free Estimate</Link>
               </Button>
@@ -319,7 +315,7 @@ export default function Navigation() {
               }`}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
             >
-              {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
         </nav>
@@ -329,25 +325,23 @@ export default function Navigation() {
       {mobileOpen && (
         <div className="fixed inset-0 z-40 lg:hidden">
           <div
-            className="absolute inset-0 bg-black/40"
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
             onClick={() => setMobileOpen(false)}
           />
           <div className="absolute top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-white shadow-2xl flex flex-col">
-            {/* Fixed header area */}
-            <div className="h-16 flex items-center justify-end px-4 shrink-0">
+            <div className="h-16 flex items-center justify-end px-5 shrink-0 border-b border-border/30">
               <button
                 onClick={() => setMobileOpen(false)}
                 className="p-2 rounded-md text-foreground/70 hover:text-primary hover:bg-muted transition-colors"
                 aria-label="Close menu"
               >
-                <X className="h-6 w-6" />
+                <X className="h-5 w-5" />
               </button>
             </div>
 
-            {/* Scrollable content */}
-            <div className="flex-1 overflow-y-auto overscroll-contain px-6 pb-8">
+            <div className="flex-1 overflow-y-auto overscroll-contain px-6 py-6">
               {geoArea && (
-                <div className="flex items-center gap-1.5 text-xs text-primary mb-4 pb-4 border-b border-border/30">
+                <div className="flex items-center gap-1.5 text-xs text-primary mb-5 pb-5 border-b border-border/30">
                   <MapPin className="h-3.5 w-3.5" />
                   <span>Serving {geoArea}</span>
                 </div>
@@ -360,7 +354,7 @@ export default function Navigation() {
                       <div key={link.label}>
                         <button
                           onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                          className={`w-full flex items-center justify-between px-3 py-3 text-base font-medium rounded-md transition-colors ${
+                          className={`w-full flex items-center justify-between px-3 py-3 text-[15px] font-medium rounded-lg transition-colors ${
                             isActive(link.href)
                               ? "text-primary bg-primary/5"
                               : "text-foreground/80 hover:text-primary hover:bg-muted"
@@ -385,7 +379,7 @@ export default function Navigation() {
                               <Link
                                 key={service.slug}
                                 href={`/services/${service.slug}`}
-                                className="block px-3 py-2 text-sm text-foreground/70 hover:text-primary transition-colors"
+                                className="block px-3 py-2 text-sm text-foreground/60 hover:text-primary transition-colors"
                               >
                                 {service.name}
                               </Link>
@@ -401,7 +395,7 @@ export default function Navigation() {
                       <div key={link.label}>
                         <button
                           onClick={() => setMobileAreasOpen(!mobileAreasOpen)}
-                          className={`w-full flex items-center justify-between px-3 py-3 text-base font-medium rounded-md transition-colors ${
+                          className={`w-full flex items-center justify-between px-3 py-3 text-[15px] font-medium rounded-lg transition-colors ${
                             isActive("/areas")
                               ? "text-primary bg-primary/5"
                               : "text-foreground/80 hover:text-primary hover:bg-muted"
@@ -418,14 +412,14 @@ export default function Navigation() {
                           <div className="ml-4 mt-1 border-l-2 border-primary/10 pl-3">
                             {AREAS.map((area) => (
                               <div key={area.state} className="mb-3">
-                                <h4 className="px-3 pt-2 text-xs font-semibold text-primary uppercase tracking-wider">
+                                <h4 className="px-3 pt-2 text-[11px] font-semibold text-primary uppercase tracking-wider">
                                   {area.state}
                                 </h4>
                                 {area.regions.map((region) => (
                                   <Link
                                     key={region.slug}
                                     href={`/areas/${region.slug}`}
-                                    className="block px-3 py-1.5 text-sm text-foreground/70 hover:text-primary transition-colors"
+                                    className="block px-3 py-1.5 text-sm text-foreground/60 hover:text-primary transition-colors"
                                   >
                                     {region.name}
                                   </Link>
@@ -442,7 +436,7 @@ export default function Navigation() {
                     <Link
                       key={link.label}
                       href={link.href}
-                      className={`block px-3 py-3 text-base font-medium rounded-md transition-colors ${
+                      className={`block px-3 py-3 text-[15px] font-medium rounded-lg transition-colors ${
                         isActive(link.href)
                           ? "text-primary bg-primary/5"
                           : "text-foreground/80 hover:text-primary hover:bg-muted"
@@ -456,11 +450,11 @@ export default function Navigation() {
 
               {/* Mobile CTA */}
               <div className="mt-8 pt-6 border-t border-border/30 space-y-4">
-                <PhoneLink className="flex items-center gap-2 text-sm font-medium text-foreground/80">
+                <PhoneLink className="flex items-center gap-2 text-sm font-medium text-foreground/70">
                   <Phone className="h-4 w-4 text-primary" />
                   {COMPANY.phone.display}
                 </PhoneLink>
-                <Button asChild className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
+                <Button asChild className="w-full bg-accent hover:bg-accent/90 text-white font-semibold rounded-lg">
                   <Link href="/contact">Get a Free Estimate</Link>
                 </Button>
               </div>
