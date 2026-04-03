@@ -177,7 +177,7 @@ export default function Home() {
       </section>
 
       {/* ───────── 3. Services Grid ───────── */}
-      <section className="py-20 lg:py-28">
+      <section className="pt-24 pb-20 lg:pt-32 lg:pb-28">
         <div className="container">
           <FadeIn>
             <div className="text-center mb-12 lg:mb-16">
@@ -251,18 +251,18 @@ export default function Home() {
                 </h2>
               </FadeIn>
 
-              <div className="space-y-8">
+              <div className="space-y-10">
                 {differentiators.map((item, i) => (
                   <FadeIn key={item.title} direction="right" delay={i * 80}>
-                    <div className="flex items-start gap-6">
-                      <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
-                        <item.icon className="w-7 h-7 text-accent" />
+                    <div className="flex items-start gap-5">
+                      <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
+                        <item.icon className="w-6 h-6 text-accent" />
                       </div>
                       <div>
-                        <h3 className="font-display text-lg font-semibold mb-2">
+                        <h3 className="font-display text-base font-semibold mb-1.5">
                           {item.title}
                         </h3>
-                        <p className="text-white/70 text-sm leading-relaxed">
+                        <p className="text-white/60 text-sm leading-relaxed">
                           {item.description}
                         </p>
                       </div>
