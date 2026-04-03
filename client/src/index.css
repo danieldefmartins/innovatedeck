@@ -57,10 +57,14 @@
   --popover-foreground: #1C1917;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+}
+
+body {
   margin: 0;
-  padding: 0;
 }
 
 html {
