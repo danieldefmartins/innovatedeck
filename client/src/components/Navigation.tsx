@@ -298,8 +298,8 @@ export default function Navigation() {
               </PhoneLink>
               <Button
                 asChild
-                size="sm"
-                className="bg-accent hover:bg-accent/90 text-white font-semibold rounded-lg px-5 shadow-sm"
+                size="default"
+                className="bg-accent hover:bg-accent/90 text-white font-semibold rounded-lg shadow-sm"
               >
                 <Link href="/contact">Free Estimate</Link>
               </Button>
