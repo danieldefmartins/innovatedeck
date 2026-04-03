@@ -334,9 +334,9 @@ export default function Home() {
                         alt={item.alt}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
-                      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/60 to-transparent" />
-                      <div className="absolute bottom-0 left-0 right-0 p-5">
-                        <p className="text-white font-medium text-sm">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                      <div className="absolute bottom-0 left-0 p-6">
+                        <p className="text-white font-display font-bold text-lg md:text-xl drop-shadow-lg">
                           {item.title}
                         </p>
                       </div>
