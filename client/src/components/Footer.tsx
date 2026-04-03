@@ -56,7 +56,7 @@ export default function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground">
       {/* Main footer content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           {/* Company Info */}
           <FadeIn className="lg:col-span-1">
@@ -65,7 +65,7 @@ export default function Footer() {
                 INNOVATE DECK
               </span>
             </Link>
-            <p className="text-white/70 text-sm leading-relaxed mb-8">
+            <p className="text-white/70 text-base leading-relaxed mb-8">
               Premium deck building and outdoor living solutions across New England.
               Quality craftsmanship that transforms your outdoor space.
             </p>

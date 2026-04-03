@@ -8,7 +8,7 @@ export default function Blog() {
   return (
     <>
       {/* ── Hero with background image ── */}
-      <section className="relative pt-24 lg:pt-32 pb-16 lg:pb-20 overflow-hidden">
+      <section className="relative pt-36 lg:pt-44 pb-20 lg:pb-28 overflow-hidden">
         <img
           src={HERO_IMAGES.blog}
           alt="Deck building blog"
@@ -18,10 +18,10 @@ export default function Blog() {
         <div className="container relative z-10">
           <FadeIn>
             <div className="max-w-2xl">
-              <span className="inline-block text-accent text-sm font-semibold uppercase tracking-wider mb-4">
+              <span className="inline-block text-accent text-sm font-semibold uppercase tracking-wider mb-5">
                 Our Blog
               </span>
-              <h1 className="font-display text-4xl md:text-5xl font-bold text-white mb-5 leading-[1.15]">
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-[1.15]">
                 Deck Building Blog
               </h1>
               <p className="text-lg text-white/80 leading-relaxed">
@@ -34,7 +34,7 @@ export default function Blog() {
       </section>
 
       {/* ── Blog Grid ── */}
-      <section className="py-24 lg:py-32">
+      <section className="py-28 lg:py-36">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {blogPosts.map((post, i) => {
@@ -42,7 +42,7 @@ export default function Blog() {
               return (
                 <FadeIn key={post.slug} delay={i * 80}>
                   <Link href={`/blog/${post.slug}`}>
-                    <article className="group cursor-pointer h-full bg-background rounded-2xl border border-border/50 overflow-hidden hover:border-accent/40 hover:shadow-xl transition-all duration-300">
+                    <article className="group cursor-pointer h-full bg-background rounded-2xl border border-border/50 overflow-hidden hover:border-accent/30 hover:shadow-xl transition-all duration-300">
                       {/* Card image */}
                       <div className="relative h-48 overflow-hidden">
                         {postImage ? (
@@ -61,7 +61,7 @@ export default function Blog() {
                       </div>
 
                       {/* Card content */}
-                      <div className="p-6">
+                      <div className="p-7">
                         <div className="flex items-center gap-4 text-xs text-muted-foreground mb-3">
                           <span className="flex items-center gap-1.5">
                             <Calendar className="w-3.5 h-3.5" />

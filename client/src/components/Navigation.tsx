@@ -148,7 +148,7 @@ export default function Navigation() {
         )}
 
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 lg:h-20">
+          <div className="flex items-center justify-between h-18 lg:h-22">
             <Link href="/" className="flex-shrink-0">
               <span
                 className={`font-display font-bold text-xl lg:text-2xl tracking-wide transition-colors duration-300 ${
@@ -191,7 +191,7 @@ export default function Navigation() {
                       </Link>
                       {servicesOpen && (
                         <div className="absolute top-full left-0 pt-2">
-                          <div className="bg-white rounded-lg shadow-xl border border-border/50 py-2 w-64">
+                          <div className="bg-white rounded-xl shadow-xl border border-border/40 py-3 w-64">
                             {SERVICES.map((service) => (
                               <Link
                                 key={service.slug}
@@ -237,7 +237,7 @@ export default function Navigation() {
                       </Link>
                       {areasOpen && (
                         <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2">
-                          <div className="bg-white rounded-lg shadow-xl border border-border/50 py-4 px-6 w-[480px]">
+                          <div className="bg-white rounded-xl shadow-xl border border-border/40 py-5 px-7 w-[480px]">
                             <div className="grid grid-cols-2 gap-6">
                               {AREAS.map((area) => (
                                 <div key={area.state}>

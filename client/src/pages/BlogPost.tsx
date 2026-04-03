@@ -15,7 +15,7 @@ export default function BlogPost() {
 
   if (!post || !Content) {
     return (
-      <section className="pt-24 lg:pt-32 py-24">
+      <section className="pt-36 lg:pt-44 py-24">
         <div className="container text-center">
           <h1 className="font-display text-3xl font-bold mb-4">
             Article Not Found
@@ -36,7 +36,7 @@ export default function BlogPost() {
   return (
     <>
       {/* ── Hero with blog post image ── */}
-      <section className="relative pt-24 lg:pt-32 pb-16 lg:pb-20 overflow-hidden">
+      <section className="relative pt-36 lg:pt-44 pb-20 lg:pb-28 overflow-hidden">
         {heroImage ? (
           <img
             src={heroImage}
@@ -82,11 +82,11 @@ export default function BlogPost() {
       </section>
 
       {/* ── Article Content ── */}
-      <section className="py-16 lg:py-24">
+      <section className="py-20 lg:py-28">
         <div className="container">
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-3xl lg:max-w-[52rem] mx-auto">
             <FadeIn>
-              <article className="prose prose-lg max-w-none prose-headings:font-display prose-headings:text-foreground prose-headings:leading-tight prose-p:text-muted-foreground prose-p:leading-relaxed prose-a:text-primary prose-a:font-medium hover:prose-a:text-accent prose-strong:text-foreground prose-li:text-muted-foreground prose-blockquote:border-accent prose-blockquote:text-muted-foreground prose-img:rounded-xl">
+              <article className="prose prose-lg max-w-none prose-headings:font-display prose-headings:text-foreground prose-headings:leading-tight prose-p:text-muted-foreground prose-p:leading-relaxed prose-a:text-primary prose-a:font-medium hover:prose-a:text-accent prose-strong:text-foreground prose-li:text-muted-foreground prose-blockquote:border-accent prose-blockquote:text-muted-foreground prose-img:rounded-2xl">
                 <Content />
               </article>
             </FadeIn>
