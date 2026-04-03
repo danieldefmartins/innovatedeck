@@ -27,7 +27,7 @@ export default function AreaHero({
   const bgImage = AREA_IMAGES[slug];
 
   return (
-    <section className="relative pt-24 lg:pt-32 pb-16 lg:pb-20 overflow-hidden">
+    <section className="relative pt-36 lg:pt-44 pb-20 lg:pb-28 overflow-hidden">
       {/* Background image or gradient fallback */}
       {bgImage ? (
         <img

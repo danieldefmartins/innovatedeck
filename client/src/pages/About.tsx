@@ -82,7 +82,7 @@ export default function About() {
   return (
     <>
       {/* ───────── Hero ───────── */}
-      <section className="relative pt-24 lg:pt-32 pb-16 lg:pb-20 overflow-hidden">
+      <section className="relative pt-36 lg:pt-44 pb-20 lg:pb-28 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${HERO_IMAGES.about})` }}
@@ -91,13 +91,13 @@ export default function About() {
 
         <div className="container relative z-10 text-center">
           <FadeIn>
-            <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-4">
+            <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-5">
               Who We Are
             </p>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.15] mb-6 max-w-4xl mx-auto">
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.15] mb-8 max-w-4xl mx-auto">
               Crafting New England's Finest Outdoor Spaces
             </h1>
-            <p className="text-lg leading-relaxed text-white/85 max-w-xl mx-auto">
+            <p className="text-lg md:text-xl leading-relaxed text-white/85 max-w-xl mx-auto">
               For over 25 years, we've been building premium outdoor living spaces
               for homeowners across Massachusetts, New Hampshire, Rhode Island, and
               Maine.
@@ -107,19 +107,19 @@ export default function About() {
       </section>
 
       {/* ───────── Our Story (Split Layout) ───────── */}
-      <section className="py-24 lg:py-32 bg-background">
+      <section className="py-28 lg:py-36 bg-background">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Text */}
             <FadeIn direction="left">
               <div>
-                <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-4">
+                <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-5">
                   Our Story
                 </p>
-                <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-8 leading-tight">
+                <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-10 leading-tight">
                   From a Small Carpentry Shop to New England's Trusted Builder
                 </h2>
-                <div className="space-y-6 text-muted-foreground text-base leading-relaxed">
+                <div className="space-y-7 text-muted-foreground text-base leading-relaxed">
                   <p>
                     Innovate Deck was founded with a simple belief: every homeowner
                     deserves an outdoor space that feels like an extension of their
@@ -154,7 +154,7 @@ export default function About() {
                   <img
                     src={HERO_IMAGES.story}
                     alt="Innovate Deck team completing a premium outdoor living project"
-                    className="w-full h-80 lg:h-[500px] object-cover"
+                    className="w-full h-80 lg:h-[520px] object-cover"
                     loading="lazy"
                   />
                 </div>
@@ -184,7 +184,7 @@ export default function About() {
       </section>
 
       {/* ───────── Stats ───────── */}
-      <section className="py-10 lg:py-14 bg-primary">
+      <section className="py-12 lg:py-16 bg-primary">
         <div className="container">
           <FadeIn>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
@@ -205,14 +205,14 @@ export default function About() {
       </section>
 
       {/* ───────── Our Values ───────── */}
-      <section className="py-24 lg:py-32 bg-background">
+      <section className="py-28 lg:py-36 bg-background">
         <div className="container">
           <FadeIn>
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-4">
+            <div className="text-center max-w-2xl mx-auto mb-16 lg:mb-20">
+              <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-5">
                 Our Values
               </p>
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
                 What We Stand For
               </h2>
               <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
@@ -226,18 +226,18 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
             {values.map((value, i) => (
               <FadeIn key={value.title} delay={i * 100}>
-                <div className="group bg-card rounded-xl border border-border/60 p-6 lg:p-8 hover:border-accent/40 hover:shadow-lg transition-all duration-300">
-                  <div className="flex items-start gap-5">
+                <div className="group bg-card rounded-2xl border border-border/50 p-7 lg:p-9 hover:border-accent/30 hover:shadow-lg transition-all duration-300">
+                  <div className="flex items-start gap-6">
                     <div className="flex-shrink-0">
-                      <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-                        <value.icon className="w-7 h-7 text-accent" />
+                      <div className="w-16 h-16 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                        <value.icon className="w-8 h-8 text-accent" />
                       </div>
                     </div>
                     <div>
                       <h3 className="font-display text-lg font-semibold text-foreground mb-3">
                         {value.title}
                       </h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
+                      <p className="text-base text-muted-foreground leading-relaxed">
                         {value.description}
                       </p>
                     </div>
@@ -250,14 +250,14 @@ export default function About() {
       </section>
 
       {/* ───────── Built for New England ───────── */}
-      <section className="py-24 lg:py-32 bg-muted">
+      <section className="py-28 lg:py-36 bg-muted">
         <div className="container">
           <FadeIn>
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <p className="text-secondary font-semibold tracking-wider uppercase text-sm mb-4">
+            <div className="text-center max-w-2xl mx-auto mb-16 lg:mb-20">
+              <p className="text-secondary font-semibold tracking-wider uppercase text-sm mb-5">
                 Local Expertise
               </p>
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
                 Built for New England
               </h2>
               <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
@@ -272,14 +272,14 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {weatherChallenges.map((challenge, i) => (
               <FadeIn key={challenge.title} delay={i * 100}>
-                <div className="group bg-card rounded-xl border border-border/60 p-6 lg:p-8 shadow-sm hover:shadow-md transition-all duration-300 text-center">
+                <div className="group bg-card rounded-2xl border border-border/50 p-7 lg:p-9 shadow-sm hover:shadow-md hover:border-accent/30 transition-all duration-300 text-center">
                   <div className="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-secondary/15 transition-colors">
                     <challenge.icon className="w-8 h-8 text-secondary" />
                   </div>
                   <h3 className="font-display text-lg font-semibold text-foreground mb-3">
                     {challenge.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <p className="text-base text-muted-foreground leading-relaxed">
                     {challenge.description}
                   </p>
                 </div>
@@ -290,7 +290,7 @@ export default function About() {
       </section>
 
       {/* ───────── CTA ───────── */}
-      <section className="relative py-24 lg:py-32 overflow-hidden">
+      <section className="relative py-28 lg:py-36 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${HERO_IMAGES.cta})` }}
@@ -299,10 +299,10 @@ export default function About() {
 
         <div className="container relative z-10 text-center">
           <FadeIn>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-5">
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               Let's Build Something Great Together
             </h2>
-            <p className="text-white/80 leading-relaxed max-w-2xl mx-auto mb-10">
+            <p className="text-white/80 text-lg leading-relaxed max-w-2xl mx-auto mb-12">
               Whether you're envisioning a new composite deck, a cozy screened
               porch, or a full outdoor living area — we'd love to hear about your
               project. Reach out for a free consultation and estimate.

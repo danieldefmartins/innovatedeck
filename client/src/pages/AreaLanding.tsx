@@ -56,7 +56,7 @@ export default function AreaLanding() {
 
   if (!area) {
     return (
-      <section className="pt-24 lg:pt-32 py-24">
+      <section className="pt-36 lg:pt-44 py-24">
         <div className="container text-center">
           <h1 className="font-display text-4xl font-bold mb-4">
             Area Not Found
@@ -87,7 +87,7 @@ export default function AreaLanding() {
       />
 
       {/* ── Why Choose Us ── */}
-      <section className="py-24 lg:py-32">
+      <section className="py-28 lg:py-36">
         <div className="container">
           <FadeIn>
             <div className="text-center max-w-2xl mx-auto mb-16">
@@ -122,7 +122,7 @@ export default function AreaLanding() {
       </section>
 
       {/* ── Services Available ── */}
-      <section className="py-24 lg:py-32 bg-muted/50">
+      <section className="py-28 lg:py-36 bg-muted/50">
         <div className="container">
           <FadeIn>
             <div className="text-center max-w-2xl mx-auto mb-16">
@@ -154,7 +154,7 @@ export default function AreaLanding() {
 
       {/* ── Neighborhoods ── */}
       {area.neighborhoods && area.neighborhoods.length > 0 && (
-        <section className="py-24 lg:py-32">
+        <section className="py-28 lg:py-36">
           <div className="container">
             <div className="max-w-5xl mx-auto">
               <FadeIn>
@@ -188,7 +188,7 @@ export default function AreaLanding() {
 
       {/* ── Local Content (SEO prose) ── */}
       {area.localContent && (
-        <section className="py-24 lg:py-32 bg-muted/50">
+        <section className="py-28 lg:py-36 bg-muted/50">
           <div className="container">
             <FadeIn>
               <div className="max-w-4xl mx-auto">
@@ -247,7 +247,7 @@ export default function AreaLanding() {
 
       {/* ── Nearby Areas ── */}
       {area.nearbyAreas && area.nearbyAreas.length > 0 && (
-        <section className="py-24 lg:py-32 bg-muted/50">
+        <section className="py-28 lg:py-36 bg-muted/50">
           <div className="container">
             <div className="max-w-4xl mx-auto text-center">
               <FadeIn>
@@ -294,7 +294,7 @@ export default function AreaLanding() {
       )}
 
       {/* ── CTA with background image ── */}
-      <section className="relative py-24 lg:py-32 overflow-hidden">
+      <section className="relative py-28 lg:py-36 overflow-hidden">
         <img
           src={HERO_IMAGES.cta}
           alt="Beautiful deck project"
