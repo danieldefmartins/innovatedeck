@@ -3,6 +3,7 @@ import { Link, useLocation } from "wouter";
 import { Phone, Menu, X, ChevronDown, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PhoneLink from "@/components/PhoneLink";
+import Logo from "@/components/Logo";
 import { COMPANY, NAV_LINKS } from "@/lib/constants";
 import { getStoredLocation } from "@/lib/geoDetection";
 
@@ -149,13 +150,10 @@ export default function Navigation() {
         <nav className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-[72px]">
             <Link href="/" className="flex-shrink-0">
-              <span
-                className={`font-display font-extrabold text-lg lg:text-xl tracking-tight transition-colors duration-300 ${
-                  isTransparent ? "text-white" : "text-primary"
-                }`}
-              >
-                INNOVATE DECK
-              </span>
+              <Logo
+                variant={isTransparent ? "light" : "dark"}
+                className="h-10 lg:h-11 w-auto transition-all duration-300"
+              />
             </Link>
 
             {/* Desktop Navigation */}
@@ -236,7 +234,7 @@ export default function Navigation() {
                       </Link>
                       {areasOpen && (
                         <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3">
-                          <div className="bg-white rounded-xl shadow-2xl border border-border/30 py-5 px-6 w-[460px] ring-1 ring-black/5">
+                          <div className="bg-white rounded-xl shadow-2xl border border-border/30 py-5 px-6 w-[360px] lg:w-[460px] ring-1 ring-black/5">
                             <div className="grid grid-cols-2 gap-6">
                               {AREAS.map((area) => (
                                 <div key={area.state}>

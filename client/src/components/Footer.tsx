@@ -3,6 +3,7 @@ import { Phone, Mail, MapPin } from "lucide-react";
 import { COMPANY } from "@/lib/constants";
 import PhoneLink from "@/components/PhoneLink";
 import FadeIn from "@/components/FadeIn";
+import Logo from "@/components/Logo";
 
 const SERVICES = [
   { name: "Composite Decking", slug: "composite-decking" },
@@ -61,9 +62,7 @@ export default function Footer() {
           {/* Company Info */}
           <FadeIn className="lg:col-span-1">
             <Link href="/" className="inline-block mb-4">
-              <span className="font-display font-bold text-xl text-white tracking-wide">
-                INNOVATE DECK
-              </span>
+              <Logo variant="light" className="h-10 w-auto" />
             </Link>
             <p className="text-white/70 text-sm leading-relaxed mb-8">
               Premium deck building and outdoor living solutions across New England.
