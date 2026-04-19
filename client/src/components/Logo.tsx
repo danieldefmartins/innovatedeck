@@ -17,14 +17,14 @@ export default function Logo({ variant = "dark", className = "" }: LogoProps) {
       role="img"
     >
       {/* Deck plank icon — 3 bold horizontal bars */}
-      <rect x="0" y="5" width="32" height="6" rx="1.5" fill={accent} />
-      <rect x="0" y="18" width="40" height="6" rx="1.5" fill={accent} />
-      <rect x="0" y="31" width="28" height="6" rx="1.5" fill={accent} />
+      <rect x="0" y="7" width="32" height="6" rx="1.5" fill={accent} />
+      <rect x="0" y="20" width="40" height="6" rx="1.5" fill={accent} />
+      <rect x="0" y="33" width="28" height="6" rx="1.5" fill={accent} />
 
       {/* INNOVATE — bold geometric */}
       <text
         x="52"
-        y="22"
+        y="21"
         fontFamily="'Plus Jakarta Sans', 'Inter', system-ui, sans-serif"
         fontWeight="800"
         fontSize="19"
@@ -34,10 +34,10 @@ export default function Logo({ variant = "dark", className = "" }: LogoProps) {
         INNOVATE
       </text>
 
-      {/* DECK — bold, accent underline treatment */}
+      {/* DECK — bold */}
       <text
         x="52"
-        y="41"
+        y="39"
         fontFamily="'Plus Jakarta Sans', 'Inter', system-ui, sans-serif"
         fontWeight="800"
         fontSize="19"
