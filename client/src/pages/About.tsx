@@ -82,7 +82,7 @@ export default function About() {
   return (
     <>
       {/* ───────── Hero ───────── */}
-      <section className="relative pt-40 lg:pt-52 pb-16 lg:pb-24 overflow-hidden">
+      <section className="relative pt-20 sm:pt-28 md:pt-36 lg:pt-52 pb-16 lg:pb-24 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${HERO_IMAGES.about})` }}
@@ -190,7 +190,7 @@ export default function About() {
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
               {stats.map((stat) => (
                 <div key={stat.label} className="text-center">
-                  <p className="font-display text-3xl lg:text-4xl font-bold text-white mb-2">
+                  <p className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2">
                     {stat.value}
                   </p>
                   <div className="w-12 h-1 bg-accent mx-auto mb-3 rounded-full" />

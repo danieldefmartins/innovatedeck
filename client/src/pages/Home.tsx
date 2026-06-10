@@ -97,7 +97,7 @@ export default function Home() {
   return (
     <>
       {/* ───────── 1. Hero ───────── */}
-      <section className="relative min-h-[90vh] flex items-center">
+      <section className="relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] flex items-center">
         <img
           src="/images/portfolio/deck-30.jpg"
           alt="Premium pool deck with wood railings built by Innovate Deck"
@@ -105,7 +105,7 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
 
-        <div className="container relative z-10 pt-40 lg:pt-52 pb-24 lg:pb-32">
+        <div className="container relative z-10 pt-20 sm:pt-28 md:pt-36 lg:pt-52 pb-24 lg:pb-32">
           <FadeIn>
             <div className="max-w-2xl">
               <p className="text-accent font-semibold tracking-wider uppercase text-xs mb-4">
