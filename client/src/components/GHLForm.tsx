@@ -10,7 +10,7 @@ export default function GHLForm({ className }: GHLFormProps) {
       <div className={className}>
         <iframe
           src={`https://api.leadconnectorhq.com/widget/form/${COMPANY.ghlFormId}`}
-          style={{ width: "100%", height: "500px", border: "none" }}
+          style={{ width: "100%", height: "600px", border: "none" }}
           title="Contact Form"
         />
       </div>

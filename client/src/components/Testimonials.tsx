@@ -18,10 +18,10 @@ export default function Testimonials({ testimonials, limit }: TestimonialsProps)
   const items = limit ? testimonials.slice(0, limit) : testimonials;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-5 xl:gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
       {items.map((t, i) => (
         <Card key={i} className="bg-card rounded-2xl border-border/50">
-          <CardContent className="p-4 sm:p-5 lg:p-6">
+          <CardContent className="p-6">
             <div className="flex gap-1 mb-4">
               {Array.from({ length: t.rating }).map((_, j) => (
                 <Star key={j} className="w-4 h-4 fill-accent text-accent" />

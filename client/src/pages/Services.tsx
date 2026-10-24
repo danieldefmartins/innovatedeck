@@ -58,7 +58,7 @@ export default function Services() {
   return (
     <>
       {/* ───────── Hero ───────── */}
-      <section className="relative pt-20 sm:pt-28 md:pt-36 lg:pt-52 pb-16 lg:pb-24 overflow-hidden">
+      <section className="relative pt-40 lg:pt-52 pb-16 lg:pb-24 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${HERO_IMAGES.services})` }}

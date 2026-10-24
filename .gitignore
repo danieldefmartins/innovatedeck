@@ -6,3 +6,4 @@ dist/
 *.log
 # Raw project photos (originals with videos — web copies are in client/public/images/)
 /images/
+.claude/worktrees/

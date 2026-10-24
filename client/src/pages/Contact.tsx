@@ -82,7 +82,7 @@ export default function Contact() {
   return (
     <>
       {/* ───────── Hero ───────── */}
-      <section className="relative pt-20 sm:pt-28 md:pt-36 lg:pt-52 pb-16 lg:pb-24 overflow-hidden">
+      <section className="relative pt-40 lg:pt-52 pb-16 lg:pb-24 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${HERO_IMAGES.contact})` }}
@@ -108,7 +108,7 @@ export default function Contact() {
       {/* ───────── Form + Contact Info ───────── */}
       <section className="py-20 lg:py-28 bg-background">
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 xl:gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16">
             {/* Form */}
             <FadeIn className="lg:col-span-2">
               <p className="text-accent font-semibold tracking-wider uppercase text-xs mb-3">

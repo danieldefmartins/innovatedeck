@@ -8,7 +8,7 @@ export default function Blog() {
   return (
     <>
       {/* ── Hero with background image ── */}
-      <section className="relative pt-20 sm:pt-28 md:pt-36 lg:pt-52 pb-16 lg:pb-24 overflow-hidden">
+      <section className="relative pt-40 lg:pt-52 pb-16 lg:pb-24 overflow-hidden">
         <img
           src={HERO_IMAGES.blog}
           alt="Deck building blog"
@@ -44,7 +44,7 @@ export default function Blog() {
                   <Link href={`/blog/${post.slug}`}>
                     <article className="group cursor-pointer h-full bg-background rounded-2xl border border-border/50 overflow-hidden hover:border-accent/30 hover:shadow-xl transition-all duration-300">
                       {/* Card image */}
-                      <div className="relative h-32 sm:h-40 lg:h-48 overflow-hidden">
+                      <div className="relative h-48 overflow-hidden">
                         {postImage ? (
                           <img
                             src={postImage}

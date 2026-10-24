@@ -24,7 +24,7 @@ export default function Portfolio() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative min-h-[400px] flex items-center overflow-hidden pt-20 sm:pt-28 md:pt-36 lg:pt-52 pb-16 lg:pb-24">
+      <section className="relative min-h-[400px] flex items-center overflow-hidden pt-40 lg:pt-52 pb-16 lg:pb-24">
         <img
           src={HERO_IMAGES.portfolio}
           alt="Beautiful outdoor deck and living space"
@@ -76,7 +76,7 @@ export default function Portfolio() {
           </FadeIn>
 
           {/* Gallery grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6 xl:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {filtered.map((item, i) => (
               <FadeIn key={item.id} delay={i * 60}>
                 <button
