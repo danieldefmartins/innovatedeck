@@ -7,3 +7,5 @@ dist/
 # Raw project photos (originals with videos — web copies are in client/public/images/)
 /images/
 .claude/worktrees/
+client/public/sitemap.xml
+client/public/robots.txt
