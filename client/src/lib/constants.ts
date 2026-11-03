@@ -1,6 +1,7 @@
 export const COMPANY = {
   name: "Innovate Deck",
-  legalName: "Innovate Deck LLC",
+  legalName: "Innovate Building Inc.",
+  legalLine: "Innovate Deck is operated by Innovate Building Inc.",
   tagline: "Premium Deck Building & Outdoor Living",
   phone: { display: "(781) 528-0069", tel: "17815280069" },
   email: "support@innovatedecks.com",

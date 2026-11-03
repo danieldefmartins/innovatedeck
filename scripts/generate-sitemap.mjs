@@ -30,7 +30,7 @@ const { areas } = await load("client/src/data/areas.ts");
 const { blogPosts } = await load("client/src/data/blog.ts");
 
 const urls = [
-  ...["/", "/services", "/portfolio", "/about", "/contact", "/blog"].map((p) => [p, PAGES_LASTMOD]),
+  ...["/", "/services", "/portfolio", "/about", "/contact", "/blog", "/areas", "/privacy", "/terms"].map((p) => [p, PAGES_LASTMOD]),
   ...services.map((s) => [`/services/${s.slug}`, PAGES_LASTMOD]),
   ...areas.map((a) => [`/areas/${a.slug}`, PAGES_LASTMOD]),
   ...blogPosts.map((b) => [`/blog/${b.slug}`, b.date]),

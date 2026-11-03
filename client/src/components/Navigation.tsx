@@ -127,7 +127,9 @@ export default function Navigation() {
     return location.startsWith(href);
   };
 
-  const isTransparent = !scrolled;
+  // Pages without a dark photo hero start with the solid header.
+  const lightTop = ["/privacy", "/terms", "/areas"].includes(location);
+  const isTransparent = !scrolled && !lightTop;
 
   return (
     <>

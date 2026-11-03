@@ -9,10 +9,20 @@ import {
 import ServiceCard from "@/components/ServiceCard";
 import PhoneLink from "@/components/PhoneLink";
 import FadeIn from "@/components/FadeIn";
+import EstimateSection from "@/components/EstimateSection";
 import { getServiceBySlug, services } from "@/data/services";
 import { SERVICE_IMAGES, HERO_IMAGES } from "@/data/images";
 import { COMPANY } from "@/lib/constants";
 import { Check, Phone, ArrowRight, Shield, Star } from "lucide-react";
+
+const SERVICE_TO_OPTION: Record<string, string> = {
+  "composite-decking": "Composite deck",
+  "wood-decking": "New deck",
+  "deck-repair-restoration": "Deck repair or rebuild",
+  "pergolas-shade-structures": "Porch / pergola",
+  "porches-screened-porches": "Porch / pergola",
+  "railings-stairs": "Railings",
+};
 
 export default function ServiceDetail() {
   const params = useParams<{ slug: string }>();
@@ -311,6 +321,12 @@ export default function ServiceDetail() {
           </div>
         </section>
       )}
+
+      <EstimateSection
+        idPrefix="service"
+        heading={`Get a free ${service.title.toLowerCase()} estimate`}
+        defaultService={SERVICE_TO_OPTION[service.slug] ?? ""}
+      />
 
       {/* ── CTA with background image ── */}
       <section className="relative py-20 lg:py-28 overflow-hidden">

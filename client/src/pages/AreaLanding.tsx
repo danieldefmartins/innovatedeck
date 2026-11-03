@@ -5,6 +5,7 @@ import AreaHero from "@/components/AreaHero";
 import ServiceCard from "@/components/ServiceCard";
 import PhoneLink from "@/components/PhoneLink";
 import FadeIn from "@/components/FadeIn";
+import EstimateSection from "@/components/EstimateSection";
 import { getAreaBySlug, areas } from "@/data/areas";
 import { services } from "@/data/services";
 import { HERO_IMAGES } from "@/data/images";
@@ -292,6 +293,11 @@ export default function AreaLanding() {
           </div>
         </section>
       )}
+
+      <EstimateSection
+        idPrefix="area"
+        heading={`Get a free deck estimate in ${area.name}`}
+      />
 
       {/* ── CTA with background image ── */}
       <section className="relative py-20 lg:py-28 overflow-hidden">

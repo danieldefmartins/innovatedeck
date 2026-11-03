@@ -8,7 +8,7 @@ import {
   Star,
   CheckCircle,
 } from "lucide-react";
-import GHLForm from "@/components/GHLForm";
+import EstimateForm from "@/components/EstimateForm";
 import PhoneLink from "@/components/PhoneLink";
 import FadeIn from "@/components/FadeIn";
 import { COMPANY } from "@/lib/constants";
@@ -121,7 +121,7 @@ export default function Contact() {
                 Fill out the form below and we'll get back to you with a
                 detailed quote for your project.
               </p>
-              <GHLForm />
+              <EstimateForm idPrefix="contact" />
             </FadeIn>
 
             {/* Contact Info Cards */}

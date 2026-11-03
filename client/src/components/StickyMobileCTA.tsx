@@ -1,4 +1,4 @@
-import { Phone, MessageSquare } from "lucide-react";
+import { Phone, MessageSquare, ClipboardList } from "lucide-react";
 import { useLocalPhone } from "@/lib/useLocalPhone";
 
 export default function StickyMobileCTA() {
@@ -12,14 +12,22 @@ export default function StickyMobileCTA() {
           className="flex-1 flex items-center justify-center gap-2 py-3.5 text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-colors"
         >
           <Phone className="w-4 h-4" />
-          Call Now
+          Call
+        </a>
+        <div className="w-px bg-primary-foreground/20" />
+        <a
+          href={`sms:+${phone.tel}?&body=${encodeURIComponent("Hi, I'd like a free estimate")}`}
+          className="flex-1 flex items-center justify-center gap-2 py-3.5 text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-colors"
+        >
+          <MessageSquare className="w-4 h-4" />
+          Text
         </a>
         <div className="w-px bg-primary-foreground/20" />
         <a
           href="/contact"
           className="flex-1 flex items-center justify-center gap-2 py-3.5 bg-accent text-accent-foreground font-semibold text-sm hover:bg-accent/90 transition-colors"
         >
-          <MessageSquare className="w-4 h-4" />
+          <ClipboardList className="w-4 h-4" />
           Free Estimate
         </a>
       </div>
