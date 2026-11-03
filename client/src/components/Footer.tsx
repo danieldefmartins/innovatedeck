@@ -61,7 +61,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           {/* Company Info */}
           <FadeIn className="lg:col-span-1">
-            <Link href="/" className="inline-block mb-4">
+            <Link href="/" className="inline-block mb-4" aria-label="Innovate Deck home">
               <Logo variant="light" className="h-10 w-auto" />
             </Link>
             <p className="text-white/70 text-sm leading-relaxed mb-8">

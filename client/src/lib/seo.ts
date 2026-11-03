@@ -6,7 +6,7 @@ import { blogPosts } from "@/data/blog";
 import { COMPANY } from "@/lib/constants";
 
 export const SITE_URL = "https://innovatedeck.com";
-const OG_IMAGE = `${SITE_URL}/images/portfolio/deck-30.jpg`;
+const OG_IMAGE = `${SITE_URL}/images/og-innovate-deck.jpg`;
 
 type Meta = { title: string; description: string };
 
@@ -67,12 +67,12 @@ const staticOG: Record<string, Meta> = {
 staticOG["/"] = {
   title: "Innovate Deck | Deck Builders in MA, NH, RI & Southern Maine",
   description:
-    "Custom composite and wood decks, deck repair, railings, porches and pergolas across Massachusetts, New Hampshire, Rhode Island and Southern Maine. Free estimates.",
+    "Custom composite and wood decks, deck repair, railings, porches and pergolas across MA, NH, RI and Southern Maine. Free estimates.",
 };
 staticOG["/areas"] = {
   title: "Areas We Serve | Deck Builders in MA, NH, RI & ME | Innovate Deck",
   description:
-    "Innovate Deck builds and repairs decks across Greater Boston, the North and South Shore, Cape Cod, MetroWest, Worcester, New Hampshire, Rhode Island and Southern Maine.",
+    "Deck building and repair across Greater Boston, the North and South Shore, Cape Cod, MetroWest, Worcester, NH, RI and Southern Maine.",
 };
 staticOG["/privacy"] = {
   title: "Privacy Policy | Innovate Deck",

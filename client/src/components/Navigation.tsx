@@ -151,7 +151,7 @@ export default function Navigation() {
 
         <nav className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-[72px]">
-            <Link href="/" className="flex-shrink-0">
+            <Link href="/" className="flex-shrink-0" aria-label="Innovate Deck home">
               <Logo
                 variant={isTransparent ? "light" : "dark"}
                 className="h-10 lg:h-11 w-auto transition-all duration-300"
