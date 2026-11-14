@@ -76,11 +76,11 @@ staticOG["/areas"] = {
 };
 staticOG["/privacy"] = {
   title: "Privacy Policy | Innovate Deck",
-  description: "How Innovate Deck handles estimate requests, contact details and optional SMS text message consent.",
+  description: "How Innovate Deck handles estimate requests, contact details and SMS text message consent.",
 };
 staticOG["/terms"] = {
   title: "Terms & Conditions and SMS Terms | Innovate Deck",
-  description: "Website terms and the optional SMS text messaging program terms for Innovate Deck customers.",
+  description: "Website terms and the SMS text messaging program terms for Innovate Deck customers.",
 };
 
 export type RouteSeo = Meta & { path: string; type: "website" | "article"; jsonLd: object[]; found: boolean };

@@ -1,6 +1,7 @@
 import LegalPage from "@/components/LegalPage";
 import EstimateSection from "@/components/EstimateSection";
 import { COMPANY } from "@/lib/constants";
+import { SMS_NOTICE } from "@/lib/crm";
 
 export default function Privacy() {
   const email = <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>;
@@ -16,16 +17,15 @@ export default function Privacy() {
         <h2>Information you choose to provide</h2>
         <p>
           When you request an estimate or contact us, you may provide your name, phone number, email, project address
-          or city, the service you are interested in and project details. If you choose to receive text messages, we
-          record that choice and the consent language shown to you. Please send only information relevant to your
+          or city, the service you are interested in and project details. When you submit a form with your phone number, we
+          record your agreement to receive text messages and the consent language shown to you. Please send only information relevant to your
           project, and do not include financial account details or other sensitive information.
         </p>
         <h2>How information is used</h2>
         <p>
           We use inquiry information to respond to you, understand your project, prepare or discuss an estimate,
           schedule appointments and communicate about work you requested. We also use relevant records to operate the
-          website, prevent misuse and answer questions or disputes. Requesting an estimate does not require agreeing to
-          receive text messages.
+          website, prevent misuse and answer questions or disputes.
         </p>
         <h2 id="sms">SMS and mobile information</h2>
         <p>
@@ -33,8 +33,9 @@ export default function Privacy() {
           messaging originator opt-in data and consent will not be shared with any third parties.
         </p>
         <p>
-          SMS consent is optional and separate from requesting an estimate. With your consent we may text you about your
-          quote, appointments and project updates. Message frequency varies. Msg &amp; data rates may apply. Reply STOP at
+          When you submit a form on this website with your phone number, you agree to receive text messages from
+          Innovate Deck about your request (quotes, scheduling, project updates). The form shows this notice above the
+          Submit button: &ldquo;{SMS_NOTICE}&rdquo; Message frequency varies. Msg &amp; data rates may apply. Reply STOP at
           any time to opt out, or HELP for help. You can also contact us at {email} or {phone}. See our{" "}
           <a href="/terms#sms">SMS / Text Messaging Terms</a>.
         </p>

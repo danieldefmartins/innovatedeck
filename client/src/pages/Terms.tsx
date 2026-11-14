@@ -1,6 +1,7 @@
 import LegalPage from "@/components/LegalPage";
 import EstimateSection from "@/components/EstimateSection";
 import { COMPANY } from "@/lib/constants";
+import { SMS_NOTICE } from "@/lib/crm";
 
 export default function Terms() {
   const email = <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>;
@@ -10,7 +11,7 @@ export default function Terms() {
       <LegalPage eyebrow="Clear expectations" title="Terms & Conditions" effective="November 3, 2026">
         <p>{COMPANY.legalLine}</p>
         <p>
-          These terms cover use of the Innovate Deck website and our optional text messaging program. Questions can be
+          These terms cover use of the Innovate Deck website and our text messaging program. Questions can be
           sent to {email} or {phone}.
         </p>
         <h2>Website information</h2>
@@ -34,10 +35,12 @@ export default function Terms() {
         </p>
         <h2 id="sms">SMS / Text Messaging Terms</h2>
         <p>
-          Program name: Innovate Deck text messages. If you check the optional SMS consent box, you agree to receive
-          text messages from Innovate Deck at the number you provide. Message types include quote follow-ups,
+          Program name: Innovate Deck text messages. When you submit a form on this website with your
+          phone number, you agree to receive text messages from Innovate Deck at the number you provide about your
+          request (quotes, scheduling, project updates). The form shows this notice above the Submit button: &ldquo;
+          {SMS_NOTICE}&rdquo; Message types include quote follow-ups,
           appointment scheduling and reminders, project updates and customer care. Message frequency varies. Msg &amp;
-          data rates may apply. Consent is not a condition of purchase or of submitting an estimate request.
+          data rates may apply. Consent is not a condition of purchase.
         </p>
         <p>
           Reply STOP to cancel, HELP for help. After you opt out you may receive one confirmation message, and further
