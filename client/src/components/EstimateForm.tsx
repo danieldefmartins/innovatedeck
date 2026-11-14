@@ -4,6 +4,7 @@ import { COMPANY } from "@/lib/constants";
 import {
   CrmError,
   SERVICE_OPTIONS,
+  SMS_NOTICE,
   captureAttribution,
   loadForm,
   readyForm,
@@ -57,7 +58,7 @@ export default function EstimateForm({
       keys.current ??= newKeys();
       const form = await readyForm(formRef.current);
       formRef.current = form;
-      const res = await sendLead(form, keys.current.key, keys.current.uploadSessionId, values, fd.get("smsConsent") === "on");
+      const res = await sendLead(form, keys.current.key, keys.current.uploadSessionId, values);
       setThanks(res.thankYou || "");
       setStatus("done");
       keys.current = null;
@@ -148,21 +149,6 @@ export default function EstimateForm({
           <label htmlFor={id("website")}>Website</label>
           <input type="text" id={id("website")} name="website" tabIndex={-1} autoComplete="off" />
         </div>
-        <div className="flex items-start gap-3">
-          <input
-            type="checkbox"
-            id={id("sms")}
-            name="smsConsent"
-            className="mt-1 h-4 w-4 flex-shrink-0 rounded border-border accent-accent"
-          />
-          <label htmlFor={id("sms")} className="text-xs leading-relaxed text-muted-foreground">
-            I agree to receive text messages from Innovate Deck about my quote, appointments and project updates.
-            Message frequency varies. Msg &amp; data rates may apply. Reply STOP to cancel, HELP for help. See our{" "}
-            <a href="/privacy" className="underline text-primary">Privacy Policy</a> and{" "}
-            <a href="/terms" className="underline text-primary">Terms</a>.
-          </label>
-        </div>
-
         {status === "error" && (
           <div role="alert" className="rounded-md border border-red-300 bg-red-50 p-4 text-sm text-red-900">
             <p className="mb-2">{error}</p>
@@ -180,8 +166,17 @@ export default function EstimateForm({
           </div>
         )}
 
+        <div className="space-y-1.5 text-xs leading-relaxed text-muted-foreground">
+          <p>
+            See our <a href="/privacy" className="underline text-primary">Privacy Policy</a> and{" "}
+            <a href="/terms" className="underline text-primary">Terms</a>.
+          </p>
+          <p id={id("sms-notice")}>{SMS_NOTICE}</p>
+        </div>
+
         <button
           type="submit"
+          aria-describedby={id("sms-notice")}
           disabled={status === "sending"}
           className="w-full min-h-[48px] bg-accent text-accent-foreground font-semibold py-3 px-6 rounded-md hover:bg-accent/90 transition-colors disabled:opacity-70"
         >

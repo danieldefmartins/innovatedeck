@@ -18,9 +18,20 @@ export const SERVICE_OPTIONS = [
   "Other / not sure yet",
 ] as const;
 
-/** Must match the consent text configured on the 360 form, word for word. */
-export const SMS_CONSENT_TEXT =
+/**
+ * Notice shown directly above the Submit button (no checkbox: sending the form is the agreement).
+ * ONE plain string, no links: 360 stores this exact text as consent evidence and this site compares it
+ * with the published form's consentText.
+ */
+export const SMS_NOTICE =
+  "By submitting this form, you agree to receive text messages from Innovate Deck about your request (quotes, scheduling, project updates). Message frequency varies. Msg & data rates may apply. Reply STOP to opt out. We will never sell or share your information.";
+
+/** Old optional-checkbox wording. Still accepted so the form works before and after the 360 form is switched. */
+export const LEGACY_SMS_CONSENT_TEXT =
   "I agree to receive text messages from Innovate Deck about my quote, appointments and project updates. Message frequency varies. Msg & data rates may apply. Reply STOP to cancel, HELP for help. See our Privacy Policy and Terms.";
+
+/** Every consentText the published 360 form may carry; anything else fails closed. */
+export const ACCEPTED_SMS_CONSENTS: readonly string[] = [SMS_NOTICE, LEGACY_SMS_CONSENT_TEXT];
 
 const FALLBACK = `Please call or text ${COMPANY.phone.display}, or email ${COMPANY.email}. Your details are still here.`;
 
@@ -29,6 +40,8 @@ export type PublicForm = {
   config: {
     consentRequired: boolean;
     consentText: string;
+    /** "notice" = consentText is shown as a notice above Submit instead of a checkbox. */
+    consentMode?: string;
     requireCaptcha?: boolean;
     fields: { id: string; type: string; options?: string[] }[];
   };
@@ -73,7 +86,7 @@ export async function loadForm(): Promise<PublicForm> {
     c.kind !== "form" ||
     form.config.requireCaptcha ||
     form.config.consentRequired ||
-    form.config.consentText !== SMS_CONSENT_TEXT ||
+    !ACCEPTED_SMS_CONSENTS.includes((form.config.consentText || "").trim()) ||
     !["name", "phone", "email", "location", "service", "message"].every((id) => ids.includes(id))
   )
     throw new CrmError(`Online requests are temporarily unavailable. ${FALLBACK}`);
@@ -134,12 +147,18 @@ function attribution(): Record<string, string> {
   }
 }
 
+/**
+ * `consent: true` means "the notice was on screen": only when the published form is in notice mode, its text is
+ * exactly SMS_NOTICE, and the submission includes a phone number. Otherwise false.
+ */
+export const noticeConsent = (form: PublicForm, phone: string | undefined) =>
+  form.config.consentMode === "notice" && (form.config.consentText || "").trim() === SMS_NOTICE && Boolean(phone);
+
 export async function sendLead(
   form: PublicForm,
   key: string,
   uploadSessionId: string,
   values: Record<string, string>,
-  smsConsent: boolean,
 ) {
   const answers: Record<string, string> = {};
   for (const id of ["name", "phone", "email", "location", "service", "message"]) {
@@ -156,10 +175,11 @@ export async function sendLead(
     key,
     uploadSessionId,
     answers,
-    attribution: attribution(),
-    smsConsent,
+    // Stored first-touch data, plus the address of the page showing the form (no query string).
+    attribution: { ...attribution(), landing_page: location.origin + location.pathname },
+    smsConsent: false,
     emailConsent: false,
-    consent: false,
+    consent: noticeConsent(form, answers.phone),
     website: values.website || "",
   });
 }
